@@ -1,7 +1,42 @@
 {
-  "rewrites": [
-    { "source": "/assets/(.*)", "destination": "/assets/$1" },
-    { "source": "/catalogo.html", "destination": "/catalogo.html" },
-    { "source": "/(.*)", "has": [{ "type": "host", "value": "fiori.3dhomes.com.mx" }], "destination": "/desarrollos/privada-fiori/$1" }
-  ]
+  "canonical": "https://fiori.3dhomes.com.mx/desarrollos/privada-fiori/",
+  "brand": "Trhoncal Homes",
+  "meta": {
+    "title": "Trhoncal Homes | Privada Fiori – Zapopan",
+    "description": "Privada Fiori en Mirador del Bosque, Zapopan. Casas nuevas de 2 pisos con amenidades y rápidas vías de acceso. Asesoría con Transparencia, Honestidad y Calidad."
+  },
+  "project": {
+    "name": "Privada Fiori",
+    "subtitle": "Vive en un coto privado rodeado de naturaleza, con amenidades para tu familia."
+  },
+  "badges": [
+    "Ubicación: Mirador del Bosque, Zapopan (Carr. a Colotlán km 8.5)",
+    "Desde $1.26 MDP*",
+    "2–3 recámaras",
+    "Amenidades: terraza, áreas verdes, juegos"
+  ],
+  "summaryHTML": "En <strong>Trhoncal Homes</strong> te acompañamos con <strong>Transparencia, Honestidad y Calidad</strong>. Privada Fiori es un proyecto con acceso controlado y amenidades pensado para crear momentos en familia, con servicios y naturaleza alrededor.",
+  "summaryBullets": [
+    "Tipologías: casas de 2 plantas – Modelos Dalia, Violeta, Jazmín y Girasol.",
+    "Superficies aproximadas: 63.96 m² a 86.22 m² de construcción.",
+    "Rango de precios de referencia: $1.26–$1.53 MDP*."
+  ],
+  "amenities": [
+    "🏡 Terraza",
+    "🌳 Áreas verdes",
+    "🎠 Juegos infantiles",
+    "🛡️ Acceso controlado",
+    "🚗 Rápidas vías: Periférico, Av. Sta. Margarita",
+    "🛍️ Cerca de plazas y servicios"
+  ],
+  "hero": "./assets/hero.jpg",
+  "gallery": [
+    { "src": "./assets/galeria/01.jpg", "caption": "Fachada", "tag": "Fachada" },
+    { "src": "./assets/galeria/02.jpg", "caption": "Área social", "tag": "Interior" },
+    { "src": "./assets/galeria/03.jpg", "caption": "Cocina equipada", "tag": "Cocina" },
+    { "src": "./assets/galeria/04.jpg", "caption": "Recámara principal", "tag": "Recámara" },
+    { "src": "./assets/galeria/05.jpg", "caption": "Baño", "tag": "Baño" },
+    { "src": "./assets/galeria/06.jpg", "caption": "Áreas comunes", "tag": "Amenidades" }
+  ],
+  "whatsapp": "523337241151"
 }
