@@ -1,0 +1,7 @@
+{
+  "rewrites": [
+    { "source": "/assets/(.*)", "destination": "/assets/$1" },
+    { "source": "/catalogo.html", "destination": "/catalogo.html" },
+    { "source": "/(.*)", "has": [{ "type": "host", "value": "fiori.3dhomes.com.mx" }], "destination": "/desarrollos/privada-fiori/$1" }
+  ]
+}
