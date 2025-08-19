@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link id="canonical" rel="canonical" href="" />
+  <title id="titleTag">Landing</title>
+  <meta id="descTag" name="description" content="" />
+  <style>
+    :root{ --gold:#C9A227; --dark:#0f172a; --muted:#475569; --bg:#ffffff; --light:#f8fafc; }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;background:var(--bg);color:var(--dark)}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1100px;margin:0 auto;padding:0 20px}
+    .btn{display:inline-block;padding:12px 20px;border-radius:999px;border:1px solid var(--gold);font-weight:600}
+    .btn.primary{background:var(--gold);color:#fff;border-color:var(--gold)}
+    .btn.ghost{background:transparent;color:var(--gold)}
+    header{position:sticky;top:0;background:rgba(255,255,255,.95);backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid #e2e8f0;z-index:50}
+    header .wrap{display:flex;align-items:center;justify-content:space-between;height:92px}
+    nav a{margin-left:18px;color:var(--muted)}
+    .logo-img{height:80px}
+    .breadcrumb{font-size:14px;color:var(--muted);padding:10px 0}
+    .hero{position:relative;min-height:380px;display:grid;align-items:end;padding:28px 0;color:#fff}
+    .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.55)),var(--hero) center/cover no-repeat;}
+    .hero > .container{position:relative}
+    .hero h1{font-size:clamp(28px,5vw,46px);line-height:1.1;margin:0 0 10px}
+    .hero p{margin:0 0 16px;color:#e5e7eb}
+    .badges{display:flex;flex-wrap:wrap;gap:10px;margin:10px 0 22px}
+    .badge{padding:8px 12px;border:1px solid #e2e8f0;border-radius:999px;background:rgba(255,255,255,.9);color:#111}
+    .section{padding:42px 0}
+    .section h2{font-size:clamp(22px,4vw,32px);margin:0 0 14px}
+    .grid{display:grid;gap:16px}
+    @media(min-width:900px){.grid.cols-2{grid-template-columns:1fr 1fr}}
+    .meta{color:var(--muted);font-size:14px}
+    /* Amenities cards */
+    .amen-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+    @media(min-width:700px){.amen-grid{grid-template-columns:repeat(3,1fr)}}
+    .amen{display:flex;align-items:center;gap:10px;border:1px solid #e2e8f0;border-radius:12px;padding:10px;background:#fff}
+    /* Sticky CTA */
+    .sticky-cta{position:sticky;bottom:0;background:#fff;border-top:1px solid #e2e8f0;padding:10px;display:flex;gap:10px;justify-content:center;z-index:40}
+    /* Gallery */
+    .gallery{display:grid;gap:14px;grid-template-columns:repeat(12,1fr)}
+    .gallery a{grid-column:span 12;position:relative;border-radius:16px;overflow:hidden;background:#e2e8f0}
+    @media(min-width:700px){.gallery a{grid-column:span 6}}
+    @media(min-width:1000px){.gallery a{grid-column:span 4}}
+    .gallery img{width:100%;height:100%;aspect-ratio:16/9;object-fit:cover;display:block;transition:transform .3s ease}
+    .gallery a:hover img{transform:scale(1.03)}
+    .gallery .tag{position:absolute;left:10px;bottom:10px;background:rgba(0,0,0,.55);color:#fff;padding:6px 10px;border-radius:10px;font-size:12px}
+    /* Lightbox */
+    .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.92);display:flex;align-items:center;justify-content:center;z-index:200}
+    .lightbox[hidden]{display:none}
+    .lightbox img{max-width:min(1200px,90vw);max-height:84vh;border-radius:8px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+    .lightbox .cap{color:#e5e7eb;margin-top:10px;text-align:center;max-width:90vw}
+    .lightbox .btn{position:absolute;top:50%;transform:translateY(-50%);font-size:38px;line-height:1;background:transparent;border:0;color:#fff;cursor:pointer;padding:8px 14px}
+    .lightbox .prev{left:22px}
+    .lightbox .next{right:22px}
+    .lightbox .close{top:16px;right:16px;transform:none;font-size:28px}
+    footer{padding:32px 0;color:var(--muted)}
+    .wa-float{position:fixed;right:18px;bottom:18px;background:#25D366;color:#fff;padding:14px 16px;border-radius:999px;box-shadow:0 8px 22px rgba(0,0,0,.18);font-weight:800;z-index:60}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container wrap">
+      <div class="logo"><img class="logo-img" src="/assets/logo-trhoncal-flat.png" alt="Trhoncal Homes" /></div>
+      <nav>
+        <a href="/">Inicio</a>
+        <a href="/catalogo.html">Desarrollos</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container breadcrumb">Inicio ▸ Desarrollos ▸ <strong id="crumb"></strong></div>
+
+    <section class="hero" id="hero">
+      <div class="container">
+        <h1 id="h1"></h1>
+        <p id="sub"></p>
+        <div class="badges" id="badges"></div>
+        <div class="cta-bar">
+          <a class="btn primary" href="#contacto" id="ctaInfo">Solicitar información</a>
+          <a class="btn ghost" href="#modelos">Ver modelos</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container grid cols-2">
+        <div>
+          <h2>Resumen del desarrollo</h2>
+          <p class="meta" id="summary"></p>
+          <ul class="meta" id="bullets" style="padding-left:18px"></ul>
+        </div>
+        <div>
+          <h2>Amenidades</h2>
+          <div class="amen-grid" id="amenities"></div>
+          <p class="meta" style="margin-top:8px">*Sujeto a cambios y disponibilidad.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="background:var(--light);border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0">
+      <div class="container">
+        <h2>Galería</h2>
+        <div class="gallery" id="galeria"></div>
+      </div>
+    </section>
+
+    <section id="contacto" class="section" style="border-top:1px solid #e2e8f0">
+      <div class="container">
+        <h2 id="formTitle"></h2>
+        <p class="meta">Déjanos tus datos y un asesor te escribe por WhatsApp. Tiempo de respuesta habitual: 5–15 minutos.</p>
+        <form onsubmit="return handleSubmit(event)">
+          <input type="hidden" name="desarrollo" id="desarrolloHidden" />
+          <div class="grid cols-2">
+            <div>
+              <label>Nombre completo</label>
+              <input required name="nombre" placeholder="Tu nombre" />
+            </div>
+            <div>
+              <label>WhatsApp</label>
+              <input required name="whatsapp" placeholder="Ej. 33 3724 1151" />
+            </div>
+          </div>
+          <div>
+            <label>Mensaje</label>
+            <textarea name="mensaje" rows="4" placeholder="Cuéntanos qué buscas (recámaras, amenidades, tiempo de compra)..."></textarea>
+          </div>
+          <div class="cta-bar" style="display:flex;gap:10px;flex-wrap:wrap">
+            <button class="btn primary" type="submit">Enviar y hablar por WhatsApp</button>
+            <a id="waDirect" class="btn" target="_blank" rel="noopener">Escribir directo</a>
+          </div>
+          <p id="form-msg" style="margin:10px 0 0;display:none"></p>
+        </form>
+      </div>
+    </section>
+
+    <div class="sticky-cta">
+      <a class="btn primary" href="#contacto">Solicitar información</a>
+      <a class="btn ghost" href="#galeria">Ver galería</a>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:space-between">
+        <small>© <span id="year"></span> <span id="brand"></span>. TR + HON + CAL.</small>
+        <small>Privacidad · Términos · Aviso legal</small>
+      </div>
+    </div>
+  </footer>
+
+  <a class="wa-float" id="waFloat" target="_blank" rel="noopener">WhatsApp</a>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Carga la config
+    fetch('./config.json?_=' + Date.now())
+      .then(r=>r.json())
+      .then(cfg=>{
+        // Meta
+        document.getElementById('canonical').href = cfg.canonical || location.href;
+        document.getElementById('titleTag').textContent = cfg.meta?.title || cfg.project?.name || 'Landing';
+        document.getElementById('descTag').setAttribute('content', cfg.meta?.description || '');
+
+        // Brand + Crumb + hero
+        document.getElementById('brand').textContent = cfg.brand || 'Trhoncal Homes';
+        document.getElementById('crumb').textContent = cfg.project.name;
+        document.getElementById('h1').textContent = cfg.project.name;
+        document.getElementById('sub').textContent = cfg.project.subtitle || 'Vive en un coto privado con amenidades.';
+
+        // Hero background
+        document.getElementById('hero').style.setProperty('--hero', `url('${cfg.hero}')`);
+
+        // Badges
+        const badges = document.getElementById('badges');
+        (cfg.badges||[]).forEach(t=>{
+          const b=document.createElement('div'); b.className='badge'; b.textContent=t; badges.appendChild(b);
+        });
+
+        // Summary
+        document.getElementById('summary').innerHTML = cfg.summaryHTML || '';
+        const bullets = document.getElementById('bullets');
+        (cfg.summaryBullets||[]).forEach(li=>{
+          const el=document.createElement('li'); el.textContent=li; bullets.appendChild(el);
+        });
+
+        // Amenities
+        const amen = document.getElementById('amenities');
+        (cfg.amenities||[]).forEach(a=>{
+          const el=document.createElement('div'); el.className='amen'; el.textContent=a; amen.appendChild(el);
+        });
+
+        // Galería
+        const gal = document.getElementById('galeria');
+        (cfg.gallery||[]).forEach((g)=>{
+          const a=document.createElement('a');
+          a.href = g.src2x || g.src;
+          a.dataset.src = g.src;
+          a.dataset.caption = g.caption || '';
+          a.innerHTML = `
+            <img src="${g.src}" ${g.src2x ? `srcset="${g.src} 1x, ${g.src2x} 2x"`:''} alt="${g.caption||''}" loading="lazy">
+            ${g.tag?`<span class="tag">${g.tag}</span>`:''}
+          `;
+          gal.appendChild(a);
+        });
+
+        // Form & WA
+        document.getElementById('formTitle').textContent = 'Solicita información de ' + cfg.project.name;
+        document.getElementById('desarrolloHidden').value = cfg.project.name;
+        const waLink = `https://wa.me/${cfg.whatsapp}?text=${encodeURIComponent('Hola, me interesa ' + cfg.project.name)}`;
+        document.getElementById('waDirect').href = waLink;
+        document.getElementById('waFloat').href = waLink;
+        document.getElementById('waFloat').textContent = 'WhatsApp';
+
+        // Lightbox
+        setupLightbox();
+      })
+      .catch(err=>{
+        console.error('No se pudo cargar config.json', err);
+      });
+
+    function handleSubmit(e){
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(e.target).entries());
+      const dev = document.getElementById('desarrolloHidden').value || 'Desarrollo';
+      const msg = `Hola, me interesa ${dev}. Soy ${encodeURIComponent(data.nombre)}. Mi WhatsApp es ${encodeURIComponent(data.whatsapp)}. ${encodeURIComponent(data.mensaje||'')}`;
+      // usa el mismo número del botón directo visible en la página:
+      const tel = document.getElementById('waFloat').href.match(/wa\.me\/(\d+)/)?.[1] || '';
+      const wa = `https://wa.me/${tel}?text=${msg}`;
+      const p = document.getElementById('form-msg');
+      p.style.display='block'; p.textContent='Abriendo WhatsApp...';
+      window.open(wa,'_blank');
+      return false;
+    }
+
+    function setupLightbox(){
+      const gallery = document.getElementById('galeria');
+      if(!gallery) return;
+      const links = [...gallery.querySelectorAll('a')];
+
+      const box = document.createElement('div');
+      box.className='lightbox'; box.setAttribute('hidden','');
+      box.innerHTML = `
+        <button class="btn close" aria-label="Cerrar">×</button>
+        <button class="btn prev" aria-label="Anterior">‹</button>
+        <img alt="">
+        <div class="cap"></div>
+        <button class="btn next" aria-label="Siguiente">›</button>
+      `;
+      document.body.appendChild(box);
+
+      const img = box.querySelector('img');
+      const cap = box.querySelector('.cap');
+      let idx = 0;
+
+      function show(i){
+        idx = (i + links.length) % links.length;
+        const a = links[idx];
+        const src = a.dataset.src || a.href;
+        const thumb = a.querySelector('img');
+        img.src = src;
+        img.srcset = thumb.getAttribute('srcset') || '';
+        img.alt = thumb.alt || '';
+        cap.textContent = a.dataset.caption || thumb.alt || '';
+        box.removeAttribute('hidden');
+      }
+
+      links.forEach((a,i)=> a.addEventListener('click', e=>{ e.preventDefault(); show(i); }));
+      box.querySelector('.close').onclick = ()=> box.setAttribute('hidden','');
+      box.querySelector('.prev').onclick = ()=> show(idx-1);
+      box.querySelector('.next').onclick = ()=> show(idx+1);
+      box.addEventListener('click', e=>{ if(e.target===box) box.setAttribute('hidden',''); });
+      window.addEventListener('keydown', e=>{
+        if(box.hasAttribute('hidden')) return;
+        if(e.key==='Escape') box.setAttribute('hidden','');
+        if(e.key==='ArrowLeft') show(idx-1);
+        if(e.key==='ArrowRight') show(idx+1);
+      });
+    }
+  </script>
+</body>
+</html>
