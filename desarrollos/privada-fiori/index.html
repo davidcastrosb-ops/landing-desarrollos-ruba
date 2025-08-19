@@ -41,21 +41,23 @@
       position:relative; min-height:420px; display:grid; align-items:end; padding:28px 0; color:#fff;
       z-index:0; /* crea contexto para z-index del ::before */
     }
-    .hero::before{
-      content:"";
-      position:absolute; inset:0; z-index:-1;
-      /* 1) Gradiente + 2) tu imagen local + 3) rutas alternativas + 4) respaldo remoto  */
-      background:
-        linear-gradient(180deg, rgba(0,0,0,.20), rgba(0,0,0,.38)),
-        url("./assets/hero.jpg"),
-        url("/desarrollos/privada-fiori/assets/hero.jpg"),
-        url("/assets/privada-fiori/hero.jpg"),
-        url("https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1920&auto=format&fit=crop");
-      background-size:cover;
-      background-position:center 40%;
-      background-repeat:no-repeat;
-      background-color:#cbd5e1; /* si todo fallara, no se verá gris oscuro */
-    }
+ .hero{ min-height: 520px; }
+@media (max-width: 640px){ .hero{ min-height: 380px; } }
+
+.hero::before{
+  content:""; position:absolute; inset:0; z-index:-1;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,.18), rgba(0,0,0,.30)),
+    url("./assets/hero.jpg"),
+    url("/desarrollos/privada-fiori/assets/hero.jpg"),
+    url("/assets/privada-fiori/hero.jpg"),
+    url("https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1920&auto=format&fit=crop");
+  background-size: cover;
+  background-position: center 32%;  /* foco un poco arriba */
+  background-repeat: no-repeat;
+  background-color:#cbd5e1;
+}
+
     .hero > .container{position:relative}
     .hero h1{font-size:clamp(28px,5vw,46px);line-height:1.1;margin:0 0 10px}
     .hero p{margin:0 0 16px;color:#e5e7eb}
