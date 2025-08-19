@@ -320,7 +320,34 @@
     .logo-img{height:100px}
     .breadcrumb{font-size:14px;color:var(--muted);padding:10px 0}
     .hero{position:relative;min-height:360px;display:grid;align-items:end;padding:28px 0;color:#fff}
-    .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.55)),url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;}
+    /* Fondo del héroe con fallback e imagen retina */
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+
+  /* Fallback para navegadores sin image-set */
+  background:
+    linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.55)),
+    url("./img/hero.jpg");
+  background-size: cover;
+  background-position: center 40%;
+}
+
+/* Si el navegador soporta image-set, usa 1x/2x */
+@supports (background: image-set(url("") 1x)) {
+  .hero::before{
+    background:
+      linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.55)),
+      image-set(
+        url("./img/hero.jpg") 1x,
+        url("./img/hero@2x.jpg") 2x
+      );
+    background-size: cover;
+    background-position: center 40%;
+  }
+}
+
     .hero > .container{position:relative}
     .hero h1{font-size:clamp(28px,5vw,46px);line-height:1.1;margin:0 0 10px}
     .hero p{margin:0 0 16px;color:#e5e7eb}
