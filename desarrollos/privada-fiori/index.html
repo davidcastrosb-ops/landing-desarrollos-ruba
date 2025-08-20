@@ -4,367 +4,122 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Trhoncal Homes | Privada Fiori – Zapopan</title>
-  <meta name="description" content="Privada Fiori en Mirador del Bosque, Zapopan. Casas nuevas de 2 pisos con amenidades y rápidas vías de acceso. Asesoría con Transparencia, Honestidad y Calidad." />
-  <link rel="canonical" href="https://trhoncalhomes.com/desarrollos/privada-fiori/" />
-
+  <meta name="description" content="Privada Fiori en Mirador del Bosque, Zapopan. Prototipos Dalia, Violeta y Girasol desde $1.27 MDP. Acompañamiento total con Transparencia, Honestidad y Calidad." />
+  <link rel="canonical" href="https://fiori.3dhomes.com.mx/"/>
+  <link rel="preload" as="image" imagesrcset="assets/hero-1600.webp 1x, assets/hero-3200.webp 2x" imagesizes="100vw" href="assets/hero-1600.jpg">
   <style>
-    :root{
-      --gold:#C9A227; --dark:#0f172a; --muted:#475569; --bg:#ffffff; --light:#f8fafc;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0; font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;
-      background:var(--bg); color:var(--dark);
-    }
-    a{color:inherit;text-decoration:none}
-    img{max-width:100%;display:block}
-
-    /* Layout base */
+    :root{--gold:#C9A227;--dark:#0f172a;--muted:#475569;--bg:#fff;--light:#f8fafc}
+    *{box-sizing:border-box} body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;color:var(--dark)}
+    a{color:inherit;text-decoration:none} img{max-width:100%;display:block}
     .container{max-width:1100px;margin:0 auto;padding:0 20px}
-
-    /* Botones */
     .btn{display:inline-block;padding:12px 20px;border-radius:999px;border:1px solid var(--gold);font-weight:600}
-    .btn.primary{background:var(--gold);color:#fff;border-color:var(--gold)}
-    .btn.ghost{background:transparent;color:var(--gold)}
-
-    /* Header */
+    .btn.primary{background:var(--gold);color:#fff;border-color:var(--gold)} .btn.ghost{background:transparent;color:var(--gold)}
     header{position:sticky;top:0;background:rgba(255,255,255,.95);backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid #e2e8f0;z-index:50}
-    header .wrap{display:flex;align-items:center;justify-content:space-between;height:102px}
-    nav a{margin-left:18px;color:var(--muted)}
-    .logo-img{height:100px}
-
-    /* Migas */
+    header .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
+    nav a{margin-left:18px;color:var(--muted)} .logo-img{height:50px}
     .breadcrumb{font-size:14px;color:var(--muted);padding:10px 0}
-
-    /* HERO */
-    .hero{
-      position:relative; min-height:420px; display:grid; align-items:end; padding:28px 0; color:#fff;
-      z-index:0; /* crea contexto para z-index del ::before */
-    }
- .hero{ min-height: 520px; }
-@media (max-width: 640px){ .hero{ min-height: 380px; } }
-
-.hero::before{
-  content:""; position:absolute; inset:0; z-index:-1;
-  background:
-    linear-gradient(180deg, rgba(0,0,0,.18), rgba(0,0,0,.30)),
-    url("./assets/hero.jpg"),
-    url("/desarrollos/privada-fiori/assets/hero.jpg"),
-    url("/assets/privada-fiori/hero.jpg"),
-    url("https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1920&auto=format&fit=crop");
-  background-size: cover;
-  background-position: center 32%;  /* foco un poco arriba */
-  background-repeat: no-repeat;
-  background-color:#cbd5e1;
-}
-
-    .hero > .container{position:relative}
-    .hero h1{font-size:clamp(28px,5vw,46px);line-height:1.1;margin:0 0 10px}
-    .hero p{margin:0 0 16px;color:#e5e7eb}
+    .hero{position:relative;min-height:420px;display:grid;align-items:end;padding:28px 0;color:#fff}
+    @media(max-width:640px){.hero{min-height:340px}}
+    .hero::before{content:"";position:absolute;inset:0;z-index:-1;background:
+      linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.55)),
+      image-set(url('assets/hero-1600.webp') type('image/webp') 1x,url('assets/hero-3200.webp') type('image/webp') 2x,url('assets/hero-1600.jpg') type('image/jpeg') 1x,url('assets/hero-3200.jpg') type('image/jpeg') 2x);
+      background-size:cover;background-position:center;background-repeat:no-repeat;background-color:#cbd5e1}
+    .hero>.container{position:relative}
+    .hero h1{font-size:clamp(28px,5vw,46px);line-height:1.1;margin:0 0 10px} .hero p{margin:0 0 16px;color:#e5e7eb}
     .badges{display:flex;flex-wrap:wrap;gap:10px;margin:10px 0 22px}
     .badge{padding:8px 12px;border:1px solid #e2e8f0;border-radius:999px;background:rgba(255,255,255,.9);color:#111}
-
-    /* Secciones */
-    .section{padding:42px 0}
-    .section h2{font-size:clamp(22px,4vw,32px);margin:0 0 14px}
-    .grid{display:grid;gap:16px}
-    @media(min-width:900px){.grid.cols-2{grid-template-columns:1fr 1fr}}
-
-    /* Cards de modelos/galería */
+    .section{padding:42px 0} .section h2{font-size:clamp(22px,4vw,32px);margin:0 0 14px}
+    .grid{display:grid;gap:16px}@media(min-width:900px){.grid.cols-2{grid-template-columns:1fr 1fr}}
     .cards{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
     .card{grid-column:span 12;background:#fff;border:1px solid #e2e8f0;border-radius:16px;overflow:hidden;box-shadow:0 8px 22px rgba(0,0,0,.04)}
-    .card img{width:100%;height:200px;object-fit:cover;background:#e2e8f0}
-    .card .p{padding:14px}
-    .card h3{margin:0 0 6px;font-size:18px}
+    .card img{width:100%;height:200px;object-fit:cover;background:#e2e8f0} .card .p{padding:14px} .card h3{margin:0 0 6px;font-size:18px}
     .meta{color:var(--muted);font-size:14px;margin-bottom:10px}
-    @media(min-width:700px){.card{grid-column:span 6}}
-    @media(min-width:1000px){.card{grid-column:span 4}}
-
-    /* Lista de amenidades */
-    .icon-list{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
-    @media(min-width:700px){.icon-list{grid-template-columns:repeat(3,1fr)}}
-    .icon-item{display:flex;align-items:center;gap:10px;border:1px solid #e2e8f0;border-radius:12px;padding:10px;background:#fff}
-
-    /* Mapa */
-    .map{width:100%;height:360px;border:1px solid #e2e8f0;border-radius:16px;overflow:hidden}
-
-    /* FAQ */
-    .faq details{border:1px solid #e2e8f0;border-radius:12px;padding:12px;background:#fff}
-    .faq details+details{margin-top:10px}
-
-    /* Footer + CTA */
+    @media(min-width:700px){.card{grid-column:span 6}} @media(min-width:1000px){.card{grid-column:span 4}}
     footer{padding:32px 0;color:var(--muted)}
     .wa-float{position:fixed;right:18px;bottom:18px;background:#25D366;color:#fff;padding:14px 16px;border-radius:999px;box-shadow:0 8px 22px rgba(0,0,0,.18);font-weight:800;z-index:60}
     .sticky-cta{position:sticky;bottom:0;background:#fff;border-top:1px solid #e2e8f0;padding:10px;display:flex;gap:10px;justify-content:center}
   </style>
 </head>
-
 <body>
-  <!-- HEADER -->
   <header>
     <div class="container wrap">
-      <div class="logo">
-        <!-- si el logo está en /desarrollos/privada-fiori/assets, también funcionará con ./assets/... -->
-        <img class="logo-img" src="/assets/logo-trhoncal-flat.png" alt="Trhoncal Homes" />
-      </div>
-      <nav>
-        <a href="/">Inicio</a>
-        <a href="/catalogo.html">Desarrollos</a>
-        <a href="#contacto">Contacto</a>
-      </nav>
+      <div class="logo"><img class="logo-img" src="assets/logo-trhoncal-flat.png" alt="Trhoncal Homes" /></div>
+      <nav><a href="/">Inicio</a><a href="/catalogo-devs.html">Desarrollos</a><a href="#contacto">Contacto</a></nav>
     </div>
   </header>
 
+  <main>
     <div class="container breadcrumb">Inicio ▸ Desarrollos ▸ <strong>Privada Fiori</strong></div>
-
-  <!-- HERO -->
-  <section class="hero">
-    <div class="container">
-      <h1>Privada Fiori</h1>
-      <p>Vive en un coto privado rodeado de naturaleza, con amenidades para tu familia.</p>
-
-      <div class="badges">
-        <div class="badge">Ubicación: Mirador del Bosque, Zapopan (Carr. a Colotlán km 8.5)</div>
-        <div class="badge">Desde <strong>$1.26 MDP*</strong></div>
-        <div class="badge">2–3 recámaras</div>
-        <div class="badge">Amenidades: terraza, áreas verdes, juegos</div>
+    <section class="hero">
+      <div class="container">
+        <h1>Privada Fiori</h1>
+        <p>Coto privado rodeado de naturaleza, con amenidades para tu familia.</p>
+        <div class="badges"><div class="badge">Mirador del Bosque, Zapopan</div><div class="badge">Desde <strong>$1,272,000</strong></div><div class="badge">2–3 recámaras</div><div class="badge">Acceso controlado</div></div>
+        <div class="cta-bar"><a class="btn primary" href="#contacto">Solicitar información</a><a class="btn ghost" href="#modelos">Ver modelos</a></div>
       </div>
+    </section>
 
-      <div class="cta-bar">
-        <a class="btn primary" href="#contacto">Solicitar información</a>
-        <a class="btn ghost" href="#modelos">Ver modelos</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- RESUMEN + AMENIDADES -->
-  <section class="section">
-    <div class="container grid cols-2">
-      <div>
-        <h2>Resumen del desarrollo</h2>
-        <p class="meta">En <strong>Trhoncal Homes</strong> te acompañamos con <strong>Transparencia, Honestidad y Calidad</strong>. Privada Fiori es un proyecto con acceso controlado y amenidades pensado para crear momentos en familia, con servicios y naturaleza alrededor.</p>
-        <ul class="meta" style="padding-left:18px">
-          <li>Tipologías: casas de 2 plantas – Modelos Dalia, Violeta, Jazmín y Girasol.</li>
-          <li>Superficies aproximadas: 63.96 m² a 86.22 m² de construcción.</li>
-          <li>Rango de precios de referencia: $1.26–$1.53 MDP*.</li>
-        </ul>
-      </div>
-
-      <div>
-        <h2>Amenidades</h2>
-        <div class="icon-list">
-          <div class="icon-item">🏡 Terraza</div>
-          <div class="icon-item">🌳 Áreas verdes</div>
-          <div class="icon-item">🎠 Juegos infantiles</div>
-          <div class="icon-item">🛡️ Acceso controlado</div>
-          <div class="icon-item">🚗 Rápidas vías: Periférico, Av. Sta. Margarita</div>
-          <div class="icon-item">🛍️ Cerca de plazas y servicios</div>
-        </div>
-        <p class="meta" style="margin-top:8px">*Sujeto a cambios y disponibilidad.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- MODELOS -->
-  <section id="modelos" class="section">
-    <div class="container">
-      <h2>Modelos disponibles</h2>
-
-      <div class="cards">
-        <article class="card">
-          <img src="https://images.unsplash.com/photo-1502005229762-cf1b2da7c52f?q=80&w=1200&auto=format&fit=crop" alt="Modelo Dalia" />
-          <div class="p">
-            <h3>Dalia</h3>
-            <div class="meta">63.96 m² · 2 habitaciones · 1 baño en PB + 1 baño completo en PA</div>
-            <div class="row" style="display:flex;align-items:center;justify-content:space-between">
-              <span>Desde <strong>$1,260,000*</strong></span>
-              <a class="btn" href="#contacto" data-model="Dalia">Solicitar ficha</a>
+    <section id="modelos" class="section">
+      <div class="container">
+        <h2>Modelos disponibles</h2>
+        <div class="cards">
+          <article class="card">
+            <img src="assets/dalia.jpg" alt="Dalia" />
+            <div class="p"><h3>Dalia</h3><div class="meta">2 recámaras · distribución funcional</div>
+              <div style="display:flex;justify-content:space-between"><span>Desde <strong>$1,272,000</strong></span><a class="btn" href="#contacto" data-model="Dalia">Ficha</a></div>
             </div>
-          </div>
-        </article>
-
-        <article class="card">
-          <img src="https://images.unsplash.com/photo-1554995207-c18c203602cb?q=80&w=1200&auto=format&fit=crop" alt="Modelo Violeta" />
-          <div class="p">
-            <h3>Violeta</h3>
-            <div class="meta">72.59 m² · 2 recámaras · 1 baño en PB + 1 baño completo en PA · Opcional: 1 alcoba</div>
-            <div class="row" style="display:flex;align-items:center;justify-content:space-between">
-              <span>Desde <strong>$1,399,000*</strong></span>
-              <a class="btn" href="#contacto" data-model="Violeta">Solicitar ficha</a>
+          </article>
+          <article class="card">
+            <img src="assets/violeta.jpg" alt="Violeta" />
+            <div class="p"><h3>Violeta</h3><div class="meta">2 recámaras · opción alcoba</div>
+              <div style="display:flex;justify-content:space-between"><span>Desde <strong>$1,272,000</strong></span><a class="btn" href="#contacto" data-model="Violeta">Ficha</a></div>
             </div>
-          </div>
-        </article>
-
-        <article class="card">
-          <img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?q=80&w=1200&auto=format&fit=crop" alt="Modelo Jazmín" />
-          <div class="p">
-            <h3>Jazmín</h3>
-            <div class="meta">79.92 m² · 2 recámaras con baño completo y clóset</div>
-            <div class="row" style="display:flex;align-items:center;justify-content:space-between">
-              <span>Desde <strong>$1,450,000*</strong></span>
-              <a class="btn" href="#contacto" data-model="Jazmín">Solicitar ficha</a>
+          </article>
+          <article class="card">
+            <img src="assets/girasol.jpg" alt="Girasol" />
+            <div class="p"><h3>Girasol</h3><div class="meta">2 recámaras · 2 baños · sala TV</div>
+              <div style="display:flex;justify-content:space-between"><span>Desde <strong>$1,272,000</strong></span><a class="btn" href="#contacto" data-model="Girasol">Ficha</a></div>
             </div>
-          </div>
-        </article>
-
-        <article class="card">
-          <img src="https://images.unsplash.com/photo-1600585154512-527c3735ac71?q=80&w=1200&auto=format&fit=crop" alt="Modelo Girasol" />
-          <div class="p">
-            <h3>Girasol</h3>
-            <div class="meta">86.22 m² · 2 recámaras · 2 baños · Sala de TV · Opcional: 1 alcoba</div>
-            <div class="row" style="display:flex;align-items:center;justify-content:space-between">
-              <span>Desde <strong>$1,530,000*</strong></span>
-              <a class="btn" href="#contacto" data-model="Girasol">Solicitar ficha</a>
-            </div>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- UBICACIÓN -->
-  <section class="section">
-    <div class="container grid cols-2">
-      <div>
-        <h2>Ubicación y entorno</h2>
-        <p class="meta">Al norte de Zapopan, sobre <strong>Carr. Guadalajara – Colotlán km 8.5</strong>. Conexión a Periférico y Av. Santa Margarita. Cerca de <strong>Plaza Tesistán</strong>, <strong>Walmart</strong>, <strong>Cinépolis</strong>, <strong>Auditorio Telmex</strong> y <strong>CUCEA</strong>.</p>
-        <ul class="meta" style="padding-left:18px">
-          <li>Escuelas cercanas: CUCEA y zona universitaria.</li>
-          <li>Centros comerciales: Plaza Tesistán, Metroplaza, Walmart.</li>
-          <li>Vialidades: Periférico, Av. Sta. Margarita.</li>
-        </ul>
-      </div>
-      <div><div class="map" id="map"></div></div>
-    </div>
-  </section>
-
-  <!-- GALERÍA -->
-  <section class="section" style="background:var(--light);border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0">
-    <div class="container">
-      <h2>Galería</h2>
-      <div class="cards">
-        <article class="card"><img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=1200&auto=format&fit=crop" alt="Galería 1" /></article>
-        <article class="card"><img src="https://images.unsplash.com/photo-1600607687920-4ce8c559d8df?q=80&w=1200&auto=format&fit=crop" alt="Galería 2" /></article>
-        <article class="card"><img src="https://images.unsplash.com/photo-1523217582562-09d0def993a6?q=80&w=1200&auto=format&fit=crop" alt="Galería 3" /></article>
-        <article class="card"><img src="https://images.unsplash.com/photo-1560185127-6ed189bf02f4?q=80&w=1200&auto=format&fit=crop" alt="Galería 4" /></article>
-        <article class="card"><img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=1200&auto=format&fit=crop" alt="Galería 5" /></article>
-        <article class="card"><img src="https://images.unsplash.com/photo-1598928636135-d146006ff4be?q=80&w=1200&auto=format&fit=crop" alt="Galería 6" /></article>
-      </div>
-    </div>
-  </section>
-
-  <!-- FINANCIAMIENTO + FAQ -->
-  <section class="section">
-    <div class="container grid cols-2">
-      <div>
-        <h2>Opciones de financiamiento</h2>
-        <ul class="meta" style="padding-left:18px">
-          <li>Crédito Infonavit</li>
-          <li>Fovissste</li>
-          <li>Hipotecario bancario</li>
-          <li>Recurso propio</li>
-        </ul>
-        <p class="meta">Te guiamos paso a paso para elegir la opción que mejor se adapta a tu perfil.</p>
-      </div>
-      <div class="faq">
-        <h2>Preguntas frecuentes</h2>
-        <details><summary>¿El precio puede cambiar?</summary><div class="meta">Sí, los precios y la disponibilidad pueden variar sin previo aviso. Contáctanos para una cotización actualizada.</div></details>
-        <details><summary>¿Aceptan distintos créditos?</summary><div class="meta">Sí: Infonavit, Fovissste, bancario y recurso propio.</div></details>
-        <details><summary>¿Tiempo estimado de entrega?</summary><div class="meta">Sujeto a etapa y proceso de crédito. Te confirmamos al solicitar información.</div></details>
-      </div>
-    </div>
-  </section>
-
-  <!-- FORM -->
-  <section id="contacto" class="section" style="border-top:1px solid #e2e8f0">
-    <div class="container">
-      <h2>Solicita información de Privada Fiori</h2>
-      <p class="meta">Déjanos tus datos y un asesor te escribe por WhatsApp. Tiempo de respuesta habitual: 5–15 minutos.</p>
-
-      <form onsubmit="return handleSubmit(event)">
-        <input type="hidden" name="desarrollo" value="Privada Fiori" />
-        <div class="grid cols-2">
-          <div>
-            <label>Nombre completo</label>
-            <input required name="nombre" placeholder="Tu nombre" />
-          </div>
-          <div>
-            <label>WhatsApp</label>
-            <input required name="whatsapp" placeholder="Ej. 33 3724 1151" />
-          </div>
+          </article>
         </div>
+      </div>
+    </section>
 
-        <div class="grid cols-2">
-          <div>
-            <label>Modelo de interés</label>
-            <select name="modelo">
-              <option value="Dalia">Dalia</option>
-              <option value="Violeta">Violeta</option>
-              <option value="Jazmín">Jazmín</option>
-              <option value="Girasol">Girasol</option>
-              <option value="Otro">Otro / Quiero asesoría</option>
-            </select>
+    <section id="contacto" class="section" style="border-top:1px solid #e2e8f0">
+      <div class="container">
+        <h2>Solicita información de Privada Fiori</h2>
+        <p class="meta">Déjanos tus datos y un asesor te escribe por WhatsApp.</p>
+        <form onsubmit="return handleSubmit(event)">
+          <input type="hidden" name="desarrollo" value="Privada Fiori" />
+          <div class="grid cols-2">
+            <div><label>Nombre completo</label><input required name="nombre" placeholder="Tu nombre" /></div>
+            <div><label>WhatsApp</label><input required name="whatsapp" placeholder="Ej. 33 3724 1151" /></div>
           </div>
-          <div>
-            <label>Presupuesto aproximado</label>
-            <select name="presupuesto">
-              <option value="$700k-$1.2M">$700,000 – $1,200,000</option>
-              <option value="$1.2M-$2M">$1,200,000 – $2,000,000</option>
-              <option value="$2M-$4M">$2,000,000 – $4,000,000</option>
-              <option value=">$4M">Más de $4,000,000</option>
-            </select>
+          <div><label>Mensaje</label><textarea name="mensaje" rows="4" placeholder="Cuéntanos qué buscas..."></textarea></div>
+          <div class="cta-bar" style="display:flex;gap:10px;flex-wrap:wrap">
+            <button class="btn primary" type="submit">Enviar y hablar por WhatsApp</button>
+            <a class="btn" target="_blank" rel="noopener" href="https://wa.me/523337241151?text=Hola%20Trhoncal%20Homes%2C%20me%20interesa%20Privada%20Fiori">Escribir directo</a>
           </div>
-        </div>
+          <p id="form-msg" style="margin:10px 0 0;display:none"></p>
+        </form>
+      </div>
+    </section>
 
-        <div>
-          <label>Mensaje</label>
-          <textarea name="mensaje" rows="4" placeholder="Cuéntanos qué buscas (recámaras, amenidades, tiempo de compra)..."></textarea>
-        </div>
+    <div class="sticky-cta"><a class="btn primary" href="#contacto">Solicitar información</a><a class="btn ghost" href="#modelos">Ver modelos</a></div>
+  </main>
 
-        <div class="cta-bar" style="display:flex;gap:10px;flex-wrap:wrap">
-          <button class="btn primary" type="submit">Enviar y hablar por WhatsApp</button>
-          <a class="btn" href="https://wa.me/523337241151?text=Hola%20Trhoncal%20Homes%2C%20me%20interesa%20Privada%20Fiori" target="_blank" rel="noopener">Escribir directo</a>
-        </div>
-        <p id="form-msg" style="margin:10px 0 0;display:none"></p>
-      </form>
-
-      <p class="meta" style="margin-top:10px">*Precios y superficies de referencia; confirmación al momento de la cotización.</p>
-    </div>
-  </section>
-
-  <!-- CTA Sticky -->
-  <div class="sticky-cta">
-    <a class="btn primary" href="#contacto">Solicitar información</a>
-    <a class="btn ghost" href="#modelos">Ver modelos</a>
-  </div>
-
-  <!-- FOOTER -->
   <footer>
-    <div class="container">
-      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:space-between">
-        <small>© <span id="year"></span> Trhoncal Homes. TR + HON + CAL.</small>
-        <small>Privacidad · Términos · Aviso legal</small>
-      </div>
-    </div>
+    <div class="container"><div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:space-between">
+      <small>© <span id="year"></span> Trhoncal Homes. TR + HON + CAL.</small><small>Privacidad · Términos · Aviso legal</small>
+    </div></div>
   </footer>
-
-  <!-- WhatsApp flotante -->
-  <a class="wa-float" href="https://wa.me/523337241151?text=Hola%20Trhoncal%20Homes%2C%20me%20interesa%20Privada%20Fiori" target="_blank" rel="noopener">WhatsApp</a>
-
+  <a class="wa-float" target="_blank" rel="noopener" href="https://wa.me/523337241151?text=Hola%20Trhoncal%20Homes%2C%20me%20interesa%20Privada%20Fiori">WhatsApp</a>
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    function handleSubmit(e){
-      e.preventDefault();
-      const data = Object.fromEntries(new FormData(e.target).entries());
-      const msg = `Hola Trhoncal Homes, me interesa ${encodeURIComponent(data.desarrollo||'Privada Fiori')}. Soy ${encodeURIComponent(data.nombre)}. Mi WhatsApp es ${encodeURIComponent(data.whatsapp)}. Modelo: ${encodeURIComponent(data.modelo||'N/D')}. Presupuesto: ${encodeURIComponent(data.presupuesto||'N/D')}. ${encodeURIComponent(data.mensaje||'')}`;
-      const wa = `https://wa.me/523337241151?text=${msg}`;
-      const p = document.getElementById('form-msg');
-      p.style.display='block';
-      p.textContent='Abriendo WhatsApp...';
-      window.open(wa,'_blank');
-      return false;
-    }
+    document.getElementById('year').textContent=new Date().getFullYear();
+    function handleSubmit(e){e.preventDefault();const d=Object.fromEntries(new FormData(e.target).entries());
+      const msg=`Hola Trhoncal Homes, me interesa ${encodeURIComponent(d.desarrollo||'Privada Fiori')}. Soy ${encodeURIComponent(d.nombre)}. Mi WhatsApp es ${encodeURIComponent(d.whatsapp)}. ${encodeURIComponent(d.mensaje||'')}`;
+      window.open(`https://wa.me/523337241151?text=${msg}`,'_blank');
+      const p=document.getElementById('form-msg');p.style.display='block';p.textContent='Abriendo WhatsApp...';return false;}
   </script>
 </body>
 </html>
