@@ -5,6 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Trhoncal Homes | Alporta Residencial – GDL</title>
   <meta name="description" content="Alporta Residencial en la Zona Metropolitana de Guadalajara. Asesoría con Transparencia, Honestidad y Calidad. Modelos, amenidades y ubicación." />
+  <link rel="canonical" href="https://alporta.3dhomes.com.mx/">
+
+  <!-- Preload del hero (acelera el pintado) -->
+  <link rel="preload" as="image"
+        imagesrcset="/desarrollos/alporta/assets/hero-1600.webp 1x, /desarrollos/alporta/assets/hero-3200.webp 2x"
+        imagesizes="100vw"
+        href="/desarrollos/alporta/assets/hero-1600.jpg">
+
+  <!-- Open Graph (opcional, si pones la imagen og-1200x630.jpg) -->
+  <meta property="og:title" content="Alporta Residencial – Trhoncal Homes">
+  <meta property="og:description" content="Modelos Atria, Vela y Lira. Agenda visita y cotización.">
+  <meta property="og:image" content="/desarrollos/alporta/assets/og-1200x630.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
   <style>
     :root{ --gold:#C9A227; --dark:#0f172a; --muted:#475569; --bg:#ffffff; --light:#f8fafc; }
     *{box-sizing:border-box}
@@ -20,7 +35,20 @@
     .logo-img{height:50px}
     .breadcrumb{font-size:14px;color:var(--muted);padding:10px 0}
     .hero{position:relative;min-height:360px;display:grid;align-items:end;padding:28px 0;color:#fff}
-    .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.55)),url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;}
+    /* Fondo hero con image-set para WebP + retina */
+    .hero::before{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.55)),
+        image-set(
+          url('/desarrollos/alporta/assets/hero-1600.webp') type('image/webp') 1x,
+          url('/desarrollos/alporta/assets/hero-3200.webp') type('image/webp') 2x,
+          url('/desarrollos/alporta/assets/hero-1600.jpg') type('image/jpeg') 1x,
+          url('/desarrollos/alporta/assets/hero-3200.jpg') type('image/jpeg') 2x
+        );
+      background-size:cover; background-position:center; background-repeat:no-repeat;
+    }
     .hero > .container{position:relative}
     .hero h1{font-size:clamp(28px,5vw,46px);line-height:1.1;margin:0 0 10px}
     .hero p{margin:0 0 16px;color:#e5e7eb}
@@ -52,7 +80,8 @@
 <body>
   <header>
     <div class="container wrap">
-      <div class="logo"><img class="logo-img" src="/assets/logo-trhoncal-flat.png" alt="Trhoncal Homes" /></div>
+      <!-- Logo compartido (coloca el archivo en /desarrollos/assets/) -->
+      <div class="logo"><img class="logo-img" src="/desarrollos/assets/logo-trhoncal-flat.png" alt="Trhoncal Homes" /></div>
       <nav>
         <a href="/">Inicio</a>
         <a href="/catalogo-devs.html">Desarrollos</a>
@@ -106,42 +135,43 @@
       <div class="container">
         <h2>Prototipos</h2>
         <div class="cards">
-          
-        <article class="card">
-          <img src="https://images.unsplash.com/photo-1600585154340-1e1a1f7a8f5c?q=80&w=1200&auto=format&fit=crop" alt="Atria" />
-          <div class="p">
-            <h3>Atria</h3>
-            <div class="meta">Distribución funcional</div>
-            <div class="row" style="display:flex;align-items:center;justify-content:space-between">
-              <span>Desde <strong>$2,309,000</strong></span>
-              <a class="btn" href="#contacto" data-model="Atria">Solicitar ficha</a>
-            </div>
-          </div>
-        </article>
 
-        <article class="card">
-          <img src="https://images.unsplash.com/photo-1502005229762-cf1b2da7c52f?q=80&w=1200&auto=format&fit=crop" alt="Vela" />
-          <div class="p">
-            <h3>Vela</h3>
-            <div class="meta">Excelente relación m²/precio</div>
-            <div class="row" style="display:flex;align-items:center;justify-content:space-between">
-              <span>Desde <strong>$2,309,000</strong></span>
-              <a class="btn" href="#contacto" data-model="Vela">Solicitar ficha</a>
+          <article class="card">
+            <img src="/desarrollos/alporta/assets/atria.jpg" alt="Atria" />
+            <div class="p">
+              <h3>Atria</h3>
+              <div class="meta">Distribución funcional</div>
+              <div class="row" style="display:flex;align-items:center;justify-content:space-between">
+                <span>Desde <strong>$2,309,000</strong></span>
+                <a class="btn" href="#contacto" data-model="Atria">Solicitar ficha</a>
+              </div>
             </div>
-          </div>
-        </article>
+          </article>
 
-        <article class="card">
-          <img src="https://images.unsplash.com/photo-1554995207-c18c203602cb?q=80&w=1200&auto=format&fit=crop" alt="Lira" />
-          <div class="p">
-            <h3>Lira</h3>
-            <div class="meta">Opción con espacio extra</div>
-            <div class="row" style="display:flex;align-items:center;justify-content:space-between">
-              <span>Desde <strong>$2,309,000</strong></span>
-              <a class="btn" href="#contacto" data-model="Lira">Solicitar ficha</a>
+          <article class="card">
+            <img src="/desarrollos/alporta/assets/vela.jpg" alt="Vela" />
+            <div class="p">
+              <h3>Vela</h3>
+              <div class="meta">Excelente relación m²/precio</div>
+              <div class="row" style="display:flex;align-items:center;justify-content:space-between">
+                <span>Desde <strong>$2,309,000</strong></span>
+                <a class="btn" href="#contacto" data-model="Vela">Solicitar ficha</a>
+              </div>
             </div>
-          </div>
-        </article>
+          </article>
+
+          <article class="card">
+            <img src="/desarrollos/alporta/assets/lira.jpg" alt="Lira" />
+            <div class="p">
+              <h3>Lira</h3>
+              <div class="meta">Opción con espacio extra</div>
+              <div class="row" style="display:flex;align-items:center;justify-content:space-between">
+                <span>Desde <strong>$2,309,000</strong></span>
+                <a class="btn" href="#contacto" data-model="Lira">Solicitar ficha</a>
+              </div>
+            </div>
+          </article>
+
         </div>
       </div>
     </section>
@@ -168,7 +198,7 @@
           </div>
           <div class="cta-bar" style="display:flex;gap:10px;flex-wrap:wrap">
             <button class="btn primary" type="submit">Enviar y hablar por WhatsApp</button>
-            <a class="btn" href="https://wa.me/523337241151?text=Hola%20Trhoncal%20Homes%2C%20me%20interesa%20Alporta Residencial" target="_blank" rel="noopener">Escribir directo</a>
+            <a class="btn" href="https://wa.me/523337241151?text=Hola%20Trhoncal%20Homes%2C%20me%20interesa%20Alporta%20Residencial" target="_blank" rel="noopener">Escribir directo</a>
           </div>
           <p id="form-msg" style="margin:10px 0 0;display:none"></p>
         </form>
@@ -190,7 +220,7 @@
     </div>
   </footer>
 
-  <a class="wa-float" href="https://wa.me/523337241151?text=Hola%20Trhoncal%20Homes%2C%20me%20interesa%20Alporta Residencial" target="_blank" rel="noopener">WhatsApp</a>
+  <a class="wa-float" href="https://wa.me/523337241151?text=Hola%20Trhoncal%20Homes%2C%20me%20interesa%20Alporta%20Residencial" target="_blank" rel="noopener">WhatsApp</a>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();

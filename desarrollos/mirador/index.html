@@ -5,6 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Trhoncal Homes | Mirador del Bosque – GDL</title>
   <meta name="description" content="Mirador del Bosque en la Zona Metropolitana de Guadalajara. Asesoría con Transparencia, Honestidad y Calidad. Modelos, amenidades y ubicación." />
+  <link rel="canonical" href="https://mirador.3dhomes.com.mx/">
+
+  <!-- Preload del hero para pintar más rápido -->
+  <link rel="preload" as="image"
+        imagesrcset="/desarrollos/mirador/assets/hero-1600.webp 1x, /desarrollos/mirador/assets/hero-3200.webp 2x"
+        imagesizes="100vw"
+        href="/desarrollos/mirador/assets/hero-1600.jpg">
+
+  <!-- Open Graph (opcional si agregas og-1200x630.jpg) -->
+  <meta property="og:title" content="Mirador del Bosque – Trhoncal Homes">
+  <meta property="og:description" content="Prototipos Nardo y Oliva. Agenda visita y cotización.">
+  <meta property="og:image" content="/desarrollos/mirador/assets/og-1200x630.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
   <style>
     :root{ --gold:#C9A227; --dark:#0f172a; --muted:#475569; --bg:#ffffff; --light:#f8fafc; }
     *{box-sizing:border-box}
@@ -20,7 +35,20 @@
     .logo-img{height:50px}
     .breadcrumb{font-size:14px;color:var(--muted);padding:10px 0}
     .hero{position:relative;min-height:360px;display:grid;align-items:end;padding:28px 0;color:#fff}
-    .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.55)),url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;}
+    /* HERO con image-set (WebP + JPG y retina) */
+    .hero::before{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.55)),
+        image-set(
+          url('/desarrollos/mirador/assets/hero-1600.webp') type('image/webp') 1x,
+          url('/desarrollos/mirador/assets/hero-3200.webp') type('image/webp') 2x,
+          url('/desarrollos/mirador/assets/hero-1600.jpg') type('image/jpeg') 1x,
+          url('/desarrollos/mirador/assets/hero-3200.jpg') type('image/jpeg') 2x
+        );
+      background-size:cover; background-position:center; background-repeat:no-repeat;
+    }
     .hero > .container{position:relative}
     .hero h1{font-size:clamp(28px,5vw,46px);line-height:1.1;margin:0 0 10px}
     .hero p{margin:0 0 16px;color:#e5e7eb}
@@ -52,7 +80,8 @@
 <body>
   <header>
     <div class="container wrap">
-      <div class="logo"><img class="logo-img" src="/assets/logo-trhoncal-flat.png" alt="Trhoncal Homes" /></div>
+      <!-- Logo compartido -->
+      <div class="logo"><img class="logo-img" src="/desarrollos/assets/logo-trhoncal-flat.png" alt="Trhoncal Homes" /></div>
       <nav>
         <a href="/">Inicio</a>
         <a href="/catalogo-devs.html">Desarrollos</a>
@@ -85,7 +114,7 @@
       <div class="container grid cols-2">
         <div>
           <h2>Resumen del desarrollo</h2>
-          <p class="meta">Mirador del Bosque ofrece prototipos Nardo, Oliva. Agenda visita para conocer disponibilidad y precios vigentes.</p>
+          <p class="meta">Mirador del Bosque ofrece prototipos Nardo y Oliva. Agenda visita para conocer disponibilidad y precios vigentes.</p>
         </div>
         <div>
           <h2>Amenidades</h2>
@@ -106,30 +135,31 @@
       <div class="container">
         <h2>Prototipos</h2>
         <div class="cards">
-          
-        <article class="card">
-          <img src="https://images.unsplash.com/photo-1600585154340-1e1a1f7a8f5c?q=80&w=1200&auto=format&fit=crop" alt="Nardo" />
-          <div class="p">
-            <h3>Nardo</h3>
-            <div class="meta">Distribución funcional</div>
-            <div class="row" style="display:flex;align-items:center;justify-content:space-between">
-              <span>Desde <strong>$740,000</strong></span>
-              <a class="btn" href="#contacto" data-model="Nardo">Solicitar ficha</a>
-            </div>
-          </div>
-        </article>
 
-        <article class="card">
-          <img src="https://images.unsplash.com/photo-1502005229762-cf1b2da7c52f?q=80&w=1200&auto=format&fit=crop" alt="Oliva" />
-          <div class="p">
-            <h3>Oliva</h3>
-            <div class="meta">Excelente relación m²/precio</div>
-            <div class="row" style="display:flex;align-items:center;justify-content:space-between">
-              <span>Desde <strong>$740,000</strong></span>
-              <a class="btn" href="#contacto" data-model="Oliva">Solicitar ficha</a>
+          <article class="card">
+            <img src="/desarrollos/mirador/assets/nardo.jpg" alt="Nardo" />
+            <div class="p">
+              <h3>Nardo</h3>
+              <div class="meta">Distribución funcional</div>
+              <div class="row" style="display:flex;align-items:center;justify-content:space-between">
+                <span>Desde <strong>$740,000</strong></span>
+                <a class="btn" href="#contacto" data-model="Nardo">Solicitar ficha</a>
+              </div>
             </div>
-          </div>
-        </article>
+          </article>
+
+          <article class="card">
+            <img src="/desarrollos/mirador/assets/oliva.jpg" alt="Oliva" />
+            <div class="p">
+              <h3>Oliva</h3>
+              <div class="meta">Excelente relación m²/precio</div>
+              <div class="row" style="display:flex;align-items:center;justify-content:space-between">
+                <span>Desde <strong>$740,000</strong></span>
+                <a class="btn" href="#contacto" data-model="Oliva">Solicitar ficha</a>
+              </div>
+            </div>
+          </article>
+
         </div>
       </div>
     </section>
@@ -156,7 +186,7 @@
           </div>
           <div class="cta-bar" style="display:flex;gap:10px;flex-wrap:wrap">
             <button class="btn primary" type="submit">Enviar y hablar por WhatsApp</button>
-            <a class="btn" href="https://wa.me/523337241151?text=Hola%20Trhoncal%20Homes%2C%20me%20interesa%20Mirador del Bosque" target="_blank" rel="noopener">Escribir directo</a>
+            <a class="btn" href="https://wa.me/523337241151?text=Hola%20Trhoncal%20Homes%2C%20me%20interesa%20Mirador%20del%20Bosque" target="_blank" rel="noopener">Escribir directo</a>
           </div>
           <p id="form-msg" style="margin:10px 0 0;display:none"></p>
         </form>
@@ -178,7 +208,7 @@
     </div>
   </footer>
 
-  <a class="wa-float" href="https://wa.me/523337241151?text=Hola%20Trhoncal%20Homes%2C%20me%20interesa%20Mirador del Bosque" target="_blank" rel="noopener">WhatsApp</a>
+  <a class="wa-float" href="https://wa.me/523337241151?text=Hola%20Trhoncal%20Homes%2C%20me%20interesa%20Mirador%20del%20Bosque" target="_blank" rel="noopener">WhatsApp</a>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();

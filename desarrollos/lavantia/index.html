@@ -5,6 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Trhoncal Homes | Lavantia – GDL</title>
   <meta name="description" content="Lavantia en la Zona Metropolitana de Guadalajara. Asesoría con Transparencia, Honestidad y Calidad. Modelos, amenidades y ubicación." />
+  <link rel="canonical" href="https://lavantia.3dhomes.com.mx/">
+
+  <!-- Preload del hero para pintar más rápido -->
+  <link rel="preload" as="image"
+        imagesrcset="/desarrollos/lavantia/assets/hero-1600.webp 1x, /desarrollos/lavantia/assets/hero-3200.webp 2x"
+        imagesizes="100vw"
+        href="/desarrollos/lavantia/assets/hero-1600.jpg">
+
+  <!-- Open Graph (opcional si agregas la imagen og-1200x630.jpg) -->
+  <meta property="og:title" content="Lavantia – Trhoncal Homes">
+  <meta property="og:description" content="Prototipo Luna. Agenda visita y cotización.">
+  <meta property="og:image" content="/desarrollos/lavantia/assets/og-1200x630.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
   <style>
     :root{ --gold:#C9A227; --dark:#0f172a; --muted:#475569; --bg:#ffffff; --light:#f8fafc; }
     *{box-sizing:border-box}
@@ -20,7 +35,20 @@
     .logo-img{height:50px}
     .breadcrumb{font-size:14px;color:var(--muted);padding:10px 0}
     .hero{position:relative;min-height:360px;display:grid;align-items:end;padding:28px 0;color:#fff}
-    .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.55)),url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;}
+    /* HERO con image-set (WebP + JPG y retina) */
+    .hero::before{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.55)),
+        image-set(
+          url('/desarrollos/lavantia/assets/hero-1600.webp') type('image/webp') 1x,
+          url('/desarrollos/lavantia/assets/hero-3200.webp') type('image/webp') 2x,
+          url('/desarrollos/lavantia/assets/hero-1600.jpg') type('image/jpeg') 1x,
+          url('/desarrollos/lavantia/assets/hero-3200.jpg') type('image/jpeg') 2x
+        );
+      background-size:cover; background-position:center; background-repeat:no-repeat;
+    }
     .hero > .container{position:relative}
     .hero h1{font-size:clamp(28px,5vw,46px);line-height:1.1;margin:0 0 10px}
     .hero p{margin:0 0 16px;color:#e5e7eb}
@@ -52,7 +80,8 @@
 <body>
   <header>
     <div class="container wrap">
-      <div class="logo"><img class="logo-img" src="/assets/logo-trhoncal-flat.png" alt="Trhoncal Homes" /></div>
+      <!-- Logo compartido -->
+      <div class="logo"><img class="logo-img" src="/desarrollos/assets/logo-trhoncal-flat.png" alt="Trhoncal Homes" /></div>
       <nav>
         <a href="/">Inicio</a>
         <a href="/catalogo-devs.html">Desarrollos</a>
@@ -85,7 +114,7 @@
       <div class="container grid cols-2">
         <div>
           <h2>Resumen del desarrollo</h2>
-          <p class="meta">Lavantia ofrece prototipos Luna. Agenda visita para conocer disponibilidad y precios vigentes.</p>
+          <p class="meta">Lavantia ofrece el prototipo <strong>Luna</strong>. Agenda visita para conocer disponibilidad y precios vigentes.</p>
         </div>
         <div>
           <h2>Amenidades</h2>
@@ -106,18 +135,17 @@
       <div class="container">
         <h2>Prototipos</h2>
         <div class="cards">
-          
-        <article class="card">
-          <img src="https://images.unsplash.com/photo-1600585154340-1e1a1f7a8f5c?q=80&w=1200&auto=format&fit=crop" alt="Luna" />
-          <div class="p">
-            <h3>Luna</h3>
-            <div class="meta">Distribución funcional</div>
-            <div class="row" style="display:flex;align-items:center;justify-content:space-between">
-              <span>Desde <strong>$2,790,000</strong></span>
-              <a class="btn" href="#contacto" data-model="Luna">Solicitar ficha</a>
+          <article class="card">
+            <img src="/desarrollos/lavantia/assets/luna.jpg" alt="Luna" />
+            <div class="p">
+              <h3>Luna</h3>
+              <div class="meta">Distribución funcional</div>
+              <div class="row" style="display:flex;align-items:center;justify-content:space-between">
+                <span>Desde <strong>$2,790,000</strong></span>
+                <a class="btn" href="#contacto" data-model="Luna">Solicitar ficha</a>
+              </div>
             </div>
-          </div>
-        </article>
+          </article>
         </div>
       </div>
     </section>
