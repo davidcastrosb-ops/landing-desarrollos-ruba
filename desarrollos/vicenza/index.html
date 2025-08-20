@@ -3,83 +3,38 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Trhoncal Homes | Vicenza Residencial – GDL</title>
-  <meta name="description" content="Vicenza Residencial en la ZMG. Asesoría con Transparencia, Honestidad y Calidad. Prototipos, amenidades y ubicación." />
+  <title>Trhoncal Homes | Vicenza – GDL</title>
+  <meta name="description" content="Vicenza Residencial en la ZMG. Prototipos Padua y Capri desde $3.2 MDP. Acompañamiento con Transparencia, Honestidad y Calidad." />
   <link rel="canonical" href="https://vicenza.3dhomes.com.mx/"/>
-
-  <!-- Preload del hero para pintar más rápido -->
-  <link rel="preload" as="image"
-        imagesrcset="/desarrollos/vicenza/assets/hero-1600.webp 1x, /desarrollos/vicenza/assets/hero-3200.webp 2x"
-        imagesizes="100vw"
-        href="/desarrollos/vicenza/assets/hero-1600.jpg">
-
-  <!-- Open Graph (opcional si agregas og-1200x630.jpg) -->
-  <meta property="og:title" content="Vicenza Residencial – Trhoncal Homes">
-  <meta property="og:description" content="Prototipos Padua y Capri. Agenda visita y cotización.">
-  <meta property="og:image" content="/desarrollos/vicenza/assets/og-1200x630.jpg">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-
+  <link rel="preload" as="image" imagesrcset="assets/hero-1600.webp 1x, assets/hero-3200.webp 2x" imagesizes="100vw" href="assets/hero-1600.jpg">
   <style>
-    :root{ --gold:#C9A227; --dark:#0f172a; --muted:#475569; --bg:#ffffff; --light:#f8fafc; }
-    *{box-sizing:border-box}
-    body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;background:var(--bg);color:var(--dark)}
-    a{color:inherit;text-decoration:none}
-    img{max-width:100%;display:block}
+    :root{--gold:#C9A227;--dark:#0f172a;--muted:#475569;--bg:#fff;--light:#f8fafc}
+    *{box-sizing:border-box} body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;color:var(--dark)}
+    a{color:inherit;text-decoration:none} img{max-width:100%;display:block}
     .container{max-width:1100px;margin:0 auto;padding:0 20px}
     .btn{display:inline-block;padding:12px 20px;border-radius:999px;border:1px solid var(--gold);font-weight:600}
-    .btn.primary{background:var(--gold);color:#fff;border-color:var(--gold)}
-    .btn.ghost{background:transparent;color:var(--gold)}
+    .btn.primary{background:var(--gold);color:#fff;border-color:var(--gold)} .btn.ghost{background:transparent;color:var(--gold)}
     header{position:sticky;top:0;background:rgba(255,255,255,.95);backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid #e2e8f0;z-index:50}
     header .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
-    nav a{margin-left:18px;color:var(--muted)}
-    .logo-img{height:50px}
+    nav a{margin-left:18px;color:var(--muted)} .logo-img{height:50px}
     .breadcrumb{font-size:14px;color:var(--muted);padding:10px 0}
-
-    /* HERO con image-set (WebP + JPG y retina) */
     .hero{position:relative;min-height:420px;display:grid;align-items:end;padding:28px 0;color:#fff}
-    @media (max-width:640px){.hero{min-height:340px}}
-    .hero::before{
-      content:"";
-      position:absolute; inset:0; z-index:-1;
-      background:
-        linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.55)),
-        image-set(
-          url('/desarrollos/vicenza/assets/hero-1600.webp') type('image/webp') 1x,
-          url('/desarrollos/vicenza/assets/hero-3200.webp') type('image/webp') 2x,
-          url('/desarrollos/vicenza/assets/hero-1600.jpg') type('image/jpeg') 1x,
-          url('/desarrollos/vicenza/assets/hero-3200.jpg') type('image/jpeg') 2x
-        );
-      background-size:cover; background-position:center; background-repeat:no-repeat; background-color:#cbd5e1;
-    }
-    .hero > .container{position:relative}
-    .hero h1{font-size:clamp(28px,5vw,46px);line-height:1.1;margin:0 0 10px}
-    .hero p{margin:0 0 16px;color:#e5e7eb}
-
+    @media(max-width:640px){.hero{min-height:340px}}
+    .hero::before{content:"";position:absolute;inset:0;z-index:-1;background:
+      linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.55)),
+      image-set(url('assets/hero-1600.webp') type('image/webp') 1x,url('assets/hero-3200.webp') type('image/webp') 2x,url('assets/hero-1600.jpg') type('image/jpeg') 1x,url('assets/hero-3200.jpg') type('image/jpeg') 2x);
+      background-size:cover;background-position:center;background-repeat:no-repeat;background-color:#cbd5e1}
+    .hero>.container{position:relative}
+    .hero h1{font-size:clamp(28px,5vw,46px);line-height:1.1;margin:0 0 10px} .hero p{margin:0 0 16px;color:#e5e7eb}
     .badges{display:flex;flex-wrap:wrap;gap:10px;margin:10px 0 22px}
     .badge{padding:8px 12px;border:1px solid #e2e8f0;border-radius:999px;background:rgba(255,255,255,.9);color:#111}
-
-    .section{padding:42px 0}
-    .section h2{font-size:clamp(22px,4vw,32px);margin:0 0 14px}
-    .grid{display:grid;gap:16px}
-    @media(min-width:900px){.grid.cols-2{grid-template-columns:1fr 1fr}}
-
+    .section{padding:42px 0} .section h2{font-size:clamp(22px,4vw,32px);margin:0 0 14px}
+    .grid{display:grid;gap:16px}@media(min-width:900px){.grid.cols-2{grid-template-columns:1fr 1fr}}
     .cards{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
     .card{grid-column:span 12;background:#fff;border:1px solid #e2e8f0;border-radius:16px;overflow:hidden;box-shadow:0 8px 22px rgba(0,0,0,.04)}
-    .card img{width:100%;height:200px;object-fit:cover;background:#e2e8f0}
-    .card .p{padding:14px}
-    .card h3{margin:0 0 6px;font-size:18px}
+    .card img{width:100%;height:200px;object-fit:cover;background:#e2e8f0} .card .p{padding:14px} .card h3{margin:0 0 6px;font-size:18px}
     .meta{color:var(--muted);font-size:14px;margin-bottom:10px}
-    @media(min-width:700px){.card{grid-column:span 6}}
-    @media(min-width:1000px){.card{grid-column:span 4}}
-
-    .icon-list{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
-    @media(min-width:700px){.icon-list{grid-template-columns:repeat(3,1fr)}}
-    .icon-item{display:flex;align-items:center;gap:10px;border:1px solid #e2e8f0;border-radius:12px;padding:10px;background:#fff}
-
-    .map{width:100%;height:360px;border:1px solid #e2e8f0;border-radius:16px;overflow:hidden}
-    .faq details{border:1px solid #e2e8f0;border-radius:12px;padding:12px;background:#fff}
-    .faq details+details{margin-top:10px}
+    @media(min-width:700px){.card{grid-column:span 6}} @media(min-width:1000px){.card{grid-column:span 4}}
     footer{padding:32px 0;color:var(--muted)}
     .wa-float{position:fixed;right:18px;bottom:18px;background:#25D366;color:#fff;padding:14px 16px;border-radius:999px;box-shadow:0 8px 22px rgba(0,0,0,.18);font-weight:800;z-index:60}
     .sticky-cta{position:sticky;bottom:0;background:#fff;border-top:1px solid #e2e8f0;padding:10px;display:flex;gap:10px;justify-content:center}
@@ -88,148 +43,77 @@
 <body>
   <header>
     <div class="container wrap">
-      <!-- Logo compartido -->
-      <div class="logo"><img class="logo-img" src="/desarrollos/assets/logo-trhoncal-flat.png" alt="Trhoncal Homes" /></div>
-      <nav>
-        <a href="/">Inicio</a>
-        <a href="/catalogo-devs.html">Desarrollos</a>
-        <a href="#contacto">Contacto</a>
-      </nav>
+      <div class="logo"><img class="logo-img" src="assets/logo-trhoncal-flat.png" alt="Trhoncal Homes" /></div>
+      <nav><a href="/">Inicio</a><a href="/catalogo-devs.html">Desarrollos</a><a href="#contacto">Contacto</a></nav>
     </div>
   </header>
 
   <main>
-    <div class="container breadcrumb">Inicio ▸ Desarrollos ▸ <strong>Vicenza Residencial</strong></div>
-
+    <div class="container breadcrumb">Inicio ▸ Desarrollos ▸ <strong>Vicenza</strong></div>
     <section class="hero">
       <div class="container">
-        <h1>Vicenza Residencial</h1>
-        <p>Viviendas pensadas para tu familia, con amenidades y conectividad.</p>
-        <div class="badges">
-          <div class="badge">Ubicación: Zona Metropolitana de Guadalajara</div>
-          <div class="badge">Desde <strong>$3,200,000</strong></div>
-          <div class="badge">2–3 recámaras</div>
-          <div class="badge">Amenidades destacadas</div>
-        </div>
-        <div class="cta-bar">
-          <a class="btn primary" href="#contacto">Solicitar información</a>
-          <a class="btn ghost" href="#modelos">Ver modelos</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container grid cols-2">
-        <div>
-          <h2>Resumen del desarrollo</h2>
-          <p class="meta">Vicenza Residencial ofrece prototipos <strong>Padua</strong> y <strong>Capri</strong>. Agenda visita para conocer disponibilidad y precios vigentes.</p>
-        </div>
-        <div>
-          <h2>Amenidades</h2>
-          <div class="icon-list">
-            <div class="icon-item">🏊 Alberca</div>
-            <div class="icon-item">🏋️ Gimnasio</div>
-            <div class="icon-item">🌳 Áreas verdes</div>
-            <div class="icon-item">👨‍👩‍👧‍👦 Juegos infantiles</div>
-            <div class="icon-item">🔥 Asadores</div>
-            <div class="icon-item">🛡️ Acceso controlado</div>
-          </div>
-          <p class="meta" style="margin-top:8px">*Las amenidades pueden variar según etapa y disponibilidad.</p>
-        </div>
+        <h1>Vicenza</h1>
+        <p>Casas con estética moderna y espacios bien pensados.</p>
+        <div class="badges"><div class="badge">ZMG</div><div class="badge">Desde <strong>$3,200,000</strong></div><div class="badge">2–3 recámaras</div><div class="badge">Acceso controlado</div></div>
+        <div class="cta-bar"><a class="btn primary" href="#contacto">Solicitar información</a><a class="btn ghost" href="#modelos">Ver modelos</a></div>
       </div>
     </section>
 
     <section id="modelos" class="section">
       <div class="container">
-        <h2>Prototipos</h2>
+        <h2>Modelos disponibles</h2>
         <div class="cards">
-
           <article class="card">
-            <img src="/desarrollos/vicenza/assets/padua.jpg" alt="Padua" />
-            <div class="p">
-              <h3>Padua</h3>
-              <div class="meta">Distribución funcional</div>
-              <div style="display:flex;align-items:center;justify-content:space-between">
-                <span>Desde <strong>$3,200,000</strong></span>
-                <a class="btn" href="#contacto" data-model="Padua">Solicitar ficha</a>
-              </div>
+            <img src="assets/padua.jpg" alt="Padua" />
+            <div class="p"><h3>Padua</h3><div class="meta">Distribución funcional</div>
+              <div style="display:flex;justify-content:space-between"><span>Desde <strong>$3,200,000</strong></span><a class="btn" href="#contacto" data-model="Padua">Ficha</a></div>
             </div>
           </article>
-
           <article class="card">
-            <img src="/desarrollos/vicenza/assets/capri.jpg" alt="Capri" />
-            <div class="p">
-              <h3>Capri</h3>
-              <div class="meta">Excelente relación m²/precio</div>
-              <div style="display:flex;align-items:center;justify-content:space-between">
-                <span>Desde <strong>$3,200,000</strong></span>
-                <a class="btn" href="#contacto" data-model="Capri">Solicitar ficha</a>
-              </div>
+            <img src="assets/capri.jpg" alt="Capri" />
+            <div class="p"><h3>Capri</h3><div class="meta">Excelente relación m²/precio</div>
+              <div style="display:flex;justify-content:space-between"><span>Desde <strong>$3,200,000</strong></span><a class="btn" href="#contacto" data-model="Capri">Ficha</a></div>
             </div>
           </article>
-
         </div>
       </div>
     </section>
 
     <section id="contacto" class="section" style="border-top:1px solid #e2e8f0">
       <div class="container">
-        <h2>Solicita información de Vicenza Residencial</h2>
-        <p class="meta">Déjanos tus datos y un asesor te escribe por WhatsApp. Tiempo de respuesta habitual: 5–15 minutos.</p>
+        <h2>Solicita información de Vicenza</h2>
+        <p class="meta">Déjanos tus datos y un asesor te escribe por WhatsApp.</p>
         <form onsubmit="return handleSubmit(event)">
-          <input type="hidden" name="desarrollo" value="Vicenza Residencial" />
+          <input type="hidden" name="desarrollo" value="Vicenza" />
           <div class="grid cols-2">
-            <div>
-              <label>Nombre completo</label>
-              <input required name="nombre" placeholder="Tu nombre" />
-            </div>
-            <div>
-              <label>WhatsApp</label>
-              <input required name="whatsapp" placeholder="Ej. 33 3724 1151" />
-            </div>
+            <div><label>Nombre completo</label><input required name="nombre" placeholder="Tu nombre" /></div>
+            <div><label>WhatsApp</label><input required name="whatsapp" placeholder="Ej. 33 3724 1151" /></div>
           </div>
-          <div>
-            <label>Mensaje</label>
-            <textarea name="mensaje" rows="4" placeholder="Cuéntanos qué buscas..."></textarea>
-          </div>
+          <div><label>Mensaje</label><textarea name="mensaje" rows="4" placeholder="Cuéntanos qué buscas..."></textarea></div>
           <div class="cta-bar" style="display:flex;gap:10px;flex-wrap:wrap">
             <button class="btn primary" type="submit">Enviar y hablar por WhatsApp</button>
-            <a class="btn" href="https://wa.me/523337241151?text=Hola%20Trhoncal%20Homes%2C%20me%20interesa%20Vicenza%20Residencial" target="_blank" rel="noopener">Escribir directo</a>
+            <a class="btn" target="_blank" rel="noopener" href="https://wa.me/523337241151?text=Hola%20Trhoncal%20Homes%2C%20me%20interesa%20Vicenza">Escribir directo</a>
           </div>
           <p id="form-msg" style="margin:10px 0 0;display:none"></p>
         </form>
       </div>
     </section>
 
-    <div class="sticky-cta">
-      <a class="btn primary" href="#contacto">Solicitar información</a>
-      <a class="btn ghost" href="#modelos">Ver modelos</a>
-    </div>
+    <div class="sticky-cta"><a class="btn primary" href="#contacto">Solicitar información</a><a class="btn ghost" href="#modelos">Ver modelos</a></div>
   </main>
 
   <footer>
-    <div class="container">
-      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:space-between">
-        <small>© <span id="year"></span> Trhoncal Homes. TR + HON + CAL.</small>
-        <small>Privacidad · Términos · Aviso legal</small>
-      </div>
-    </div>
+    <div class="container"><div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:space-between">
+      <small>© <span id="year"></span> Trhoncal Homes. TR + HON + CAL.</small><small>Privacidad · Términos · Aviso legal</small>
+    </div></div>
   </footer>
-
-  <a class="wa-float" href="https://wa.me/523337241151?text=Hola%20Trhoncal%20Homes%2C%20me%20interesa%20Vicenza%20Residencial" target="_blank" rel="noopener">WhatsApp</a>
-
+  <a class="wa-float" target="_blank" rel="noopener" href="https://wa.me/523337241151?text=Hola%20Trhoncal%20Homes%2C%20me%20interesa%20Vicenza">WhatsApp</a>
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-    function handleSubmit(e){
-      e.preventDefault();
-      const data = Object.fromEntries(new FormData(e.target).entries());
-      const msg = `Hola Trhoncal Homes, me interesa Vicenza Residencial. Soy ${encodeURIComponent(data.nombre)}. Mi WhatsApp es ${encodeURIComponent(data.whatsapp)}. ${encodeURIComponent(data.mensaje || '')}`;
-      const wa = `https://wa.me/523337241151?text=${encodeURIComponent(msg)}`;
-      const p = document.getElementById('form-msg');
-      p.style.display='block'; p.textContent='Abriendo WhatsApp...';
-      window.open(wa,'_blank');
-      return false;
-    }
+    document.getElementById('year').textContent=new Date().getFullYear();
+    function handleSubmit(e){e.preventDefault();const d=Object.fromEntries(new FormData(e.target).entries());
+      const msg=`Hola Trhoncal Homes, me interesa ${encodeURIComponent(d.desarrollo||'Vicenza')}. Soy ${encodeURIComponent(d.nombre)}. Mi WhatsApp es ${encodeURIComponent(d.whatsapp)}. ${encodeURIComponent(d.mensaje||'')}`;
+      window.open(`https://wa.me/523337241151?text=${msg}`,'_blank');
+      const p=document.getElementById('form-msg');p.style.display='block';p.textContent='Abriendo WhatsApp...';return false;}
   </script>
 </body>
 </html>
