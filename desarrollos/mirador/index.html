@@ -23,7 +23,11 @@
     header .wrap{display:flex;align-items:center;justify-content:space-between;height:auto;min-height:calc(var(--logo-h) + var(--header-pad)*2);padding:var(--header-pad) 0;gap:16px}
     nav a{margin-left:18px;color:var(--muted)}
     .logo-img{height:var(--logo-h);display:block}
-    @media (max-width:768px){ header nav{display:none} header .wrap{justify-content:center} .logo{margin:0 auto} }
+    @media (max-width:768px){
+      header nav{display:none}
+      header .wrap{justify-content:center}
+      .logo{margin:0 auto}
+    }
 
     .breadcrumb{font-size:14px;color:var(--muted);padding:10px 0}
     .hero{position:relative;min-height:420px;display:grid;align-items:end;padding:28px 0;color:#fff}
@@ -292,7 +296,7 @@
       dl.innerHTML = (values||[]).map(v=>`<option value="${v}"></option>`).join('');
     }
 
-    // Envío a Google Sheets (Apps Script) con columnas: Fecha, Nombre, WhatsApp, Correo, Desarrollo, Mensaje
+    // Envío a Google Sheets (Apps Script): Fecha, Nombre, WhatsApp, Correo, Desarrollo, Mensaje
     function sendToSheet(d){
       const payload = {
         nombre:     buildFullName(d),
@@ -332,8 +336,7 @@
       el.addEventListener('click', e=>{ e.preventDefault(); handleSend(); });
     });
 
-    /* === AUTOPRUEBA: escribe una fila (TEST) una sola vez por navegador
-          Forzar con ?test=1  ============================================ */
+    /* === AUTOPRUEBA (una vez por navegador). Forzar con ?test=1 ====== */
     (function autoProbe(){
       const qs = new URLSearchParams(location.search);
       const ONCE_KEY = 'sheet_autotest_' + btoa(SCRIPT_URL).slice(0,8);
@@ -341,13 +344,7 @@
       if(!shouldRun) return;
 
       const desarrollo = document.getElementById('desarrollo')?.value || document.querySelector('h1')?.textContent.trim() || '';
-      const payload = {
-        nombre: '(TEST) Conexión OK',
-        whatsapp: '',
-        email: '',
-        desarrollo,
-        mensaje: 'Autoprueba ' + new Date().toISOString()
-      };
+      const payload = { nombre:'(TEST) Conexión OK', whatsapp:'', email:'', desarrollo, mensaje:'Autoprueba '+new Date().toISOString() };
       const body = new Blob([JSON.stringify(payload)], {type:'application/json'});
       if(!(navigator.sendBeacon && navigator.sendBeacon(SCRIPT_URL, body))){
         fetch(SCRIPT_URL, {method:'POST', headers:{'Content-Type':'application/json'}, body, mode:'no-cors'}).catch(()=>{});
@@ -355,23 +352,18 @@
       localStorage.setItem(ONCE_KEY, String(Date.now()));
     })();
 
-    /* === REGISTRO DE VISITA: una por sesión =========================== */
+    /* === REGISTRO DE VISITA (una por sesión) ======================== */
     (function logView(){
       const onceKey = 'view_' + btoa(location.pathname).slice(0,8);
-      if (sessionStorage.getItem(onceKey)) return; // una por sesión/navegador
+      if (sessionStorage.getItem(onceKey)) return;
       sessionStorage.setItem(onceKey, '1');
 
       const desarrollo = document.getElementById('desarrollo')?.value
                       || document.querySelector('h1')?.textContent.trim()
                       || '';
       const payload = {
-        nombre: '(VIEW)',
-        whatsapp: '',
-        email: '',
-        desarrollo,
-        mensaje: 'Vista ' + new Date().toISOString()
-               + ' | ref: ' + (document.referrer || '-')
-               + ' | q: ' + (location.search || '-')
+        nombre:'(VIEW)', whatsapp:'', email:'', desarrollo,
+        mensaje:'Vista '+new Date().toISOString()+' | ref: '+(document.referrer||'-')+' | q: '+(location.search||'-')
       };
       const body = new Blob([JSON.stringify(payload)], {type:'application/json'});
       if (!(navigator.sendBeacon && navigator.sendBeacon(SCRIPT_URL, body))) {
