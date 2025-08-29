@@ -44,7 +44,6 @@
     .section h2{font-size:clamp(22px,4vw,32px);margin:0 0 14px}
     .grid{display:grid;gap:16px}
     @media(min-width:900px){.grid.cols-2{grid-template-columns:1fr 1fr}}
-    .grid .full{grid-column:span 2}
     .cards{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
     .card{grid-column:span 12;background:#fff;border:1px solid #e2e8f0;border-radius:16px;overflow:hidden;box-shadow:0 8px 22px rgba(0,0,0,.04)}
     .card img{width:100%;height:200px;object-fit:cover;background:#e2e8f0}
@@ -58,4 +57,280 @@
     .icon-item{display:flex;align-items:center;gap:10px;border:1px solid #e2e8f0;border-radius:12px;padding:10px;background:#fff}
     footer{padding:32px 0;color:var(--muted)}
     .wa-float{position:fixed;right:18px;bottom:18px;background:#25D366;color:#fff;padding:14px 16px;border-radius:999px;box-shadow:0 8px 22px rgba(0,0,0,.18);font-weight:800;z-index:60}
-    .sticky-cta{position:sticky;bottom:0;background:#fff;border-top:1px solid #e2e8f
+    .sticky-cta{position:sticky;bottom:0;background:#fff;border-top:1px solid #e2e8f0;padding:10px;display:flex;gap:10px;justify-content:center}
+
+    form label{display:block;margin:0 0 6px;font-weight:600}
+    form input,form textarea{width:100%;display:block;padding:12px 14px;border:1px solid #e2e8f0;border-radius:10px;font-size:16px;outline:0;background:#fff}
+    form input:focus,form textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,162,39,.15)}
+    .grid.cols-2>div{display:flex;flex-direction:column;gap:6px}
+    @media(max-width:899px){.grid.cols-2{grid-template-columns:1fr}}
+    .is-hidden{display:none!important}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container wrap">
+      <div class="logo"><img class="logo-img" src="assets/logo-trhoncal-flat.png" alt="Trhoncal Homes" /></div>
+      <nav><a href="/">Inicio</a><a href="/catalogo-devs.html">Desarrollos</a><a href="#contacto">Contacto</a></nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container breadcrumb">Inicio ▸ Desarrollos ▸ <strong>Mirador del Bosque</strong></div>
+
+    <section class="hero">
+      <div class="container">
+        <h1>Mirador del Bosque</h1>
+        <p>Vive al norte de Zapopan con conexión a servicios y naturaleza.</p>
+        <div class="badges">
+          <div class="badge">Ubicación: Zapopan</div>
+          <div class="badge">Desde <strong>$699,000</strong></div>
+          <div class="badge">2 recámaras</div>
+          <div class="badge">Amenidades destacadas</div>
+        </div>
+        <div class="cta-bar">
+          <a id="hero-send" class="btn whatsapp" href="#">Solicitar información por WhatsApp</a>
+          <a id="hero-ficha" class="btn whatsapp" href="#">Solicitar ficha</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container grid cols-2">
+        <div>
+          <h2>Resumen</h2>
+          <p class="meta">Prototipos <strong>Nardo</strong> y <strong>Oliva</strong>. Agenda visita para conocer disponibilidad y precios vigentes.</p>
+        </div>
+        <div>
+          <h2>Amenidades</h2>
+          <div class="icon-list">
+            <div class="icon-item">🌳 Áreas verdes</div>
+            <div class="icon-item">🛡️ Acceso controlado</div>
+            <div class="icon-item">👨‍👩‍👧‍👦 Juegos infantiles</div>
+            <div class="icon-item">🔥 Asadores</div>
+            <div class="icon-item">🏊 Alberca "Algunos desarrollos"</div>
+            <div class="icon-item">🏋️ Gimnasio</div>
+          </div>
+          <p class="meta" style="margin-top:8px">*Puede variar por etapa y disponibilidad.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="modelos" class="section">
+      <div class="container">
+        <h2>Prototipos</h2>
+        <div class="cards">
+          <article class="card">
+            <img src="assets/nardo.jpg" alt="Nardo" />
+            <div class="p">
+              <h3>Nardo</h3>
+              <div class="meta">2 recámaras</div>
+              <div style="display:flex;align-items:center;justify-content:space-between">
+                <span>Desde <strong>$699,000</strong></span>
+                <a class="btn" href="#contacto" data-model="Nardo">Solicitar ficha</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <img src="assets/oliva.jpg" alt="Oliva" />
+            <div class="p">
+              <h3>Oliva</h3>
+              <div class="meta">2 recámaras</div>
+              <div style="display:flex;align-items:center;justify-content:space-between">
+                <span>Desde <strong>$754,000</strong></span>
+                <a class="btn" href="#contacto" data-model="Oliva">Solicitar ficha</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto" class="section" style="border-top:1px solid #e2e8f0">
+      <div class="container">
+        <h2>Solicita información de Mirador del Bosque</h2>
+        <p class="meta">Déjanos tus datos y un asesor te escribe por WhatsApp.</p>
+
+        <form id="lead-form" autocomplete="on">
+          <input type="hidden" id="desarrollo" name="desarrollo" value="Mirador del Bosque" />
+
+          <div class="grid cols-2">
+            <div>
+              <label for="nombre">Nombre(s)</label>
+              <input id="nombre" name="nombre" required placeholder="Tu nombre"
+                     autocomplete="given-name" autocapitalize="words" list="dl-nombres"/>
+            </div>
+
+            <div>
+              <label for="whatsapp">WhatsApp</label>
+              <input id="whatsapp" name="whatsapp" required type="tel" inputmode="tel"
+                     autocomplete="tel" placeholder="Ej. 33 2933 5952" list="dl-phones"/>
+            </div>
+
+            <div>
+              <label for="ap_paterno">Apellido paterno</label>
+              <input id="ap_paterno" name="ap_paterno" required placeholder="Tu primer apellido"
+                     autocomplete="family-name" />
+            </div>
+
+            <div>
+              <label for="ap_materno">Apellido materno</label>
+              <input id="ap_materno" name="ap_materno" required placeholder="Tu segundo apellido"
+                     autocomplete="additional-name" />
+            </div>
+
+            <div style="grid-column:1/-1">
+              <label for="correo">Correo electrónico</label>
+              <input id="correo" name="correo" required type="email"
+                     autocomplete="email" spellcheck="false" placeholder="tu@correo.com" />
+            </div>
+          </div>
+
+          <div>
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" rows="4" placeholder="Cuéntanos qué buscas..."></textarea>
+          </div>
+
+          <div class="cta-bar" style="display:flex;gap:10px;flex-wrap:wrap">
+            <a id="send-wa" class="btn whatsapp" href="#">Solicitar información por WhatsApp</a>
+          </div>
+
+          <p id="form-msg" style="margin:10px 0 0;display:none"></p>
+        </form>
+      </div>
+    </section>
+
+    <div class="sticky-cta">
+      <a id="sticky-send" class="btn whatsapp is-hidden" href="#">Solicitar información por WhatsApp</a>
+      <a id="sticky-ficha" class="btn whatsapp" href="#">Solicitar ficha</a>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:space-between">
+        <small>© <span id="year"></span> Trhoncal Homes. TR + HON + CAL.</small>
+        <small>Privacidad · Términos · Aviso legal</small>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Botón flotante: OCULTO, no borrado -->
+  <a class="wa-float is-hidden" target="_blank" rel="noopener"
+     href="https://wa.me/523329335952?text=Hola%20Trhoncal%20Homes%2C%20me%20interesa%20Mirador%20del%20Bosque">WhatsApp</a>
+
+  <!-- datalists de sugerencias -->
+  <datalist id="dl-nombres"></datalist>
+  <datalist id="dl-phones"></datalist>
+
+  <script>
+    /* ===== CONFIG ===== */
+    const WA_DEST   = "523329335952"; // +52 332 933 5952
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxI401Elzx8NTYSYMK4D69ya-rSkjgfqM0UbEGtSLoqWHQ3FxY-Ihc0AhKuLdE58WuD/exec";
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // nombre del desarrollo desde el H1
+    (function(){
+      const h1 = document.querySelector('h1');
+      const input = document.getElementById('desarrollo');
+      if(h1 && input) input.value = h1.textContent.trim();
+    })();
+
+    /* ===== Prefill (URL + localStorage) y SUGERENCIAS con datalist ===== */
+    (function(){
+      const form = document.getElementById('lead-form');
+      const fields = ['nombre','ap_paterno','ap_materno','whatsapp','correo','mensaje'];
+      const qs = new URLSearchParams(location.search);
+      const alias = (k) => {
+        if(k==='whatsapp') return qs.get('whatsapp')||qs.get('telefono')||qs.get('phone')||'';
+        if(k==='correo')   return qs.get('correo')  ||qs.get('email')   ||'';
+        if(k==='ap_paterno') return qs.get('ap_paterno')||qs.get('apellido_paterno')||qs.get('apaterno')||'';
+        if(k==='ap_materno') return qs.get('ap_materno')||qs.get('apellido_materno')||qs.get('amaterno')||'';
+        return qs.get(k)||'';
+      };
+      fields.forEach(f=>{
+        const el = form.elements[f];
+        if(!el) return;
+        el.value = alias(f) || localStorage.getItem('lead_'+f) || el.value || '';
+        el.addEventListener('input',()=>localStorage.setItem('lead_'+f, el.value));
+      });
+
+      // datalists con historial local (10 últimos)
+      populateDatalist('dl-nombres', loadHistory('hist_names'));
+      populateDatalist('dl-phones',  loadHistory('hist_phones'));
+    })();
+
+    /* ===== Helpers ===== */
+    const onlyDigits = s => (s||'').replace(/\D+/g,'');
+    const trimJoin = arr => arr.filter(Boolean).map(v=>String(v).trim()).filter(Boolean).join(' ');
+    function buildFullName(d){ return trimJoin([d.nombre, d.ap_paterno, d.ap_materno]); }
+    function buildMsg(d){
+      const tel = onlyDigits(d.whatsapp) || d.whatsapp;
+      return `Hola Trhoncal Homes, me interesa ${d.desarrollo||'el desarrollo'}. ` +
+             `Soy ${buildFullName(d)}. ` +
+             `Mi correo es ${d.correo}. ` +
+             `Mi WhatsApp es ${tel}.` +
+             (d.mensaje ? ` ${d.mensaje}` : '');
+    }
+    function goWA(d){
+      const url = `https://wa.me/${WA_DEST}?text=${encodeURIComponent(buildMsg(d))}`;
+      window.location.href = url;
+    }
+    function data(form){ return Object.fromEntries(new FormData(form).entries()); }
+
+    // Historial para datalists
+    function loadHistory(key){ try{return JSON.parse(localStorage.getItem(key)||'[]')}catch{return[]} }
+    function saveHistory(key, value){
+      value = (value||'').trim(); if(!value) return;
+      let arr = loadHistory(key);
+      arr = [value, ...arr.filter(v=>v!==value)].slice(0,10);
+      localStorage.setItem(key, JSON.stringify(arr));
+    }
+    function populateDatalist(id, values){
+      const dl = document.getElementById(id);
+      dl.innerHTML = (values||[]).map(v=>`<option value="${v}"></option>`).join('');
+    }
+
+    // Envío a Google Sheets (Apps Script) con columnas: Fecha, Nombre, WhatsApp, Correo, Desarrollo, Mensaje
+    function sendToSheet(d){
+      const payload = {
+        nombre:     buildFullName(d),
+        whatsapp:   d.whatsapp || "",
+        email:      d.correo || "",
+        desarrollo: d.desarrollo || "",
+        mensaje:    d.mensaje || ""
+      };
+      // sendBeacon -> no bloquea la navegación a WhatsApp
+      const body = new Blob([JSON.stringify(payload)], {type:'application/json'});
+      if(!(navigator.sendBeacon && navigator.sendBeacon(SCRIPT_URL, body))){
+        fetch(SCRIPT_URL, {method:'POST', headers:{'Content-Type':'application/json'}, body, mode:'no-cors'}).catch(()=>{});
+      }
+    }
+
+    // Clicks (todos hacen lo mismo)
+    const form = document.getElementById('lead-form');
+    function gather(){ return data(form); }
+    function handleSend(){
+      if(!form.reportValidity()){
+        form.scrollIntoView({behavior:'smooth',block:'start'});
+        return;
+      }
+      const d = gather();
+      // guarda historial para datalist
+      saveHistory('hist_names', buildFullName(d));
+      saveHistory('hist_phones', onlyDigits(d.whatsapp)||d.whatsapp);
+      populateDatalist('dl-nombres', loadHistory('hist_names'));
+      populateDatalist('dl-phones',  loadHistory('hist_phones'));
+      // sheets + WhatsApp
+      sendToSheet(d);
+      goWA(d);
+    }
+    ['send-wa','sticky-ficha','hero-send','hero-ficha'].forEach(id=>{
+      const el = document.getElementById(id);
+      if(!el) return;
+      el.addEventListener('click', e=>{ e.preventDefault(); handleSend(); });
+    });
+  </script>
+</body>
+</html>
