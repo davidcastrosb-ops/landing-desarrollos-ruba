@@ -54,6 +54,46 @@
   body.nav-on header nav{ display:flex; gap:18px; }
   body.nav-on header .wrap{ justify-content:space-between; }
 }
+/* FORM: alinear y unificar campos */
+form label{
+  display:block;
+  margin:0 0 6px;
+  font-weight:600;
+}
+
+form input,
+form textarea,
+form select{
+  width:100%;
+  display:block;
+  padding:12px 14px;
+  border:1px solid #e2e8f0;
+  border-radius:10px;
+  font-size:16px;
+  outline:0;
+  background:#fff;
+}
+
+form input:focus,
+form textarea:focus{
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(201,162,39,.15);
+}
+
+/* Estructura vertical dentro de cada celda del grid */
+.grid.cols-2 > div{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+
+/* Por si algún navegador hace overflow con textarea */
+form textarea{ min-width:0; }
+
+/* Asegura una sola columna en móvil (por debajo de 900px ya aplica, pero reforzamos) */
+@media (max-width: 899px){
+  .grid.cols-2{ grid-template-columns:1fr; }
+}
 
 
   </style>
