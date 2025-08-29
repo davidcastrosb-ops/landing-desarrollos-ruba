@@ -226,7 +226,7 @@
 
   <script>
     /* ===== CONFIG ===== */
-    const WA_DEST   = "523329335952"; // +52 332 933 5952
+    const WA_DEST    = "523329335952"; // +52 332 933 5952
     const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxI401Elzx8NTYSYMK4D69ya-rSkjgfqM0UbEGtSLoqWHQ3FxY-Ihc0AhKuLdE58WuD/exec";
     document.getElementById('year').textContent = new Date().getFullYear();
 
@@ -331,6 +331,53 @@
       if(!el) return;
       el.addEventListener('click', e=>{ e.preventDefault(); handleSend(); });
     });
+
+    /* === AUTOPRUEBA: escribe una fila (TEST) una sola vez por navegador
+          Forzar con ?test=1  ============================================ */
+    (function autoProbe(){
+      const qs = new URLSearchParams(location.search);
+      const ONCE_KEY = 'sheet_autotest_' + btoa(SCRIPT_URL).slice(0,8);
+      const shouldRun = qs.get('test') === '1' || !localStorage.getItem(ONCE_KEY);
+      if(!shouldRun) return;
+
+      const desarrollo = document.getElementById('desarrollo')?.value || document.querySelector('h1')?.textContent.trim() || '';
+      const payload = {
+        nombre: '(TEST) Conexión OK',
+        whatsapp: '',
+        email: '',
+        desarrollo,
+        mensaje: 'Autoprueba ' + new Date().toISOString()
+      };
+      const body = new Blob([JSON.stringify(payload)], {type:'application/json'});
+      if(!(navigator.sendBeacon && navigator.sendBeacon(SCRIPT_URL, body))){
+        fetch(SCRIPT_URL, {method:'POST', headers:{'Content-Type':'application/json'}, body, mode:'no-cors'}).catch(()=>{});
+      }
+      localStorage.setItem(ONCE_KEY, String(Date.now()));
+    })();
+
+    /* === REGISTRO DE VISITA: una por sesión =========================== */
+    (function logView(){
+      const onceKey = 'view_' + btoa(location.pathname).slice(0,8);
+      if (sessionStorage.getItem(onceKey)) return; // una por sesión/navegador
+      sessionStorage.setItem(onceKey, '1');
+
+      const desarrollo = document.getElementById('desarrollo')?.value
+                      || document.querySelector('h1')?.textContent.trim()
+                      || '';
+      const payload = {
+        nombre: '(VIEW)',
+        whatsapp: '',
+        email: '',
+        desarrollo,
+        mensaje: 'Vista ' + new Date().toISOString()
+               + ' | ref: ' + (document.referrer || '-')
+               + ' | q: ' + (location.search || '-')
+      };
+      const body = new Blob([JSON.stringify(payload)], {type:'application/json'});
+      if (!(navigator.sendBeacon && navigator.sendBeacon(SCRIPT_URL, body))) {
+        fetch(SCRIPT_URL, {method:'POST', headers:{'Content-Type':'application/json'}, body, mode:'no-cors'}).catch(()=>{});
+      }
+    })();
   </script>
 </body>
 </html>
