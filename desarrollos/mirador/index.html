@@ -2,11 +2,30 @@
 <html lang="es">
 <head>
   <meta charset="utf-8" />
+  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Trhoncal Homes | Mirador del Bosque – Zapopan</title>
   <meta name="description" content="Mirador del Bosque en Zapopan. Prototipos Nardo y Oliva desde $740,000. Acompañamiento total en tu crédito." />
   <link rel="canonical" href="https://mirador.3dhomes.com.mx/"/>
-  <link rel="preload" as="image" imagesrcset="assets/hero-1600.webp 1x, assets/hero-3200.webp 2x" imagesizes="100vw" href="assets/hero-1600.jpg">
+
+  <!-- ======== VERSION para cache-busting ======== -->
+  <script>window.BUILD_VER="20250829a";</script>
+  <link rel="preload" as="image" imagesrcset="assets/hero-1600.webp?v=20250829a 1x, assets/hero-3200.webp?v=20250829a 2x" imagesizes="100vw" href="assets/hero-1600.jpg?v=20250829a">
+
+  <!-- ======== GOOGLE TAG MANAGER (GTM) ======== -->
+  <script>
+    (function(w,d,s,l,i){
+      w[l]=w[l]||[];
+      w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+      var f=d.getElementsByTagName(s)[0], j=d.createElement(s), dl=l!='dataLayer'?'&l='+l:'';
+      j.async=true; j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+      f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-5P4DVBHC'); /* <<< PON tu ID */
+  </script>
+  <!-- ======== /GTM ======== -->
+
   <style>
     :root{--gold:#C9A227;--dark:#0f172a;--muted:#475569;--bg:#fff;--light:#f8fafc;--logo-h:105px;--header-pad:12px}
     *{box-sizing:border-box}
@@ -23,22 +42,23 @@
     header .wrap{display:flex;align-items:center;justify-content:space-between;height:auto;min-height:calc(var(--logo-h) + var(--header-pad)*2);padding:var(--header-pad) 0;gap:16px}
     nav a{margin-left:18px;color:var(--muted)}
     .logo-img{height:var(--logo-h);display:block}
-    @media (max-width:768px){
-      header nav{display:none}
-      header .wrap{justify-content:center}
-      .logo{margin:0 auto}
-    }
+    @media (max-width:768px){ header nav{display:none} header .wrap{justify-content:center} .logo{margin:0 auto} }
 
     .breadcrumb{font-size:14px;color:var(--muted);padding:10px 0}
     .hero{position:relative;min-height:420px;display:grid;align-items:end;padding:28px 0;color:#fff}
     @media(max-width:640px){.hero{min-height:340px}}
-    .hero::before{content:"";position:absolute;inset:0;z-index:-1;background:
-      linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.55)),
-      image-set(url('assets/hero-1600.webp') type('image/webp') 1x,
-                url('assets/hero-3200.webp') type('image/webp') 2x,
-                url('assets/hero-1600.jpg')  type('image/jpeg') 1x,
-                url('assets/hero-3200.jpg')  type('image/jpeg') 2x);
-      background-size:cover;background-position:center;background-repeat:no-repeat;background-color:#cbd5e1}
+    .hero::before{
+      content:"";position:absolute;inset:0;z-index:-1;
+      background:
+        linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.55)),
+        image-set(
+          url('assets/hero-1600.webp?v=20250829a') type('image/webp') 1x,
+          url('assets/hero-3200.webp?v=20250829a') type('image/webp') 2x,
+          url('assets/hero-1600.jpg?v=20250829a') type('image/jpeg') 1x,
+          url('assets/hero-3200.jpg?v=20250829a') type('image/jpeg') 2x
+        );
+      background-size:cover;background-position:center;background-repeat:no-repeat;background-color:#cbd5e1
+    }
     .hero>.container{position:relative}
     .hero h1{font-size:clamp(28px,5vw,46px);line-height:1.1;margin:0 0 10px}
     .hero p{margin:0 0 16px;color:#e5e7eb}
@@ -72,9 +92,14 @@
   </style>
 </head>
 <body>
+  <!-- ======== GTM (noscript) ======== -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5P4DVBHC"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- ======== /GTM ======== -->
+
   <header>
     <div class="container wrap">
-      <div class="logo"><img class="logo-img" src="assets/logo-trhoncal-flat.png" alt="Trhoncal Homes" /></div>
+      <div class="logo"><img class="logo-img" src="assets/logo-trhoncal-flat.png?v=20250829a" alt="Trhoncal Homes" /></div>
       <nav><a href="/">Inicio</a><a href="/catalogo-devs.html">Desarrollos</a><a href="#contacto">Contacto</a></nav>
     </div>
   </header>
@@ -125,7 +150,7 @@
         <h2>Prototipos</h2>
         <div class="cards">
           <article class="card">
-            <img src="assets/nardo.jpg" alt="Nardo" />
+            <img src="assets/nardo.jpg?v=20250829a" alt="Nardo" />
             <div class="p">
               <h3>Nardo</h3>
               <div class="meta">2 recámaras</div>
@@ -137,7 +162,7 @@
           </article>
 
           <article class="card">
-            <img src="assets/oliva.jpg" alt="Oliva" />
+            <img src="assets/oliva.jpg?v=20250829a" alt="Oliva" />
             <div class="p">
               <h3>Oliva</h3>
               <div class="meta">2 recámaras</div>
@@ -220,28 +245,51 @@
     </div>
   </footer>
 
-  <!-- Botón flotante: OCULTO, no borrado -->
+  <!-- Botón flotante: OCULTO -->
   <a class="wa-float is-hidden" target="_blank" rel="noopener"
      href="https://wa.me/523329335952?text=Hola%20Trhoncal%20Homes%2C%20me%20interesa%20Mirador%20del%20Bosque">WhatsApp</a>
 
-  <!-- datalists de sugerencias -->
+  <!-- datalists -->
   <datalist id="dl-nombres"></datalist>
   <datalist id="dl-phones"></datalist>
+
+  <!-- build-stamp -->
+  <div style="position:fixed;right:8px;bottom:8px;opacity:.4;font:12px/1 ui-sans-serif;z-index:9999;background:#fff;padding:4px 6px;border-radius:6px;border:1px solid #e5e7eb">
+    build: <span id="build-tag"></span>
+  </div>
 
   <script>
     /* ===== CONFIG ===== */
     const WA_DEST    = "523329335952"; // +52 332 933 5952
     const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxI401Elzx8NTYSYMK4D69ya-rSkjgfqM0UbEGtSLoqWHQ3FxY-Ihc0AhKuLdE58WuD/exec";
+    window.SCRIPT_URL = SCRIPT_URL;
     document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('build-tag').textContent = new Date().toISOString()+" | "+(window.BUILD_VER||"dev");
 
-    // nombre del desarrollo desde el H1
+    /* Hard refresh: /?hard=1 */
     (function(){
-      const h1 = document.querySelector('h1');
-      const input = document.getElementById('desarrollo');
-      if(h1 && input) input.value = h1.textContent.trim();
+      const qs = new URLSearchParams(location.search);
+      if (qs.get('hard') === '1') {
+        (async () => {
+          try {
+            if ('serviceWorker' in navigator) {
+              const regs = await navigator.serviceWorker.getRegistrations();
+              for (const r of regs) await r.unregister();
+            }
+            if (window.caches) {
+              const keys = await caches.keys();
+              await Promise.all(keys.map(k => caches.delete(k)));
+            }
+          } catch(e) {}
+          location.replace(location.pathname + '?v=' + (window.BUILD_VER||Date.now()));
+        })();
+      }
     })();
 
-    /* ===== Prefill (URL + localStorage) y SUGERENCIAS con datalist ===== */
+    // Desarrollo desde H1
+    (function(){ const h1=document.querySelector('h1'), inp=document.getElementById('desarrollo'); if(h1&&inp) inp.value=h1.textContent.trim(); })();
+
+    /* ===== Prefill + datalists ===== */
     (function(){
       const form = document.getElementById('lead-form');
       const fields = ['nombre','ap_paterno','ap_materno','whatsapp','correo','mensaje'];
@@ -254,15 +302,23 @@
         return qs.get(k)||'';
       };
       fields.forEach(f=>{
-        const el = form.elements[f];
-        if(!el) return;
+        const el=form.elements[f]; if(!el) return;
         el.value = alias(f) || localStorage.getItem('lead_'+f) || el.value || '';
-        el.addEventListener('input',()=>localStorage.setItem('lead_'+f, el.value));
+        el.addEventListener('input',()=>localStorage.setItem('lead_'+f', el.value));
       });
 
-      // datalists con historial local (10 últimos)
       populateDatalist('dl-nombres', loadHistory('hist_names'));
       populateDatalist('dl-phones',  loadHistory('hist_phones'));
+
+      /* ====== GTM: page_view con metadatos ====== */
+      window.dataLayer = window.dataLayer || [];
+      dataLayer.push({
+        event: 'page_view',
+        page_path: location.pathname,
+        page_query: location.search || '',
+        referrer: document.referrer || '',
+        desarrollo: form.elements['desarrollo']?.value || ''
+      });
     })();
 
     /* ===== Helpers ===== */
@@ -272,102 +328,109 @@
     function buildMsg(d){
       const tel = onlyDigits(d.whatsapp) || d.whatsapp;
       return `Hola Trhoncal Homes, me interesa ${d.desarrollo||'el desarrollo'}. ` +
-             `Soy ${buildFullName(d)}. ` +
-             `Mi correo es ${d.correo}. ` +
-             `Mi WhatsApp es ${tel}.` +
-             (d.mensaje ? ` ${d.mensaje}` : '');
+             `Soy ${buildFullName(d)}. Mi correo es ${d.correo}. ` +
+             `Mi WhatsApp es ${tel}.` + (d.mensaje ? ` ${d.mensaje}` : '');
     }
-    function goWA(d){
-      const url = `https://wa.me/${WA_DEST}?text=${encodeURIComponent(buildMsg(d))}`;
-      window.location.href = url;
-    }
+    function goWA(d){ window.location.href = `https://wa.me/${WA_DEST}?text=${encodeURIComponent(buildMsg(d))}`; }
     function data(form){ return Object.fromEntries(new FormData(form).entries()); }
 
     // Historial para datalists
     function loadHistory(key){ try{return JSON.parse(localStorage.getItem(key)||'[]')}catch{return[]} }
     function saveHistory(key, value){
-      value = (value||'').trim(); if(!value) return;
-      let arr = loadHistory(key);
-      arr = [value, ...arr.filter(v=>v!==value)].slice(0,10);
+      value=(value||'').trim(); if(!value) return;
+      let arr=loadHistory(key); arr=[value,...arr.filter(v=>v!==value)].slice(0,10);
       localStorage.setItem(key, JSON.stringify(arr));
     }
     function populateDatalist(id, values){
-      const dl = document.getElementById(id);
-      dl.innerHTML = (values||[]).map(v=>`<option value="${v}"></option>`).join('');
+      const dl=document.getElementById(id);
+      dl.innerHTML=(values||[]).map(v=>`<option value="${v}"></option>`).join('');
     }
 
-    // Envío a Google Sheets (Apps Script): Fecha, Nombre, WhatsApp, Correo, Desarrollo, Mensaje
+    // Envío a Sheets (Fecha, Nombre, WhatsApp, Correo, Desarrollo, Mensaje)
     function sendToSheet(d){
-      const payload = {
-        nombre:     buildFullName(d),
-        whatsapp:   d.whatsapp || "",
-        email:      d.correo || "",
-        desarrollo: d.desarrollo || "",
-        mensaje:    d.mensaje || ""
-      };
-      // sendBeacon -> no bloquea la navegación a WhatsApp
+      const payload = { nombre:buildFullName(d), whatsapp:d.whatsapp||"", email:d.correo||"", desarrollo:d.desarrollo||"", mensaje:d.mensaje||"" };
       const body = new Blob([JSON.stringify(payload)], {type:'application/json'});
       if(!(navigator.sendBeacon && navigator.sendBeacon(SCRIPT_URL, body))){
-        fetch(SCRIPT_URL, {method:'POST', headers:{'Content-Type':'application/json'}, body, mode:'no-cors'}).catch(()=>{});
+        fetch(SCRIPT_URL,{method:'POST',headers:{'Content-Type':'application/json'},body,mode:'no-cors'}).catch(()=>{});
       }
     }
 
-    // Clicks (todos hacen lo mismo)
+    // Click handlers
     const form = document.getElementById('lead-form');
     function gather(){ return data(form); }
-    function handleSend(){
+
+    function trackWA(button_id, desarrollo){
+      window.dataLayer = window.dataLayer || [];
+      dataLayer.push({event:'wa_click', button_id, desarrollo});
+    }
+
+    function handleSend(button_id){
+      const desarrollo = form.elements['desarrollo']?.value || '';
+      // Click de WA (para Ads)
+      trackWA(button_id, desarrollo);
+
       if(!form.reportValidity()){
         form.scrollIntoView({behavior:'smooth',block:'start'});
         return;
       }
       const d = gather();
-      // guarda historial para datalist
+
+      // GTM: lead_submit (SIN PII)
+      const emailDomain = (d.correo||'').split('@')[1] || '';
+      const last4 = (onlyDigits(d.whatsapp)||'').slice(-4);
+      window.dataLayer = window.dataLayer || [];
+      dataLayer.push({
+        event: 'lead_submit',
+        desarrollo: d.desarrollo || '',
+        phone_last4: last4 || '(na)',
+        email_domain: emailDomain || '(na)'
+      });
+
+      // guardar historial local
       saveHistory('hist_names', buildFullName(d));
       saveHistory('hist_phones', onlyDigits(d.whatsapp)||d.whatsapp);
       populateDatalist('dl-nombres', loadHistory('hist_names'));
       populateDatalist('dl-phones',  loadHistory('hist_phones'));
-      // sheets + WhatsApp
+
+      // Sheets + WhatsApp
       sendToSheet(d);
       goWA(d);
     }
-    ['send-wa','sticky-ficha','hero-send','hero-ficha'].forEach(id=>{
-      const el = document.getElementById(id);
-      if(!el) return;
-      el.addEventListener('click', e=>{ e.preventDefault(); handleSend(); });
-    });
+
+    [['send-wa','send-wa'],['sticky-ficha','sticky-ficha'],['hero-send','hero-send'],['hero-ficha','hero-ficha']]
+      .forEach(([id,bid])=>{
+        const el=document.getElementById(id); if(!el) return;
+        el.addEventListener('click',e=>{ e.preventDefault(); handleSend(bid); });
+      });
 
     /* === AUTOPRUEBA (una vez por navegador). Forzar con ?test=1 ====== */
     (function autoProbe(){
-      const qs = new URLSearchParams(location.search);
-      const ONCE_KEY = 'sheet_autotest_' + btoa(SCRIPT_URL).slice(0,8);
-      const shouldRun = qs.get('test') === '1' || !localStorage.getItem(ONCE_KEY);
+      const qs=new URLSearchParams(location.search);
+      const ONCE_KEY='sheet_autotest_'+btoa(SCRIPT_URL).slice(0,8);
+      const shouldRun=qs.get('test')==='1'||!localStorage.getItem(ONCE_KEY);
       if(!shouldRun) return;
 
-      const desarrollo = document.getElementById('desarrollo')?.value || document.querySelector('h1')?.textContent.trim() || '';
-      const payload = { nombre:'(TEST) Conexión OK', whatsapp:'', email:'', desarrollo, mensaje:'Autoprueba '+new Date().toISOString() };
-      const body = new Blob([JSON.stringify(payload)], {type:'application/json'});
+      const desarrollo=document.getElementById('desarrollo')?.value||document.querySelector('h1')?.textContent.trim()||'';
+      const payload={ nombre:'(TEST) Conexión OK', whatsapp:'', email:'', desarrollo, mensaje:'Autoprueba '+new Date().toISOString() };
+      const body=new Blob([JSON.stringify(payload)],{type:'application/json'});
       if(!(navigator.sendBeacon && navigator.sendBeacon(SCRIPT_URL, body))){
-        fetch(SCRIPT_URL, {method:'POST', headers:{'Content-Type':'application/json'}, body, mode:'no-cors'}).catch(()=>{});
+        fetch(SCRIPT_URL,{method:'POST',headers:{'Content-Type':'application/json'},body,mode:'no-cors'}).catch(()=>{});
       }
-      localStorage.setItem(ONCE_KEY, String(Date.now()));
+      localStorage.setItem(ONCE_KEY,String(Date.now()));
     })();
 
     /* === REGISTRO DE VISITA (una por sesión) ======================== */
     (function logView(){
-      const onceKey = 'view_' + btoa(location.pathname).slice(0,8);
-      if (sessionStorage.getItem(onceKey)) return;
-      sessionStorage.setItem(onceKey, '1');
+      const onceKey='view_'+btoa(location.pathname).slice(0,8);
+      if(sessionStorage.getItem(onceKey)) return;
+      sessionStorage.setItem(onceKey,'1');
 
-      const desarrollo = document.getElementById('desarrollo')?.value
-                      || document.querySelector('h1')?.textContent.trim()
-                      || '';
-      const payload = {
-        nombre:'(VIEW)', whatsapp:'', email:'', desarrollo,
-        mensaje:'Vista '+new Date().toISOString()+' | ref: '+(document.referrer||'-')+' | q: '+(location.search||'-')
-      };
-      const body = new Blob([JSON.stringify(payload)], {type:'application/json'});
-      if (!(navigator.sendBeacon && navigator.sendBeacon(SCRIPT_URL, body))) {
-        fetch(SCRIPT_URL, {method:'POST', headers:{'Content-Type':'application/json'}, body, mode:'no-cors'}).catch(()=>{});
+      const desarrollo=document.getElementById('desarrollo')?.value||document.querySelector('h1')?.textContent.trim()||'';
+      const payload={ nombre:'(VIEW)', whatsapp:'', email:'', desarrollo,
+        mensaje:'Vista '+new Date().toISOString()+' | ref: '+(document.referrer||'-')+' | q: '+(location.search||'-') };
+      const body=new Blob([JSON.stringify(payload)],{type:'application/json'});
+      if(!(navigator.sendBeacon && navigator.sendBeacon(SCRIPT_URL, body))){
+        fetch(SCRIPT_URL,{method:'POST',headers:{'Content-Type':'application/json'},body,mode:'no-cors'}).catch(()=>{});
       }
     })();
   </script>
