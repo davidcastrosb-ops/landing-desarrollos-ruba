@@ -161,8 +161,7 @@
         <h2>Solicita información de Mirador del Bosque</h2>
         <p class="meta">Déjanos tus datos y un asesor te escribe por WhatsApp.</p>
 
-        <form onsubmit="return handleSubmit(event)" autocomplete="on">
-          <!-- Se actualiza dinámicamente con el h1 si cambias el nombre en la página -->
+        <form id="lead-form" onsubmit="return handleSubmit(event)" autocomplete="on">
           <input type="hidden" id="desarrollo" name="desarrollo" value="Mirador del Bosque" />
 
           <div class="grid cols-2">
@@ -187,14 +186,19 @@
             <textarea id="mensaje" name="mensaje" rows="4" placeholder="Cuéntanos qué buscas..."></textarea>
           </div>
 
-          <!-- Sin botones extra: el envío abre WhatsApp directamente -->
+          <div class="cta-bar" style="display:flex;gap:10px;flex-wrap:wrap">
+            <!-- ESTE es el botón que envía a WhatsApp con los datos -->
+            <button class="btn primary" type="submit">Solicitar información</button>
+          </div>
+
           <p id="form-msg" style="margin:10px 0 0;display:none"></p>
         </form>
       </div>
     </section>
 
     <div class="sticky-cta">
-      <a class="btn primary" href="#contacto">Solicitar información</a>
+      <!-- Este también dispara el envío del formulario -->
+      <a id="sticky-send" class="btn primary" href="#">Solicitar información</a>
       <a class="btn ghost" href="#modelos">Ver modelos</a>
     </div>
   </main>
@@ -208,7 +212,7 @@
     </div>
   </footer>
 
-  <!-- Botón flotante opcional (apunta al mismo número) -->
+  <!-- Botón flotante opcional al MISMO número -->
   <a class="wa-float" target="_blank" rel="noopener"
      href="https://wa.me/523329335952?text=Hola%20Trhoncal%20Homes%2C%20me%20interesa%20Mirador%20del%20Bosque">WhatsApp</a>
 
@@ -218,13 +222,48 @@
 
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Si cambias el título <h1>, actualizamos el campo oculto "desarrollo"
+    // Mantén el hidden "desarrollo" sincronizado con el H1
     (function syncDesarrollo(){
       const h1 = document.querySelector('h1');
       const input = document.getElementById('desarrollo');
       if(h1 && input){ input.value = h1.textContent.trim(); }
     })();
 
+    // Botón sticky envía el formulario si está completo
+    document.getElementById('sticky-send').addEventListener('click', function(e){
+      e.preventDefault();
+      const form = document.getElementById('lead-form');
+      if(!form) return;
+      if(form.reportValidity()){
+        form.requestSubmit(); // dispara onsubmit -> handleSubmit
+      }else{
+        form.scrollIntoView({behavior:'smooth', block:'start'});
+      }
+    });
+
     function handleSubmit(e){
       e.preventDefault();
-      const d = Object.fromEntries(new FormDat
+      const d = Object.fromEntries(new FormData(e.target).entries());
+
+      // Mensaje en UNA línea, como pediste
+      const texto = `Hola Trhoncal Homes, me interesa ${d.desarrollo || 'el desarrollo'}. ` +
+                    `Soy ${d.nombre}. ` +
+                    `Mi correo es ${d.correo}. ` +
+                    `Mi WhatsApp es ${d.whatsapp}.` +
+                    (d.mensaje ? ` ${d.mensaje}` : '');
+
+      const url = `https://wa.me/${WA_DEST}?text=${encodeURIComponent(texto)}`;
+
+      // Feedback y apertura; con fallback por si el popup se bloquea
+      const fm = document.getElementById('form-msg');
+      fm.style.display = 'block';
+      fm.textContent = 'Abriendo WhatsApp...';
+
+      const w = window.open(url, '_blank');
+      if(!w){ setTimeout(()=>{ window.location.href = url; }, 400); }
+
+      return false;
+    }
+  </script>
+</body>
+</html>
