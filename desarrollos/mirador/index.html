@@ -14,14 +14,12 @@
     a{color:inherit;text-decoration:none}
     img{max-width:100%;display:block}
     .container{max-width:1100px;margin:0 auto;padding:0 20px}
-    .btn{display:inline-block;padding:12px 20px;border-radius:999px;border:1px solid var(--gold);font-weight:600}
+    .btn{display:inline-block;padding:12px 20px;border-radius:999px;border:1px solid var(--gold);font-weight:600;text-align:center}
     .btn.primary{background:var(--gold);color:#fff;border-color:var(--gold)}
     .btn.ghost{background:transparent;color:var(--gold)}
-
-    /* Estilo botón WhatsApp */
     .btn.whatsapp{background:#25D366!important;border-color:#25D366!important;color:#fff!important}
 
-    /* Header flexible y sin que el borde cruce el logo */
+    /* Header que no choca con el logo */
     header{position:sticky;top:0;background:rgba(255,255,255,.95);backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid #e2e8f0;z-index:50;padding-bottom:6px}
     header .wrap{display:flex;align-items:center;justify-content:space-between;height:auto;min-height:calc(var(--logo-h) + var(--header-pad)*2);padding:var(--header-pad) 0;gap:16px}
     nav a{margin-left:18px;color:var(--muted)}
@@ -67,7 +65,7 @@
     .wa-float{position:fixed;right:18px;bottom:18px;background:#25D366;color:#fff;padding:14px 16px;border-radius:999px;box-shadow:0 8px 22px rgba(0,0,0,.18);font-weight:800;z-index:60}
     .sticky-cta{position:sticky;bottom:0;background:#fff;border-top:1px solid #e2e8f0;padding:10px;display:flex;gap:10px;justify-content:center}
 
-    /* FORM alineado */
+    /* Form alineado */
     form label{display:block;margin:0 0 6px;font-weight:600}
     form input,form textarea,form select{
       width:100%;display:block;padding:12px 14px;border:1px solid #e2e8f0;border-radius:10px;font-size:16px;outline:0;background:#fff
@@ -166,7 +164,7 @@
         <h2>Solicita información de Mirador del Bosque</h2>
         <p class="meta">Déjanos tus datos y un asesor te escribe por WhatsApp.</p>
 
-        <form id="lead-form" onsubmit="return handleSubmit(event)" autocomplete="on">
+        <form id="lead-form" autocomplete="on">
           <input type="hidden" id="desarrollo" name="desarrollo" value="Mirador del Bosque" />
 
           <div class="grid cols-2">
@@ -196,8 +194,8 @@
           </div>
 
           <div class="cta-bar" style="display:flex;gap:10px;flex-wrap:wrap">
-            <!-- Botón de ENVÍO por WhatsApp -->
-            <button class="btn whatsapp" type="submit">Solicitar información por WhatsApp</button>
+            <!-- Anchor estilo botón: sin popups; navega directo a wa.me -->
+            <a id="send-wa" class="btn whatsapp" href="#">Solicitar información por WhatsApp</a>
           </div>
 
           <p id="form-msg" style="margin:10px 0 0;display:none"></p>
@@ -206,7 +204,6 @@
     </section>
 
     <div class="sticky-cta">
-      <!-- También dispara WhatsApp si el form está válido -->
       <a id="sticky-send" class="btn whatsapp" href="#">Solicitar información por WhatsApp</a>
       <a class="btn ghost" href="#modelos">Ver modelos</a>
     </div>
@@ -226,36 +223,39 @@
      href="https://wa.me/523329335952?text=Hola%20Trhoncal%20Homes%2C%20me%20interesa%20Mirador%20del%20Bosque">WhatsApp</a>
 
   <script>
-    // WhatsApp destino (tu número)
+    /* ===== Config ===== */
     const WA_DEST = "523329335952"; // +52 332 933 5952
-
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Sincroniza el nombre del desarrollo con el H1 por si cambia
+    // Sincroniza el nombre del desarrollo con el H1 (por si cambia)
     (function syncDesarrollo(){
       const h1 = document.querySelector('h1');
       const input = document.getElementById('desarrollo');
       if(h1 && input){ input.value = h1.textContent.trim(); }
     })();
 
-    // -------- AUTORRELLENO (localStorage + QueryString) --------
-    document.addEventListener('DOMContentLoaded', () => {
+    /* ===== Autorrelleno: localStorage + QueryString ===== */
+    (function prefill(){
       const form = document.getElementById('lead-form');
       const fields = ['nombre','whatsapp','correo','mensaje'];
       const qp = new URLSearchParams(location.search);
 
-      // Soporta alias: telefono/phone y email
-      const getQP = (key) => qp.get(key) || qp.get(key==='whatsapp' ? 'telefono' : '') || qp.get(key==='correo' ? 'email' : '') || qp.get(key);
+      const getQP = (key) => {
+        if (qp.has(key)) return qp.get(key);
+        if (key==='whatsapp') return qp.get('telefono') || qp.get('phone') || '';
+        if (key==='correo')   return qp.get('email') || '';
+        return '';
+      };
 
       fields.forEach(f => {
         const el = form.elements[f];
         if(!el) return;
 
-        // 1) Prefill por querystring
+        // 1) Querystring
         const qv = getQP(f);
-        if(qv){ el.value = qv; }
+        if(qv) el.value = qv;
 
-        // 2) Prefill desde localStorage si sigue vacío
+        // 2) localStorage si sigue vacío
         if(!el.value){
           const saved = localStorage.getItem('lead_'+f);
           if(saved) el.value = saved;
@@ -266,49 +266,49 @@
           localStorage.setItem('lead_'+f, el.value);
         });
       });
-    });
-    // -----------------------------------------------------------
+    })();
 
-    // Sticky: valida y envía el form
-    document.getElementById('sticky-send').addEventListener('click', function(e){
+    /* ===== Helpers ===== */
+    function onlyDigits(s){ return (s||"").replace(/\D+/g,''); }
+    function buildMessage(d){
+      const telUser = onlyDigits(d.whatsapp) || d.whatsapp;
+      // Mensaje en una línea (como tu captura)
+      return `Hola Trhoncal Homes, me interesa ${d.desarrollo || 'el desarrollo'}. ` +
+             `Soy ${d.nombre}. ` +
+             `Mi correo es ${d.correo}. ` +
+             `Mi WhatsApp es ${telUser}.` +
+             (d.mensaje ? ` ${d.mensaje}` : '');
+    }
+    function goWhatsApp(d){
+      const texto = buildMessage(d);
+      const url = `https://wa.me/${WA_DEST}?text=${encodeURIComponent(texto)}`;
+      // Navegación directa: sin popups bloqueados
+      window.location.href = url;
+    }
+    function formDataObject(form){
+      return Object.fromEntries(new FormData(form).entries());
+    }
+
+    /* ===== Envío desde botón principal ===== */
+    const form = document.getElementById('lead-form');
+    document.getElementById('send-wa').addEventListener('click', (e)=>{
       e.preventDefault();
-      const form = document.getElementById('lead-form');
       if(form.reportValidity()){
-        form.requestSubmit();
+        goWhatsApp(formDataObject(form));
       }else{
         form.scrollIntoView({behavior:'smooth', block:'start'});
       }
     });
 
-    function onlyDigits(s){ return (s||"").replace(/\D+/g,''); }
-
-    function handleSubmit(e){
+    /* ===== Envío desde botón sticky ===== */
+    document.getElementById('sticky-send').addEventListener('click', (e)=>{
       e.preventDefault();
-      const d = Object.fromEntries(new FormData(e.target).entries());
-
-      // Sanitiza teléfono del usuario para mostrarlo bonito en el mensaje
-      const telUser = onlyDigits(d.whatsapp) || d.whatsapp;
-
-      // Mensaje en UNA sola línea (como tu captura), incluyendo correo
-      const texto =
-        `Hola Trhoncal Homes, me interesa ${d.desarrollo || 'el desarrollo'}. ` +
-        `Soy ${d.nombre}. ` +
-        `Mi correo es ${d.correo}. ` +
-        `Mi WhatsApp es ${telUser}.` +
-        (d.mensaje ? ` ${d.mensaje}` : '');
-
-      const url = `https://wa.me/${WA_DEST}?text=${encodeURIComponent(texto)}`;
-
-      // Feedback y apertura; con fallback si bloquean popups
-      const fm = document.getElementById('form-msg');
-      fm.style.display = 'block';
-      fm.textContent = 'Abriendo WhatsApp...';
-
-      const w = window.open(url, '_blank');
-      if(!w){ setTimeout(()=>{ window.location.href = url; }, 400); }
-
-      return false;
-    }
+      if(form.reportValidity()){
+        goWhatsApp(formDataObject(form));
+      }else{
+        form.scrollIntoView({behavior:'smooth', block:'start'});
+      }
+    });
   </script>
 </body>
 </html>
