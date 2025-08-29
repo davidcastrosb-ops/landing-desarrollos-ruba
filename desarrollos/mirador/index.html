@@ -40,6 +40,22 @@
     footer{padding:32px 0;color:var(--muted)}
     .wa-float{position:fixed;right:18px;bottom:18px;background:#25D366;color:#fff;padding:14px 16px;border-radius:999px;box-shadow:0 8px 22px rgba(0,0,0,.18);font-weight:800;z-index:60}
     .sticky-cta{position:sticky;bottom:0;background:#fff;border-top:1px solid #e2e8f0;padding:10px;display:flex;gap:10px;justify-content:center}
+
+/* MÓVIL: ocultar menú y centrar el logo */
+@media (max-width: 768px){
+  header nav{ display:none; }          /* oculta los links */
+  header .wrap{ justify-content:center; } /* centra el contenido (logo) */
+  .logo{ margin:0 auto; }              /* asegura centrado */
+}
+
+/* (Opcional) Reactivar menú en móvil sin borrar nada:
+   agrega la clase 'nav-on' al <body> cuando lo quieras mostrar */
+@media (max-width: 768px){
+  body.nav-on header nav{ display:flex; gap:18px; }
+  body.nav-on header .wrap{ justify-content:space-between; }
+}
+
+
   </style>
 </head>
 <body>
