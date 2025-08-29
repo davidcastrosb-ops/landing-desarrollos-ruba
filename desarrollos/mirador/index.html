@@ -8,27 +8,15 @@
   <link rel="canonical" href="https://mirador.3dhomes.com.mx/"/>
   <link rel="preload" as="image" imagesrcset="assets/hero-1600.webp 1x, assets/hero-3200.webp 2x" imagesizes="100vw" href="assets/hero-1600.jpg">
   <style>
-    :root{--gold:#C9A227;--dark:#0f172a;--muted:#475569;--bg:#fff;--light:#f8fafc;--logo-h:105px;--header-pad:12px}
-    *{box-sizing:border-box}
-    body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;color:var(--dark)}
-    a{color:inherit;text-decoration:none}
-    img{max-width:100%;display:block}
+    :root{--gold:#C9A227;--dark:#0f172a;--muted:#475569;--bg:#fff;--light:#f8fafc}
+    *{box-sizing:border-box} body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;color:var(--dark)}
+    a{color:inherit;text-decoration:none} img{max-width:100%;display:block}
     .container{max-width:1100px;margin:0 auto;padding:0 20px}
     .btn{display:inline-block;padding:12px 20px;border-radius:999px;border:1px solid var(--gold);font-weight:600}
-    .btn.primary{background:var(--gold);color:#fff;border-color:var(--gold)}
-    .btn.ghost{background:transparent;color:var(--gold)}
-    /* Header mejorado: no cruza el borde y ajusta al alto del logo */
-    header{position:sticky;top:0;background:rgba(255,255,255,.95);backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid #e2e8f0;z-index:50;padding-bottom:6px}
-    header .wrap{display:flex;align-items:center;justify-content:space-between;height:auto;min-height:calc(var(--logo-h) + var(--header-pad)*2);padding:var(--header-pad) 0;gap:16px}
-    nav a{margin-left:18px;color:var(--muted)}
-    .logo-img{height:var(--logo-h);display:block}
-    /* Móvil: ocultar menú y centrar logo (reactivable quitando estas reglas o añadiendo .nav-on al body) */
-    @media (max-width:768px){
-      header nav{display:none}
-      header .wrap{justify-content:center}
-      .logo{margin:0 auto}
-    }
-
+    .btn.primary{background:var(--gold);color:#fff;border-color:var(--gold)} .btn.ghost{background:transparent;color:var(--gold)}
+    header{position:sticky;top:0;background:rgba(255,255,255,.95);backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid #e2e8f0;z-index:50}
+    header .wrap{display:flex;align-items:center;justify-content:space-between;height:130px}
+    nav a{margin-left:18px;color:var(--muted)} .logo-img{height:105px}
     .breadcrumb{font-size:14px;color:var(--muted);padding:10px 0}
     .hero{position:relative;min-height:420px;display:grid;align-items:end;padding:28px 0;color:#fff}
     @media(max-width:640px){.hero{min-height:340px}}
@@ -37,42 +25,77 @@
       image-set(url('assets/hero-1600.webp') type('image/webp') 1x,url('assets/hero-3200.webp') type('image/webp') 2x,url('assets/hero-1600.jpg') type('image/jpeg') 1x,url('assets/hero-3200.jpg') type('image/jpeg') 2x);
       background-size:cover;background-position:center;background-repeat:no-repeat;background-color:#cbd5e1}
     .hero>.container{position:relative}
-    .hero h1{font-size:clamp(28px,5vw,46px);line-height:1.1;margin:0 0 10px}
-    .hero p{margin:0 0 16px;color:#e5e7eb}
+    .hero h1{font-size:clamp(28px,5vw,46px);line-height:1.1;margin:0 0 10px} .hero p{margin:0 0 16px;color:#e5e7eb}
     .badges{display:flex;flex-wrap:wrap;gap:10px;margin:10px 0 22px}
     .badge{padding:8px 12px;border:1px solid #e2e8f0;border-radius:999px;background:rgba(255,255,255,.9);color:#111}
-    .section{padding:42px 0}
-    .section h2{font-size:clamp(22px,4vw,32px);margin:0 0 14px}
-    .grid{display:grid;gap:16px}
-    @media(min-width:900px){.grid.cols-2{grid-template-columns:1fr 1fr}}
+    .section{padding:42px 0} .section h2{font-size:clamp(22px,4vw,32px);margin:0 0 14px}
+    .grid{display:grid;gap:16px}@media(min-width:900px){.grid.cols-2{grid-template-columns:1fr 1fr}}
     .cards{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
     .card{grid-column:span 12;background:#fff;border:1px solid #e2e8f0;border-radius:16px;overflow:hidden;box-shadow:0 8px 22px rgba(0,0,0,.04)}
-    .card img{width:100%;height:200px;object-fit:cover;background:#e2e8f0}
-    .card .p{padding:14px}
-    .card h3{margin:0 0 6px;font-size:18px}
+    .card img{width:100%;height:200px;object-fit:cover;background:#e2e8f0} .card .p{padding:14px} .card h3{margin:0 0 6px;font-size:18px}
     .meta{color:var(--muted);font-size:14px;margin-bottom:10px}
-    @media(min-width:700px){.card{grid-column:span 6}}
-    @media(min-width:1000px){.card{grid-column:span 4}}
-    .icon-list{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
-    @media(min-width:700px){.icon-list{grid-template-columns:repeat(3,1fr)}}
+    @media(min-width:700px){.card{grid-column:span 6}} @media(min-width:1000px){.card{grid-column:span 4}}
+    .icon-list{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}@media(min-width:700px){.icon-list{grid-template-columns:repeat(3,1fr)}}
     .icon-item{display:flex;align-items:center;gap:10px;border:1px solid #e2e8f0;border-radius:12px;padding:10px;background:#fff}
     footer{padding:32px 0;color:var(--muted)}
     .wa-float{position:fixed;right:18px;bottom:18px;background:#25D366;color:#fff;padding:14px 16px;border-radius:999px;box-shadow:0 8px 22px rgba(0,0,0,.18);font-weight:800;z-index:60}
     .sticky-cta{position:sticky;bottom:0;background:#fff;border-top:1px solid #e2e8f0;padding:10px;display:flex;gap:10px;justify-content:center}
 
-    /* --- Form alineado --- */
-    form label{display:block;margin:0 0 6px;font-weight:600}
-    form input,form textarea,form select{
-      width:100%;display:block;padding:12px 14px;border:1px solid #e2e8f0;border-radius:10px;
-      font-size:16px;outline:0;background:#fff
-    }
-    form input:focus,form textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,162,39,.15)}
-    .grid.cols-2>div{display:flex;flex-direction:column;gap:6px}
-    form textarea{min-width:0}
-    @media(max-width:899px){.grid.cols-2{grid-template-columns:1fr}}
+/* MÓVIL: ocultar menú y centrar el logo */
+@media (max-width: 768px){
+  header nav{ display:none; }          /* oculta los links */
+  header .wrap{ justify-content:center; } /* centra el contenido (logo) */
+  .logo{ margin:0 auto; }              /* asegura centrado */
+}
 
-    /* Utilidad para ocultar elementos y reactivarlos cuando quieras */
-    .is-hidden{display:none !important}
+/* (Opcional) Reactivar menú en móvil sin borrar nada:
+   agrega la clase 'nav-on' al <body> cuando lo quieras mostrar */
+@media (max-width: 768px){
+  body.nav-on header nav{ display:flex; gap:18px; }
+  body.nav-on header .wrap{ justify-content:space-between; }
+}
+/* FORM: alinear y unificar campos */
+form label{
+  display:block;
+  margin:0 0 6px;
+  font-weight:600;
+}
+
+form input,
+form textarea,
+form select{
+  width:100%;
+  display:block;
+  padding:12px 14px;
+  border:1px solid #e2e8f0;
+  border-radius:10px;
+  font-size:16px;
+  outline:0;
+  background:#fff;
+}
+
+form input:focus,
+form textarea:focus{
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(201,162,39,.15);
+}
+
+/* Estructura vertical dentro de cada celda del grid */
+.grid.cols-2 > div{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+
+/* Por si algún navegador hace overflow con textarea */
+form textarea{ min-width:0; }
+
+/* Asegura una sola columna en móvil (por debajo de 900px ya aplica, pero reforzamos) */
+@media (max-width: 899px){
+  .grid.cols-2{ grid-template-columns:1fr; }
+}
+
+
   </style>
 </head>
 <body>
@@ -85,39 +108,23 @@
 
   <main>
     <div class="container breadcrumb">Inicio ▸ Desarrollos ▸ <strong>Mirador del Bosque</strong></div>
-
     <section class="hero">
       <div class="container">
         <h1>Mirador del Bosque</h1>
         <p>Vive al norte de Zapopan con conexión a servicios y naturaleza.</p>
-        <div class="badges">
-          <div class="badge">Ubicación: Zapopan</div>
-          <div class="badge">Desde <strong>$699,000</strong></div>
-          <div class="badge">2 recámaras</div>
-          <div class="badge">Amenidades destacadas</div>
-        </div>
-        <div class="cta-bar">
-          <a class="btn primary" href="#contacto">Solicitar información</a>
-          <a class="btn ghost" href="#modelos">Ver modelos</a>
-        </div>
+        <div class="badges"><div class="badge">Ubicación: Zapopan</div><div class="badge">Desde <strong>$699,000</strong></div><div class="badge">2 recámaras</div><div class="badge">Amenidades destacadas</div></div>
+        <div class="cta-bar"><a class="btn primary" href="#contacto">Solicitar información</a><a class="btn ghost" href="#modelos">Ver modelos</a></div>
       </div>
     </section>
 
     <section class="section">
       <div class="container grid cols-2">
-        <div>
-          <h2>Resumen</h2>
-          <p class="meta">Prototipos <strong>Nardo</strong> y <strong>Oliva</strong>. Agenda visita para conocer disponibilidad y precios vigentes.</p>
-        </div>
+        <div><h2>Resumen</h2><p class="meta">Prototipos <strong>Nardo</strong> y <strong>Oliva</strong>. Agenda visita para conocer disponibilidad y precios vigentes.</p></div>
         <div>
           <h2>Amenidades</h2>
           <div class="icon-list">
-            <div class="icon-item">🌳 Áreas verdes</div>
-            <div class="icon-item">🛡️ Acceso controlado</div>
-            <div class="icon-item">👨‍👩‍👧‍👦 Juegos infantiles</div>
-            <div class="icon-item">🔥 Asadores</div>
-            <div class="icon-item">🏊 Alberca "Algunos desarrollos"</div>
-            <div class="icon-item">🏋️ Gimnasio</div>
+            <div class="icon-item">🌳 Áreas verdes</div><div class="icon-item">🛡️ Acceso controlado</div><div class="icon-item">👨‍👩‍👧‍👦 Juegos infantiles</div>
+            <div class="icon-item">🔥 Asadores</div><div class="icon-item">🏊 Alberca "Algunos desarrollos" </div><div class="icon-item">🏋️ Gimnasio</div>
           </div>
           <p class="meta" style="margin-top:8px">*Puede variar por etapa y disponibilidad.</p>
         </div>
@@ -159,77 +166,37 @@
       <div class="container">
         <h2>Solicita información de Mirador del Bosque</h2>
         <p class="meta">Déjanos tus datos y un asesor te escribe por WhatsApp.</p>
-
         <form onsubmit="return handleSubmit(event)">
           <input type="hidden" name="desarrollo" value="Mirador del Bosque" />
-
           <div class="grid cols-2">
-            <div>
-              <label for="nombre">Nombre completo</label>
-              <input id="nombre" required name="nombre" placeholder="Tu nombre" />
-            </div>
-
-            <div>
-              <label for="whatsapp">WhatsApp</label>
-              <input id="whatsapp" required name="whatsapp" inputmode="numeric" placeholder="Ej. 33 3724 1151" />
-            </div>
-
-            <div>
-              <label for="correo">Correo electrónico</label>
-              <input id="correo" required type="email" name="correo" placeholder="tu@correo.com" />
-            </div>
+            <div><label>Nombre completo</label><input required name="nombre" placeholder="Tu nombre" /></div>
+            <div><label>WhatsApp</label><input required name="whatsapp" placeholder="Ej. 33 3724 1151" /></div>
           </div>
-
-          <div>
-            <label for="mensaje">Mensaje</label>
-            <textarea id="mensaje" name="mensaje" rows="4" placeholder="Cuéntanos qué buscas..."></textarea>
-          </div>
-
-          <!-- Botones ocultos (se pueden reactivar quitando la clase is-hidden) -->
+          <div><label>Mensaje</label><textarea name="mensaje" rows="4" placeholder="Cuéntanos qué buscas..."></textarea></div>
           <div class="cta-bar" style="display:flex;gap:10px;flex-wrap:wrap">
-            <button class="btn primary is-hidden" type="submit">Enviar y hablar por WhatsApp</button>
-            <a class="btn is-hidden" target="_blank" rel="noopener" href="https://wa.me/523337241151?text=Hola%20Trhoncal%20Homes%2C%20me%20interesa%20Mirador%20del%20Bosque">Escribir directo</a>
+            <button class="btn primary" type="submit">Enviar y hablar por WhatsApp</button>
+            <a class="btn" target="_blank" rel="noopener" href="https://wa.me/523337241151?text=Hola%20Trhoncal%20Homes%2C%20me%20interesa%20Mirador%20del%20Bosque">Escribir directo</a>
           </div>
-
           <p id="form-msg" style="margin:10px 0 0;display:none"></p>
         </form>
       </div>
     </section>
 
-    <div class="sticky-cta">
-      <a class="btn primary" href="#contacto">Solicitar información</a>
-      <a class="btn ghost" href="#modelos">Ver modelos</a>
-    </div>
+    <div class="sticky-cta"><a class="btn primary" href="#contacto">Solicitar información</a><a class="btn ghost" href="#modelos">Ver modelos</a></div>
   </main>
 
   <footer>
-    <div class="container">
-      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:space-between">
-        <small>© <span id="year"></span> Trhoncal Homes. TR + HON + CAL.</small>
-        <small>Privacidad · Términos · Aviso legal</small>
-      </div>
-    </div>
+    <div class="container"><div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:space-between">
+      <small>© <span id="year"></span> Trhoncal Homes. TR + HON + CAL.</small><small>Privacidad · Términos · Aviso legal</small>
+    </div></div>
   </footer>
-
   <a class="wa-float" target="_blank" rel="noopener" href="https://wa.me/523337241151?text=Hola%20Trhoncal%20Homes%2C%20me%20interesa%20Mirador%20del%20Bosque">WhatsApp</a>
-
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    function handleSubmit(e){
-      e.preventDefault();
-      const d = Object.fromEntries(new FormData(e.target).entries());
-      const msg = `Hola Trhoncal Homes, me interesa ${encodeURIComponent(d.desarrollo||'Mirador del Bosque')}. ` +
-                  `Soy ${encodeURIComponent(d.nombre||'')}. ` +
-                  `Mi WhatsApp es ${encodeURIComponent(d.whatsapp||'')}. ` +
-                  `Mi correo es ${encodeURIComponent(d.correo||'')}. ` +
-                  `${encodeURIComponent(d.mensaje||'')}`;
-      window.open(`https://wa.me/523337241151?text=${msg}`,'_blank');
-      const fm = document.getElementById('form-msg');
-      fm.style.display='block';
-      fm.textContent='Abriendo WhatsApp...';
-      return false;
-    }
+    document.getElementById('year').textContent=new Date().getFullYear();
+    function handleSubmit(e){e.preventDefault();const d=Object.fromEntries(new FormData(e.target).entries());
+      const msg=`Hola Trhoncal Homes, me interesa ${encodeURIComponent(d.desarrollo||'Mirador del Bosque')}. Soy ${encodeURIComponent(d.nombre)}. Mi WhatsApp es ${encodeURIComponent(d.whatsapp)}. ${encodeURIComponent(d.mensaje||'')}`;
+      window.open(`https://wa.me/523337241151?text=${msg}`,'_blank');document.getElementById('form-msg').style.display='block';
+      document.getElementById('form-msg').textContent='Abriendo WhatsApp...';return false;}
   </script>
 </body>
 </html>
