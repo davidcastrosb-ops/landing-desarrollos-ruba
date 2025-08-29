@@ -23,8 +23,7 @@
     header .wrap{display:flex;align-items:center;justify-content:space-between;height:auto;min-height:calc(var(--logo-h) + var(--header-pad)*2);padding:var(--header-pad) 0;gap:16px}
     nav a{margin-left:18px;color:var(--muted)}
     .logo-img{height:var(--logo-h);display:block}
-
-    /* Móvil: oculta menú y centra el logo */
+    /* Móvil: oculta menú y centra logo */
     @media (max-width:768px){
       header nav{display:none}
       header .wrap{justify-content:center}
@@ -167,27 +166,30 @@
           <div class="grid cols-2">
             <div>
               <label for="nombre">Nombre completo</label>
-              <input id="nombre" required name="nombre" placeholder="Tu nombre" />
+              <input id="nombre" name="nombre" required placeholder="Tu nombre"
+                     autocomplete="name" autocapitalize="words" />
             </div>
 
             <div>
               <label for="whatsapp">WhatsApp</label>
-              <input id="whatsapp" required name="whatsapp" type="tel" inputmode="numeric" placeholder="Ej. 33 2933 5952" />
+              <input id="whatsapp" name="whatsapp" required type="tel" inputmode="tel"
+                     autocomplete="tel" placeholder="Ej. 33 2933 5952" />
             </div>
 
             <div>
               <label for="correo">Correo electrónico</label>
-              <input id="correo" required type="email" name="correo" placeholder="tu@correo.com" />
+              <input id="correo" name="correo" required type="email"
+                     autocomplete="email" spellcheck="false" placeholder="tu@correo.com" />
             </div>
           </div>
 
           <div>
             <label for="mensaje">Mensaje</label>
-            <textarea id="mensaje" name="mensaje" rows="4" placeholder="Cuéntanos qué buscas..."></textarea>
+            <textarea id="mensaje" name="mensaje" rows="4" placeholder="Cuéntanos qué buscas..."
+                      autocomplete="on"></textarea>
           </div>
 
           <div class="cta-bar" style="display:flex;gap:10px;flex-wrap:wrap">
-            <!-- ESTE es el botón que envía a WhatsApp con los datos -->
             <button class="btn primary" type="submit">Solicitar información</button>
           </div>
 
@@ -197,7 +199,6 @@
     </section>
 
     <div class="sticky-cta">
-      <!-- Este también dispara el envío del formulario -->
       <a id="sticky-send" class="btn primary" href="#">Solicitar información</a>
       <a class="btn ghost" href="#modelos">Ver modelos</a>
     </div>
@@ -217,25 +218,51 @@
      href="https://wa.me/523329335952?text=Hola%20Trhoncal%20Homes%2C%20me%20interesa%20Mirador%20del%20Bosque">WhatsApp</a>
 
   <script>
-    // Número de destino (tu WhatsApp personal)
     const WA_DEST = "523329335952"; // +52 332 933 5952
 
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Mantén el hidden "desarrollo" sincronizado con el H1
+    // Sincroniza el nombre del desarrollo con el H1
     (function syncDesarrollo(){
       const h1 = document.querySelector('h1');
       const input = document.getElementById('desarrollo');
       if(h1 && input){ input.value = h1.textContent.trim(); }
     })();
 
-    // Botón sticky envía el formulario si está completo
+    // -------- AUTORRELLENO --------
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.getElementById('lead-form');
+      const fields = ['nombre','whatsapp','correo','mensaje'];
+      const qp = new URLSearchParams(location.search);
+
+      fields.forEach(f => {
+        const el = form.elements[f];
+        if(!el) return;
+
+        // 1) Prefill por querystring si viene (?nombre=..., etc.)
+        const qv = qp.get(f);
+        if(qv){ el.value = qv; }
+
+        // 2) Si no hubo query, intenta desde localStorage
+        if(!el.value){
+          const saved = localStorage.getItem('lead_'+f);
+          if(saved) el.value = saved;
+        }
+
+        // 3) Guarda en localStorage mientras escribe
+        el.addEventListener('input', () => {
+          localStorage.setItem('lead_'+f, el.value);
+        });
+      });
+    });
+    // --------------------------------
+
+    // Botón sticky: valida y envía el form
     document.getElementById('sticky-send').addEventListener('click', function(e){
       e.preventDefault();
       const form = document.getElementById('lead-form');
-      if(!form) return;
       if(form.reportValidity()){
-        form.requestSubmit(); // dispara onsubmit -> handleSubmit
+        form.requestSubmit();
       }else{
         form.scrollIntoView({behavior:'smooth', block:'start'});
       }
@@ -245,16 +272,16 @@
       e.preventDefault();
       const d = Object.fromEntries(new FormData(e.target).entries());
 
-      // Mensaje en UNA línea, como pediste
-      const texto = `Hola Trhoncal Homes, me interesa ${d.desarrollo || 'el desarrollo'}. ` +
-                    `Soy ${d.nombre}. ` +
-                    `Mi correo es ${d.correo}. ` +
-                    `Mi WhatsApp es ${d.whatsapp}.` +
-                    (d.mensaje ? ` ${d.mensaje}` : '');
+      // Mensaje con UNA línea (puedo poner saltos si quieres)
+      const texto =
+        `Hola Trhoncal Homes, me interesa ${d.desarrollo || 'el desarrollo'}. ` +
+        `Soy ${d.nombre}. ` +
+        `Mi correo es ${d.correo}. ` +
+        `Mi WhatsApp es ${d.whatsapp}.` +
+        (d.mensaje ? ` ${d.mensaje}` : '');
 
       const url = `https://wa.me/${WA_DEST}?text=${encodeURIComponent(texto)}`;
 
-      // Feedback y apertura; con fallback por si el popup se bloquea
       const fm = document.getElementById('form-msg');
       fm.style.display = 'block';
       fm.textContent = 'Abriendo WhatsApp...';
