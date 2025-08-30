@@ -20,7 +20,6 @@
     header{position:sticky;top:0;background:rgba(255,255,255,.95);backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid #e2e8f0;z-index:50}
     header .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
     nav a{margin-left:18px;color:var(--muted)} .logo-img{height:105px}
-
     @media (max-width:768px){ header nav{display:none} header .wrap{justify-content:center} .logo{margin:0 auto} }
 
     .breadcrumb{font-size:14px;color:var(--muted);padding:10px 0}
@@ -58,7 +57,6 @@
     .wa-float{position:fixed;right:18px;bottom:18px;background:#25D366;color:#fff;padding:14px 16px;border-radius:999px;box-shadow:0 8px 22px rgba(0,0,0,.18);font-weight:800;z-index:60}
     .sticky-cta{position:sticky;bottom:0;background:#fff;border-top:1px solid #e2e8f0;padding:10px;display:flex;gap:10px;justify-content:center}
 
-    /* Form alineado */
     form label{display:block;margin:0 0 6px;font-weight:600}
     form input,form textarea{width:100%;display:block;padding:12px 14px;border:1px solid #e2e8f0;border-radius:10px;font-size:16px;outline:0;background:#fff}
     form input:focus,form textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,162,39,.15)}
@@ -66,16 +64,11 @@
     form textarea{min-width:0}
     @media(max-width:899px){.grid.cols-2{grid-template-columns:1fr}}
 
-    /* Toast */
     .toast{position:fixed;top:18px;left:50%;transform:translateX(-50%);background:#111;color:#fff;padding:12px 16px;border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.25);z-index:100;opacity:0;pointer-events:none;transition:.25s}
     .toast.show{opacity:1}
     .highlight-pulse{animation: pulse .9s ease-out 1}
-    @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(201,162,39,.0)}50%{box-shadow:0 0 0 6px rgba(201,162,39,.25)}100%{box-shadow:0 0 0 0 rgba(201,162,39,.0)}}
-
-    /* Accesible "invisible" */
+    @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(201,162,39,.0)}50%{box-shadow:0 0 0 6px rgba(201,162,39,.25)}100%{box-shadow:0 0 0 0 rgba(201,162,39,.0)}
     .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-
-    /* Ocultar sin borrar */
     .is-hidden{display:none!important}
   </style>
 </head>
@@ -166,15 +159,12 @@
 
         <form id="lead-form" autocomplete="on">
           <input type="hidden" id="desarrollo" name="desarrollo" value="Mirador del Bosque" />
-
-          <!-- Proxies accesibles para ayudar al Autofill de algunos navegadores -->
           <input id="full_name_proxy" name="name" class="sr-only" type="text" autocomplete="name" tabindex="-1" aria-hidden="true">
           <input id="phone_proxy" name="phone" class="sr-only" type="tel" autocomplete="tel" tabindex="-1" aria-hidden="true">
 
           <div class="grid cols-2">
             <div>
               <label for="nombre">Nombre</label>
-              <!-- Usamos autocomplete="name" para permitir nombre completo y luego lo partimos -->
               <input id="nombre" name="nombre" required placeholder="Tu nombre"
                      autocomplete="name" autocapitalize="words" />
             </div>
@@ -228,17 +218,14 @@
     </div>
   </footer>
 
-  <!-- Botón flotante: OCULTO, no borrado -->
   <a class="wa-float is-hidden" target="_blank" rel="noopener"
      href="https://wa.me/523329335952?text=Hola%20Trhoncal%20Homes%2C%20me%20interesa%20Mirador%20del%20Bosque">WhatsApp</a>
 
-  <!-- Toast -->
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
-  <!-- JS -->
   <script defer>
   (function(){
-    const WA_DEST   = "523329335952"; // +52 33 2933 5952
+    const WA_DEST   = "523329335952";
     const ENDPOINT  = "https://script.google.com/macros/s/AKfycbxI401Elzx8NTYSYMK4D69ya-rSkjgfqM0UbEGtSLoqWHQ3FxY-Ihc0AhKuLdE58WuD/exec";
 
     const $ = (s,p=document)=>p.querySelector(s);
@@ -247,31 +234,22 @@
     document.addEventListener('DOMContentLoaded', () => {
       $('#year').textContent = new Date().getFullYear();
 
-      // Desarrollo = h1
       const h1 = $('#dev-title'); const dev = $('#desarrollo');
       if(h1 && dev){ dev.value = h1.textContent.trim(); }
 
-      // Prefill por query y localStorage
       prefill(['nombre','apellido_paterno','apellido_materno','whatsapp','correo','mensaje']);
-
-      // Proxies: espejo con whatsapp y nombre completo si el navegador usa name/phone
       bindProxies();
 
-      // Si el usuario/Autofill metió nombre completo en "Nombre", partir a apellidos si están vacíos
       const nombre = $('#nombre');
       nombre.addEventListener('change', splitFullNameIfNeeded);
-      nombre.addEventListener('blur', splitFullNameIfNeeded);
-
-      // También intentamos dividir tras un tiempo (por si el Autofill rellena en diferido)
+      nombre.addEventListener('blur',   splitFullNameIfNeeded);
       setTimeout(splitFullNameIfNeeded, 600);
 
-      // Agregar gating a todos los botones WA
       $$('.js-wa-link').forEach(a=>{
         a.addEventListener('click', (ev)=>{
           const form = $('#lead-form');
           const rol = a.dataset.rol || 'info';
           if(!form.reportValidity()){
-            dataLayerPush({event:'wa_intent_bloqueado', rol, motivo:'incompleto', desarrollo: dev.value});
             showToast( rol === 'ficha'
               ? 'Para enviarte la ficha, completa tu nombre y apellidos, WhatsApp y correo. Te la mandamos directo por WhatsApp.'
               : 'Para atenderte por WhatsApp, completa tu nombre y apellidos, WhatsApp y correo. Te contactamos en minutos.'
@@ -282,37 +260,25 @@
             ev.preventDefault();
             return;
           }
-
-          // Válido: construir datos, guardar y abrir WA
           const d = getData();
-          sendLead(d);
-          dataLayerPush({event:'wa_click', rol, desarrollo: dev.value});
-
+          sendLead(d); // POST + PIXEL GET
           const url = buildWA(d, a.dataset.model, rol);
           a.setAttribute('href', url);
           a.setAttribute('target', '_blank');
         }, {once:false});
       });
 
-      // QA panel (solo si ?qa=1)
       const qp = new URLSearchParams(location.search);
       if(qp.get('qa')==='1'){ mountQA(); }
-
-      dataLayerPush({event:'page_view', desarrollo: dev.value});
     });
 
     function getData(){
       const f = $('#lead-form');
       const d = Object.fromEntries(new FormData(f).entries());
       d.whatsapp = digits(d.whatsapp || $('#phone_proxy').value);
-      // nombre completo
       let full = ($('#full_name_proxy').value || '').trim();
-      if(!full){
-        full = [d.nombre, d.apellido_paterno, d.apellido_materno].filter(Boolean).join(' ');
-      }
+      if(!full){ full = [d.nombre, d.apellido_paterno, d.apellido_materno].filter(Boolean).join(' '); }
       d.nombre_completo = full.replace(/\s+/g,' ').trim();
-
-      // Guardar en localStorage
       ['nombre','apellido_paterno','apellido_materno','whatsapp','correo','mensaje'].forEach(k=>{
         if(d[k]) localStorage.setItem('lead_'+k, d[k]);
       });
@@ -330,7 +296,7 @@
       return `https://wa.me/${WA_DEST}?text=${encodeURIComponent(texto)}`;
     }
 
-    // Envío a Apps Script (beacon + fetch keepalive)
+    // === GUARDA: POST + fallback PIXEL GET ===
     function sendLead(d){
       const payload = {
         nombre: d.nombre_completo,
@@ -340,24 +306,39 @@
         presupuesto: '',
         mensaje: d.mensaje || ''
       };
+
+      // 1) POST (beacon o fetch keepalive)
       try{
+        const body = JSON.stringify(payload);
         if(navigator.sendBeacon){
-          const blob = new Blob([JSON.stringify(payload)], {type:'application/json'});
+          const blob = new Blob([body], {type:'application/json'});
           navigator.sendBeacon(ENDPOINT, blob);
         }else{
           fetch(ENDPOINT, {
             method:'POST',
             headers:{'Content-Type':'application/json'},
-            body: JSON.stringify(payload),
+            body,
             mode:'no-cors',
             keepalive:true
           });
         }
-        dataLayerPush({event:'lead_submit', desarrollo: payload.zona, email_domain:(d.correo||'').split('@')[1]||'', phone_last4:(d.whatsapp||'').slice(-4)});
+      }catch(_){}
+
+      // 2) Fallback PIXEL GET (si por cualquier motivo el POST no llega)
+      try{
+        const qs = new URLSearchParams({
+          collect:'1',
+          nombre: payload.nombre,
+          email: payload.email,
+          whatsapp: payload.whatsapp,
+          zona: payload.zona,
+          mensaje: payload.mensaje
+        }).toString();
+        const img = new Image();
+        img.src = ENDPOINT + '?' + qs;
       }catch(_){}
     }
 
-    // Prefill URL + localStorage
     function prefill(fields){
       const qp = new URLSearchParams(location.search);
       const map = {
@@ -379,50 +360,32 @@
       const n = $('#nombre'), ap = $('#apellido_paterno'), am = $('#apellido_materno');
       const val = (n.value||'').trim();
       const parts = val.split(/\s+/);
-      // Si apellidos vacíos y nombre parece tener 2+ palabras, dividimos.
       if(!ap.value && !am.value && parts.length>=2){
         n.value = parts[0];
         ap.value = parts[1] || '';
         am.value = parts.slice(2).join(' ');
-        // Persistimos
         localStorage.setItem('lead_nombre', n.value);
         localStorage.setItem('lead_apellido_paterno', ap.value);
         localStorage.setItem('lead_apellido_materno', am.value);
       }
-      // También guardamos el proxy de nombre completo
       $('#full_name_proxy').value = [n.value, ap.value, am.value].filter(Boolean).join(' ').trim();
     }
 
     function bindProxies(){
       const wp = $('#whatsapp'), pp = $('#phone_proxy');
       const fn = $('#full_name_proxy'), n = $('#nombre'), ap = $('#apellido_paterno'), am = $('#apellido_materno');
-
-      // Espejo tel
       const syncPhone = ()=>{ pp.value = digits(wp.value); };
       wp.addEventListener('input', syncPhone); syncPhone();
-
-      // Espejo full name
       const syncFull = ()=>{ fn.value = [n.value, ap.value, am.value].filter(Boolean).join(' ').trim(); };
-      n.addEventListener('input', syncFull);
-      ap.addEventListener('input', syncFull);
-      am.addEventListener('input', syncFull);
-      syncFull();
-
-      // Si el navegador autocompleta fn/pp, reflejar hacia los visibles
+      n.addEventListener('input', syncFull); ap.addEventListener('input', syncFull); am.addEventListener('input', syncFull); syncFull();
       fn.addEventListener('change', ()=>{
         const parts = (fn.value||'').trim().split(/\s+/);
-        if(parts.length>=2){
-          n.value = parts[0];
-          ap.value = parts[1] || '';
-          am.value = parts.slice(2).join(' ');
-        }else if(parts.length===1){
-          n.value = parts[0];
-        }
+        if(parts.length>=2){ n.value = parts[0]; ap.value = parts[1]||''; am.value = parts.slice(2).join(' '); }
+        else if(parts.length===1){ n.value = parts[0]; }
       });
       pp.addEventListener('change', ()=>{ wp.value = digits(pp.value); });
     }
 
-    // Utilidades UI
     function showToast(msg){
       const t = $('#toast'); if(!t) return;
       t.textContent = msg;
@@ -431,34 +394,6 @@
       t._h = setTimeout(()=>t.classList.remove('show'), 2600);
     }
     function digits(s){ return (s||'').replace(/\D+/g,''); }
-    function dataLayerPush(obj){
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push(obj);
-    }
-
-    // QA helpers: aparece solo con ?qa=1
-    function mountQA(){
-      const bar = document.createElement('div');
-      bar.style.position='fixed'; bar.style.bottom='18px'; bar.style.left='18px';
-      bar.style.background='#111'; bar.style.color='#fff'; bar.style.padding='8px 10px';
-      bar.style.borderRadius='10px'; bar.style.fontSize='12px'; bar.style.zIndex='120';
-      bar.style.display='flex'; bar.style.gap='8px'; bar.style.alignItems='center';
-      bar.innerHTML = '<strong>QA</strong> <button id="qa-ping" class="btn" style="padding:6px 10px;border-radius:8px;border:1px solid #444;background:#222;color:#fff;">Ping</button><button id="qa-test" class="btn" style="padding:6px 10px;border-radius:8px;border:1px solid #444;background:#222;color:#fff;">Prueba GET</button>';
-      document.body.appendChild(bar);
-
-      $('#qa-ping').addEventListener('click', ()=>{ window.open(ENDPOINT+'?ping=1','_blank'); });
-      $('#qa-test').addEventListener('click', ()=>{
-        const dev = $('#desarrollo')?.value || 'Mirador del Bosque';
-        const u = ENDPOINT + '?test=1'
-          + '&nombre=' + encodeURIComponent('PRUEBA WEB')
-          + '&email=' + encodeURIComponent('test@web.com')
-          + '&whatsapp=' + encodeURIComponent('3329335952')
-          + '&zona=' + encodeURIComponent(dev)
-          + '&mensaje=' + encodeURIComponent('Hola desde QA');
-        window.open(u,'_blank');
-        showToast('Prueba enviada (GET). Revisa tu hoja.');
-      });
-    }
   })();
   </script>
 </body>
