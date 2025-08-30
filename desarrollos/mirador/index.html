@@ -12,7 +12,7 @@
     *{box-sizing:border-box} body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;color:var(--dark)}
     a{color:inherit;text-decoration:none} img{max-width:100%;display:block}
     .container{max-width:1100px;margin:0 auto;padding:0 20px}
-    .btn{display:inline-block;padding:12px 20px;border-radius:999px;border:1px solid var(--gold);font-weight:600;text-align:center}
+    .btn{display:inline-block;padding:12px 20px;border-radius:999px;border:1px solid var(--gold);font-weight:600;text-align:center;cursor:pointer}
     .btn.primary{background:var(--gold);color:#fff;border-color:var(--gold)}
     .btn.ghost{background:transparent;color:var(--gold)}
     .btn.whatsapp{background:#25D366!important;border-color:#25D366!important;color:#fff!important}
@@ -20,7 +20,7 @@
     header{position:sticky;top:0;background:rgba(255,255,255,.95);backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid #e2e8f0;z-index:50}
     header .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
     nav a{margin-left:18px;color:var(--muted)} .logo-img{height:105px}
-    /* móvil: ocultar menú y centrar logo */
+
     @media (max-width:768px){ header nav{display:none} header .wrap{justify-content:center} .logo{margin:0 auto} }
 
     .breadcrumb{font-size:14px;color:var(--muted);padding:10px 0}
@@ -28,13 +28,15 @@
     @media(max-width:640px){.hero{min-height:340px}}
     .hero::before{content:"";position:absolute;inset:0;z-index:-1;background:
       linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.55)),
-      image-set(url('assets/hero-1600.webp') type('image/webp') 1x,url('assets/hero-3200.webp') type('image/webp') 2x,url('assets/hero-1600.jpg') type('image/jpeg') 1x,url('assets/hero-3200.jpg') type('image/jpeg') 2x);
+      image-set(url('assets/hero-1600.webp') type('image/webp') 1x,url('assets/hero-3200.webp') type('image/webp') 2x,
+                url('assets/hero-1600.jpg') type('image/jpeg') 1x,url('assets/hero-3200.jpg') type('image/jpeg') 2x);
       background-size:cover;background-position:center;background-repeat:no-repeat;background-color:#cbd5e1}
 
     .hero h1{font-size:clamp(28px,5vw,46px);line-height:1.1;margin:0 0 10px}
     .hero p{margin:0 0 16px;color:#e5e7eb}
     .badges{display:flex;flex-wrap:wrap;gap:10px;margin:10px 0 22px}
     .badge{padding:8px 12px;border:1px solid #e2e8f0;border-radius:999px;background:rgba(255,255,255,.9);color:#111}
+
     .section{padding:42px 0}
     .section h2{font-size:clamp(22px,4vw,32px);margin:0 0 14px}
     .grid{display:grid;gap:16px}
@@ -63,6 +65,17 @@
     .grid.cols-2>div{display:flex;flex-direction:column;gap:6px}
     form textarea{min-width:0}
     @media(max-width:899px){.grid.cols-2{grid-template-columns:1fr}}
+
+    /* Toast */
+    .toast{position:fixed;top:18px;left:50%;transform:translateX(-50%);background:#111;color:#fff;padding:12px 16px;border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.25);z-index:100;opacity:0;pointer-events:none;transition:.25s}
+    .toast.show{opacity:1}
+    .highlight-pulse{animation: pulse .9s ease-out 1}
+    @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(201,162,39,.0)}50%{box-shadow:0 0 0 6px rgba(201,162,39,.25)}100%{box-shadow:0 0 0 0 rgba(201,162,39,.0)}}
+
+    /* Accesible "invisible" */
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+    /* Ocultar sin borrar */
     .is-hidden{display:none!important}
   </style>
 </head>
@@ -88,7 +101,7 @@
           <div class="badge">Amenidades destacadas</div>
         </div>
         <div class="cta-bar">
-          <a class="btn whatsapp js-wa-link" href="#">Solicitar información por WhatsApp</a>
+          <a class="btn whatsapp js-wa-link" data-rol="info" href="#">Solicitar información por WhatsApp</a>
           <a class="btn ghost js-wa-link" data-rol="ficha" href="#">Solicitar ficha</a>
         </div>
       </div>
@@ -126,7 +139,7 @@
               <div class="meta">2 recámaras</div>
               <div style="display:flex;align-items:center;justify-content:space-between">
                 <span>Desde <strong>$699,000</strong></span>
-                <a class="btn js-wa-link" data-model="Nardo" href="#">Solicitar ficha</a>
+                <a class="btn js-wa-link" data-rol="ficha" data-model="Nardo" href="#">Solicitar ficha</a>
               </div>
             </div>
           </article>
@@ -138,7 +151,7 @@
               <div class="meta">2 recámaras</div>
               <div style="display:flex;align-items:center;justify-content:space-between">
                 <span>Desde <strong>$754,000</strong></span>
-                <a class="btn js-wa-link" data-model="Oliva" href="#">Solicitar ficha</a>
+                <a class="btn js-wa-link" data-rol="ficha" data-model="Oliva" href="#">Solicitar ficha</a>
               </div>
             </div>
           </article>
@@ -154,18 +167,36 @@
         <form id="lead-form" autocomplete="on">
           <input type="hidden" id="desarrollo" name="desarrollo" value="Mirador del Bosque" />
 
+          <!-- Proxies accesibles para ayudar al Autofill de algunos navegadores -->
+          <input id="full_name_proxy" name="name" class="sr-only" type="text" autocomplete="name" tabindex="-1" aria-hidden="true">
+          <input id="phone_proxy" name="phone" class="sr-only" type="tel" autocomplete="tel" tabindex="-1" aria-hidden="true">
+
           <div class="grid cols-2">
             <div>
-              <label for="nombre">Nombre(s)</label>
-              <input id="nombre" name="nombre" required placeholder="Tu nombre" autocomplete="given-name" />
+              <label for="nombre">Nombre</label>
+              <!-- Usamos autocomplete="name" para permitir nombre completo y luego lo partimos -->
+              <input id="nombre" name="nombre" required placeholder="Tu nombre"
+                     autocomplete="name" autocapitalize="words" />
+            </div>
+            <div>
+              <label for="apellido_paterno">Apellido paterno</label>
+              <input id="apellido_paterno" name="apellido_paterno" required placeholder="Tu apellido paterno"
+                     autocomplete="family-name" autocapitalize="words" />
+            </div>
+            <div>
+              <label for="apellido_materno">Apellido materno</label>
+              <input id="apellido_materno" name="apellido_materno" required placeholder="Tu apellido materno"
+                     autocomplete="additional-name" autocapitalize="words" />
             </div>
             <div>
               <label for="whatsapp">WhatsApp</label>
-              <input id="whatsapp" name="whatsapp" required type="tel" inputmode="tel" autocomplete="tel" placeholder="Ej. 33 2933 5952" />
+              <input id="whatsapp" name="whatsapp" required type="tel" inputmode="tel"
+                     autocomplete="tel" placeholder="Ej. 33 2933 5952" />
             </div>
             <div>
               <label for="correo">Correo electrónico</label>
-              <input id="correo" name="correo" required type="email" autocomplete="email" placeholder="tu@correo.com" />
+              <input id="correo" name="correo" required type="email"
+                     autocomplete="email" spellcheck="false" placeholder="tu@correo.com" />
             </div>
           </div>
 
@@ -175,16 +206,15 @@
           </div>
 
           <div class="cta-bar" style="display:flex;gap:10px;flex-wrap:wrap">
-            <a id="send-wa" class="btn whatsapp js-wa-link" href="#">Solicitar información por WhatsApp</a>
+            <a id="send-wa" class="btn whatsapp js-wa-link" data-rol="info" href="#">Solicitar información por WhatsApp</a>
           </div>
-
           <p id="form-msg" style="margin:10px 0 0;display:none"></p>
         </form>
       </div>
     </section>
 
     <div class="sticky-cta">
-      <a id="sticky-send" class="btn whatsapp js-wa-link" href="#">Solicitar información por WhatsApp</a>
+      <a id="sticky-send" class="btn whatsapp js-wa-link" data-rol="info" href="#">Solicitar información por WhatsApp</a>
       <a class="btn ghost js-wa-link" data-rol="ficha" href="#">Solicitar ficha</a>
     </div>
   </main>
@@ -202,7 +232,10 @@
   <a class="wa-float is-hidden" target="_blank" rel="noopener"
      href="https://wa.me/523329335952?text=Hola%20Trhoncal%20Homes%2C%20me%20interesa%20Mirador%20del%20Bosque">WhatsApp</a>
 
-  <!-- JS: DEFER para que siempre enganche -->
+  <!-- Toast -->
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <!-- JS -->
   <script defer>
   (function(){
     const WA_DEST   = "523329335952"; // +52 33 2933 5952
@@ -214,39 +247,73 @@
     document.addEventListener('DOMContentLoaded', () => {
       $('#year').textContent = new Date().getFullYear();
 
-      // Sincroniza el desarrollo con el H1 por si cambia
+      // Desarrollo = h1
       const h1 = $('#dev-title'); const dev = $('#desarrollo');
       if(h1 && dev){ dev.value = h1.textContent.trim(); }
 
       // Prefill por query y localStorage
-      prefill(['nombre','whatsapp','correo','mensaje']);
+      prefill(['nombre','apellido_paterno','apellido_materno','whatsapp','correo','mensaje']);
 
-      // Enlazar TODOS los botones que deben ir a WhatsApp
+      // Proxies: espejo con whatsapp y nombre completo si el navegador usa name/phone
+      bindProxies();
+
+      // Si el usuario/Autofill metió nombre completo en "Nombre", partir a apellidos si están vacíos
+      const nombre = $('#nombre');
+      nombre.addEventListener('change', splitFullNameIfNeeded);
+      nombre.addEventListener('blur', splitFullNameIfNeeded);
+
+      // También intentamos dividir tras un tiempo (por si el Autofill rellena en diferido)
+      setTimeout(splitFullNameIfNeeded, 600);
+
+      // Agregar gating a todos los botones WA
       $$('.js-wa-link').forEach(a=>{
         a.addEventListener('click', (ev)=>{
-          // Si existe el formulario, validarlo
           const form = $('#lead-form');
-          if(form && !form.reportValidity()){ form.scrollIntoView({behavior:'smooth', block:'start'}); return; }
+          const rol = a.dataset.rol || 'info';
+          if(!form.reportValidity()){
+            dataLayerPush({event:'wa_intent_bloqueado', rol, motivo:'incompleto', desarrollo: dev.value});
+            showToast( rol === 'ficha'
+              ? 'Para enviarte la ficha, completa tu nombre y apellidos, WhatsApp y correo. Te la mandamos directo por WhatsApp.'
+              : 'Para atenderte por WhatsApp, completa tu nombre y apellidos, WhatsApp y correo. Te contactamos en minutos.'
+            );
+            form.classList.add('highlight-pulse');
+            form.scrollIntoView({behavior:'smooth', block:'start'});
+            setTimeout(()=>form.classList.remove('highlight-pulse'), 1000);
+            ev.preventDefault();
+            return;
+          }
 
+          // Válido: construir datos, guardar y abrir WA
           const d = getData();
-          // Guardar a hoja ANTES de navegar (beacon/keepalive)
           sendLead(d);
+          dataLayerPush({event:'wa_click', rol, desarrollo: dev.value});
 
-          // Construir URL y ponerla en el href del <a> para no bloquear la navegación
-          const url = buildWA(d, a.dataset.model, a.dataset.rol);
+          const url = buildWA(d, a.dataset.model, rol);
           a.setAttribute('href', url);
-          a.setAttribute('target', '_blank'); // abre aparte en móvil/desktop
-          // NO preventDefault -> dejamos que navegue
+          a.setAttribute('target', '_blank');
         }, {once:false});
       });
+
+      // QA panel (solo si ?qa=1)
+      const qp = new URLSearchParams(location.search);
+      if(qp.get('qa')==='1'){ mountQA(); }
+
+      dataLayerPush({event:'page_view', desarrollo: dev.value});
     });
 
     function getData(){
-      const form = $('#lead-form');
-      const d = Object.fromEntries(new FormData(form).entries());
-      d.whatsapp = onlyDigits(d.whatsapp);
-      // Persistir
-      ['nombre','whatsapp','correo','mensaje'].forEach(k=>{
+      const f = $('#lead-form');
+      const d = Object.fromEntries(new FormData(f).entries());
+      d.whatsapp = digits(d.whatsapp || $('#phone_proxy').value);
+      // nombre completo
+      let full = ($('#full_name_proxy').value || '').trim();
+      if(!full){
+        full = [d.nombre, d.apellido_paterno, d.apellido_materno].filter(Boolean).join(' ');
+      }
+      d.nombre_completo = full.replace(/\s+/g,' ').trim();
+
+      // Guardar en localStorage
+      ['nombre','apellido_paterno','apellido_materno','whatsapp','correo','mensaje'].forEach(k=>{
         if(d[k]) localStorage.setItem('lead_'+k, d[k]);
       });
       return d;
@@ -256,17 +323,17 @@
       const desarrollo = d.desarrollo || 'el desarrollo';
       const extra = model ? ` (Modelo ${model})` : (rol==='ficha' ? ' (Solicito ficha)' : '');
       const texto = `Hola Trhoncal Homes, me interesa ${desarrollo}${extra}. ` +
-                    `Soy ${d.nombre}. ` +
+                    `Soy ${d.nombre_completo}. ` +
                     `Mi correo es ${d.correo}. ` +
                     `Mi WhatsApp es ${d.whatsapp}. ` +
                     `${d.mensaje||''}`.trim();
       return `https://wa.me/${WA_DEST}?text=${encodeURIComponent(texto)}`;
     }
 
+    // Envío a Apps Script (beacon + fetch keepalive)
     function sendLead(d){
-      // Objeto compatible con tu Apps Script (nombre, email, whatsapp, zona, mensaje…)
       const payload = {
-        nombre: d.nombre,
+        nombre: d.nombre_completo,
         email: d.correo,
         whatsapp: d.whatsapp,
         zona: d.desarrollo || 'Mirador del Bosque',
@@ -286,20 +353,110 @@
             keepalive:true
           });
         }
-      }catch(e){ /* silencioso para no bloquear la navegación */ }
+        dataLayerPush({event:'lead_submit', desarrollo: payload.zona, email_domain:(d.correo||'').split('@')[1]||'', phone_last4:(d.whatsapp||'').slice(-4)});
+      }catch(_){}
     }
 
-    function onlyDigits(s){ return (s||'').replace(/\D+/g,''); }
-
+    // Prefill URL + localStorage
     function prefill(fields){
       const qp = new URLSearchParams(location.search);
+      const map = {
+        apellido_paterno: ['apellidop','apaterno','paterno'],
+        apellido_materno: ['apellidom','amaterno','materno'],
+        whatsapp: ['telefono','phone'],
+        correo: ['email','mail'],
+        nombre: ['name','fullname']
+      };
       fields.forEach(f=>{
         const el = $('#'+f); if(!el) return;
-        let val = qp.get(f) || localStorage.getItem('lead_'+f) || '';
-        if(!val && f==='whatsapp'){ val = qp.get('telefono') || qp.get('phone') || '' }
-        if(!val && f==='correo'){ val = qp.get('email') || '' }
-        if(val) el.value = val;
+        let v = qp.get(f) || (map[f]||[]).map(k=>qp.get(k)).find(Boolean) || localStorage.getItem('lead_'+f) || '';
+        if(v) el.value = v;
         el.addEventListener('input',()=>localStorage.setItem('lead_'+f, el.value));
+      });
+    }
+
+    function splitFullNameIfNeeded(){
+      const n = $('#nombre'), ap = $('#apellido_paterno'), am = $('#apellido_materno');
+      const val = (n.value||'').trim();
+      const parts = val.split(/\s+/);
+      // Si apellidos vacíos y nombre parece tener 2+ palabras, dividimos.
+      if(!ap.value && !am.value && parts.length>=2){
+        n.value = parts[0];
+        ap.value = parts[1] || '';
+        am.value = parts.slice(2).join(' ');
+        // Persistimos
+        localStorage.setItem('lead_nombre', n.value);
+        localStorage.setItem('lead_apellido_paterno', ap.value);
+        localStorage.setItem('lead_apellido_materno', am.value);
+      }
+      // También guardamos el proxy de nombre completo
+      $('#full_name_proxy').value = [n.value, ap.value, am.value].filter(Boolean).join(' ').trim();
+    }
+
+    function bindProxies(){
+      const wp = $('#whatsapp'), pp = $('#phone_proxy');
+      const fn = $('#full_name_proxy'), n = $('#nombre'), ap = $('#apellido_paterno'), am = $('#apellido_materno');
+
+      // Espejo tel
+      const syncPhone = ()=>{ pp.value = digits(wp.value); };
+      wp.addEventListener('input', syncPhone); syncPhone();
+
+      // Espejo full name
+      const syncFull = ()=>{ fn.value = [n.value, ap.value, am.value].filter(Boolean).join(' ').trim(); };
+      n.addEventListener('input', syncFull);
+      ap.addEventListener('input', syncFull);
+      am.addEventListener('input', syncFull);
+      syncFull();
+
+      // Si el navegador autocompleta fn/pp, reflejar hacia los visibles
+      fn.addEventListener('change', ()=>{
+        const parts = (fn.value||'').trim().split(/\s+/);
+        if(parts.length>=2){
+          n.value = parts[0];
+          ap.value = parts[1] || '';
+          am.value = parts.slice(2).join(' ');
+        }else if(parts.length===1){
+          n.value = parts[0];
+        }
+      });
+      pp.addEventListener('change', ()=>{ wp.value = digits(pp.value); });
+    }
+
+    // Utilidades UI
+    function showToast(msg){
+      const t = $('#toast'); if(!t) return;
+      t.textContent = msg;
+      t.classList.add('show');
+      clearTimeout(t._h);
+      t._h = setTimeout(()=>t.classList.remove('show'), 2600);
+    }
+    function digits(s){ return (s||'').replace(/\D+/g,''); }
+    function dataLayerPush(obj){
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push(obj);
+    }
+
+    // QA helpers: aparece solo con ?qa=1
+    function mountQA(){
+      const bar = document.createElement('div');
+      bar.style.position='fixed'; bar.style.bottom='18px'; bar.style.left='18px';
+      bar.style.background='#111'; bar.style.color='#fff'; bar.style.padding='8px 10px';
+      bar.style.borderRadius='10px'; bar.style.fontSize='12px'; bar.style.zIndex='120';
+      bar.style.display='flex'; bar.style.gap='8px'; bar.style.alignItems='center';
+      bar.innerHTML = '<strong>QA</strong> <button id="qa-ping" class="btn" style="padding:6px 10px;border-radius:8px;border:1px solid #444;background:#222;color:#fff;">Ping</button><button id="qa-test" class="btn" style="padding:6px 10px;border-radius:8px;border:1px solid #444;background:#222;color:#fff;">Prueba GET</button>';
+      document.body.appendChild(bar);
+
+      $('#qa-ping').addEventListener('click', ()=>{ window.open(ENDPOINT+'?ping=1','_blank'); });
+      $('#qa-test').addEventListener('click', ()=>{
+        const dev = $('#desarrollo')?.value || 'Mirador del Bosque';
+        const u = ENDPOINT + '?test=1'
+          + '&nombre=' + encodeURIComponent('PRUEBA WEB')
+          + '&email=' + encodeURIComponent('test@web.com')
+          + '&whatsapp=' + encodeURIComponent('3329335952')
+          + '&zona=' + encodeURIComponent(dev)
+          + '&mensaje=' + encodeURIComponent('Hola desde QA');
+        window.open(u,'_blank');
+        showToast('Prueba enviada (GET). Revisa tu hoja.');
       });
     }
   })();
