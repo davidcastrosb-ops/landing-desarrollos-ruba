@@ -7,6 +7,16 @@
   <meta name="description" content="Mirador del Bosque en Zapopan. Prototipos Nardo y Oliva desde $740,000. Acompañamiento total en tu crédito." />
   <link rel="canonical" href="https://mirador.3dhomes.com.mx/"/>
   <link rel="preload" as="image" imagesrcset="assets/hero-1600.webp 1x, assets/hero-3200.webp 2x" imagesizes="100vw" href="assets/hero-1600.jpg">
+
+  <!-- Google Tag Manager -->
+  <script>
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+   var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+   j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+   f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-5P4DVBHC');
+  </script>
+  <!-- End Google Tag Manager -->
+
   <style>
     :root{--gold:#C9A227;--dark:#0f172a;--muted:#475569;--bg:#fff;--light:#f8fafc;--logo-h:105px;--header-pad:12px;--green:#25D366}
     *{box-sizing:border-box} body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;color:var(--dark);background:#fff}
@@ -44,6 +54,8 @@
     .section h2{font-size:clamp(22px,4vw,32px);margin:0 0 14px}
     .grid{display:grid;gap:16px}
     @media(min-width:900px){.grid.cols-2{grid-template-columns:1fr 1fr}}
+    @media(min-width:900px){.grid.cols-3{grid-template-columns:repeat(3,1fr)}}
+    .grid.cols-2>div,.grid.cols-3>div{display:flex;flex-direction:column;gap:6px}
 
     .cards{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
     .card{grid-column:span 12;background:#fff;border:1px solid #e2e8f0;border-radius:16px;overflow:hidden;box-shadow:0 8px 22px rgba(0,0,0,.04)}
@@ -62,15 +74,12 @@
     /* Sticky bar */
     .sticky-cta{position:sticky;bottom:0;background:#fff;border-top:1px solid #e2e8f0;padding:10px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
 
-    /* Form alineado */
+    /* Form */
     form label{display:block;margin:0 0 6px;font-weight:600}
     form input,form textarea{
       width:100%;display:block;padding:12px 14px;border:1px solid #e2e8f0;border-radius:10px;font-size:16px;outline:0;background:#fff
     }
     form input:focus,form textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,162,39,.15)}
-    .grid.cols-3{grid-template-columns:1fr}
-    @media(min-width:900px){.grid.cols-3{grid-template-columns:repeat(3,1fr)}}
-    .grid.cols-2>div,.grid.cols-3>div{display:flex;flex-direction:column;gap:6px}
     form textarea{min-width:0}
 
     /* Avisos */
@@ -83,6 +92,11 @@
   </style>
 </head>
 <body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5P4DVBHC"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
   <header>
     <div class="container wrap">
       <div class="logo"><img class="logo-img" src="assets/logo-trhoncal-flat.png" alt="Trhoncal Homes" /></div>
@@ -169,6 +183,10 @@
         <form id="lead-form" autocomplete="on">
           <input type="hidden" id="desarrollo" name="desarrollo" value="Mirador del Bosque" />
 
+          <!-- HONEYPOT anti-spam -->
+          <input type="text" name="empresa" id="empresa" autocomplete="off"
+                 style="position:absolute;left:-9999px;top:-9999px" tabindex="-1" aria-hidden="true">
+
           <div class="grid cols-3" style="margin-bottom:12px">
             <div>
               <label for="nombre">Nombre(s)</label>
@@ -225,7 +243,7 @@
     </div>
   </footer>
 
-  <!-- Botón flotante: OCULTO, no borrado -->
+  <!-- Botón flotante: OCULTO -->
   <a class="wa-float is-hidden" target="_blank" rel="noopener"
      href="https://wa.me/523329335952?text=Hola%20Trhoncal%20Homes%2C%20me%20interesa%20Mirador%20del%20Bosque">WhatsApp</a>
 
@@ -233,8 +251,20 @@
 
   <script>
   /* ====== CONFIG ====== */
-  const WA_DEST   = "523329335952"; // +52 332 933 5952
-  const ENDPOINT  = "https://script.google.com/macros/s/AKfycbziR6D7uIiYA6l-SLFFGu3iGBouQSr_IOK8XbXUeb1uhOM1-SZCo8QS70vvxPVAOcb6mA/exec";
+  const WA_DEST  = "523329335952"; // +52 332 933 5952
+  const ENDPOINT = "https://script.google.com/macros/s/AKfycbziR6D7uIiYA6l-SLFFGu3iGBouQSr_IOK8XbXUeb1uhOM1-SZCo8QS70vvxPVAOcb6mA/exec";
+
+  /* ====== UTM CAPTURE ====== */
+  const UTM = (() => {
+    const p = new URLSearchParams(location.search);
+    return {
+      utm_source:   p.get('utm_source')   || '',
+      utm_medium:   p.get('utm_medium')   || '',
+      utm_campaign: p.get('utm_campaign') || '',
+      utm_term:     p.get('utm_term')     || '',
+      utm_content:  p.get('utm_content')  || ''
+    };
+  })();
 
   /* ====== UTIL ====== */
   const $ = (sel,ctx=document)=>ctx.querySelector(sel);
@@ -287,13 +317,15 @@
   /* ====== Save to Sheet ====== */
   function saveLead(d){
     try{
-      const body = JSON.stringify({
+      const bodyObj = {
         nombre: fullName(d),
         email: d.correo,
         whatsapp: onlyDigits(d.whatsapp),
         zona: d.desarrollo || 'Mirador del Bosque',
-        mensaje: d.mensaje || ''
-      });
+        mensaje: d.mensaje || '',
+        ...UTM
+      };
+      const body = JSON.stringify(bodyObj);
       if (navigator.sendBeacon){
         const blob = new Blob([body], {type:'application/json'});
         navigator.sendBeacon(ENDPOINT, blob);
@@ -303,11 +335,7 @@
       // Fallback GET (pixel)
       const u = new URL(ENDPOINT);
       u.searchParams.set('collect','1');
-      u.searchParams.set('nombre', fullName(d));
-      u.searchParams.set('email', d.correo);
-      u.searchParams.set('whatsapp', onlyDigits(d.whatsapp));
-      u.searchParams.set('zona', d.desarrollo || 'Mirador del Bosque');
-      u.searchParams.set('mensaje', d.mensaje || '');
+      for (const [k,v] of Object.entries(bodyObj)) u.searchParams.set(k, v);
       new Image().src = u.toString();
     }catch(e){/* noop */}
   }
@@ -317,6 +345,10 @@
   function validateForm(){
     const f = document.getElementById('lead-form');
     const d = Object.fromEntries(new FormData(f).entries());
+
+    // honeypot
+    if (document.getElementById('empresa').value) { toast('Error de validación.'); return null; }
+
     if(!(d.nombre||'').trim())   { toast('Escribe tu nombre.'); return null; }
     if(!(d.apaterno||'').trim()) { toast('Escribe tu apellido paterno.'); return null; }
     if(!(d.amaterno||'').trim()) { toast('Escribe tu apellido materno.'); return null; }
@@ -327,10 +359,24 @@
 
   /* ====== Envío a WhatsApp (botones verdes) ====== */
   function goWhatsApp(d){
+    // Guardar a hoja
     saveLead(d);
+
+    // Enviar evento a GTM / Google Ads
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'lead_submit',
+      desarrollo: d.desarrollo || 'Mirador del Bosque',
+      lead_nombre: fullName(d),
+      lead_tel: onlyDigits(d.whatsapp),
+      lead_correo: d.correo,
+      ...UTM
+    });
+
+    // WhatsApp
     const texto = buildMessage(d);
     const url = `https://wa.me/${WA_DEST}?text=${encodeURIComponent(texto)}`;
-    window.location.href = url; // navegación directa (evita bloqueos de pop-up)
+    window.location.href = url; // navegación directa
   }
 
   function handleSendClick(e){
