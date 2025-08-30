@@ -2,64 +2,35 @@
 <html lang="es">
 <head>
   <meta charset="utf-8" />
-  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">
-  <meta http-equiv="Pragma" content="no-cache">
-  <meta http-equiv="Expires" content="0">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Trhoncal Homes | Mirador del Bosque – Zapopan</title>
   <meta name="description" content="Mirador del Bosque en Zapopan. Prototipos Nardo y Oliva desde $740,000. Acompañamiento total en tu crédito." />
   <link rel="canonical" href="https://mirador.3dhomes.com.mx/"/>
-
-  <!-- ======== VERSION para cache-busting ======== -->
-  <script>window.BUILD_VER="20250829a";</script>
-  <link rel="preload" as="image" imagesrcset="assets/hero-1600.webp?v=20250829a 1x, assets/hero-3200.webp?v=20250829a 2x" imagesizes="100vw" href="assets/hero-1600.jpg?v=20250829a">
-
-  <!-- ======== GOOGLE TAG MANAGER (GTM) ======== -->
-  <script>
-    (function(w,d,s,l,i){
-      w[l]=w[l]||[];
-      w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
-      var f=d.getElementsByTagName(s)[0], j=d.createElement(s), dl=l!='dataLayer'?'&l='+l:'';
-      j.async=true; j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-      f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-5P4DVBHC'); /* <<< PON tu ID */
-  </script>
-  <!-- ======== /GTM ======== -->
-
+  <link rel="preload" as="image" imagesrcset="assets/hero-1600.webp 1x, assets/hero-3200.webp 2x" imagesizes="100vw" href="assets/hero-1600.jpg">
   <style>
-    :root{--gold:#C9A227;--dark:#0f172a;--muted:#475569;--bg:#fff;--light:#f8fafc;--logo-h:105px;--header-pad:12px}
-    *{box-sizing:border-box}
-    body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;color:var(--dark)}
-    a{color:inherit;text-decoration:none}
-    img{max-width:100%;display:block}
+    :root{--gold:#C9A227;--dark:#0f172a;--muted:#475569;--bg:#fff;--light:#f8fafc}
+    *{box-sizing:border-box} body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;color:var(--dark)}
+    a{color:inherit;text-decoration:none} img{max-width:100%;display:block}
     .container{max-width:1100px;margin:0 auto;padding:0 20px}
     .btn{display:inline-block;padding:12px 20px;border-radius:999px;border:1px solid var(--gold);font-weight:600;text-align:center}
     .btn.primary{background:var(--gold);color:#fff;border-color:var(--gold)}
     .btn.ghost{background:transparent;color:var(--gold)}
     .btn.whatsapp{background:#25D366!important;border-color:#25D366!important;color:#fff!important}
 
-    header{position:sticky;top:0;background:rgba(255,255,255,.95);backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid #e2e8f0;z-index:50;padding-bottom:6px}
-    header .wrap{display:flex;align-items:center;justify-content:space-between;height:auto;min-height:calc(var(--logo-h) + var(--header-pad)*2);padding:var(--header-pad) 0;gap:16px}
-    nav a{margin-left:18px;color:var(--muted)}
-    .logo-img{height:var(--logo-h);display:block}
+    header{position:sticky;top:0;background:rgba(255,255,255,.95);backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid #e2e8f0;z-index:50}
+    header .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
+    nav a{margin-left:18px;color:var(--muted)} .logo-img{height:105px}
+    /* móvil: ocultar menú y centrar logo */
     @media (max-width:768px){ header nav{display:none} header .wrap{justify-content:center} .logo{margin:0 auto} }
 
     .breadcrumb{font-size:14px;color:var(--muted);padding:10px 0}
     .hero{position:relative;min-height:420px;display:grid;align-items:end;padding:28px 0;color:#fff}
-    @media(max-width:640px){.hero{min-height:341px}}
-    .hero::before{
-      content:"";position:absolute;inset:0;z-index:-1;
-      background:
-        linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.55)),
-        image-set(
-          url('assets/hero-1600.webp?v=20250829a') type('image/webp') 1x,
-          url('assets/hero-3200.webp?v=20250829a') type('image/webp') 2x,
-          url('assets/hero-1600.jpg?v=20250829a') type('image/jpeg') 1x,
-          url('assets/hero-3200.jpg?v=20250829a') type('image/jpeg') 2x
-        );
-      background-size:cover;background-position:center;background-repeat:no-repeat;background-color:#cbd5e1
-    }
-    .hero>.container{position:relative}
+    @media(max-width:640px){.hero{min-height:340px}}
+    .hero::before{content:"";position:absolute;inset:0;z-index:-1;background:
+      linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.55)),
+      image-set(url('assets/hero-1600.webp') type('image/webp') 1x,url('assets/hero-3200.webp') type('image/webp') 2x,url('assets/hero-1600.jpg') type('image/jpeg') 1x,url('assets/hero-3200.jpg') type('image/jpeg') 2x);
+      background-size:cover;background-position:center;background-repeat:no-repeat;background-color:#cbd5e1}
+
     .hero h1{font-size:clamp(28px,5vw,46px);line-height:1.1;margin:0 0 10px}
     .hero p{margin:0 0 16px;color:#e5e7eb}
     .badges{display:flex;flex-wrap:wrap;gap:10px;margin:10px 0 22px}
@@ -68,38 +39,37 @@
     .section h2{font-size:clamp(22px,4vw,32px);margin:0 0 14px}
     .grid{display:grid;gap:16px}
     @media(min-width:900px){.grid.cols-2{grid-template-columns:1fr 1fr}}
+
     .cards{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
     .card{grid-column:span 12;background:#fff;border:1px solid #e2e8f0;border-radius:16px;overflow:hidden;box-shadow:0 8px 22px rgba(0,0,0,.04)}
     .card img{width:100%;height:200px;object-fit:cover;background:#e2e8f0}
     .card .p{padding:14px}
     .card h3{margin:0 0 6px;font-size:18px}
     .meta{color:var(--muted);font-size:14px;margin-bottom:10px}
-    @media(min-width:700px){.card{grid-column:span 6}}
-    @media(min-width:1000px){.card{grid-column:span 4}}
+    @media(min-width:700px){.card{grid-column:span 6}} @media(min-width:1000px){.card{grid-column:span 4}}
+
     .icon-list{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
     @media(min-width:700px){.icon-list{grid-template-columns:repeat(3,1fr)}}
     .icon-item{display:flex;align-items:center;gap:10px;border:1px solid #e2e8f0;border-radius:12px;padding:10px;background:#fff}
+
     footer{padding:32px 0;color:var(--muted)}
     .wa-float{position:fixed;right:18px;bottom:18px;background:#25D366;color:#fff;padding:14px 16px;border-radius:999px;box-shadow:0 8px 22px rgba(0,0,0,.18);font-weight:800;z-index:60}
     .sticky-cta{position:sticky;bottom:0;background:#fff;border-top:1px solid #e2e8f0;padding:10px;display:flex;gap:10px;justify-content:center}
 
+    /* Form alineado */
     form label{display:block;margin:0 0 6px;font-weight:600}
     form input,form textarea{width:100%;display:block;padding:12px 14px;border:1px solid #e2e8f0;border-radius:10px;font-size:16px;outline:0;background:#fff}
     form input:focus,form textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,162,39,.15)}
     .grid.cols-2>div{display:flex;flex-direction:column;gap:6px}
+    form textarea{min-width:0}
     @media(max-width:899px){.grid.cols-2{grid-template-columns:1fr}}
     .is-hidden{display:none!important}
   </style>
 </head>
 <body>
-  <!-- ======== GTM (noscript) ======== -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5P4DVBHC"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- ======== /GTM ======== -->
-
   <header>
     <div class="container wrap">
-      <div class="logo"><img class="logo-img" src="assets/logo-trhoncal-flat.png?v=20250829a" alt="Trhoncal Homes" /></div>
+      <div class="logo"><img class="logo-img" src="assets/logo-trhoncal-flat.png" alt="Trhoncal Homes" /></div>
       <nav><a href="/">Inicio</a><a href="/catalogo-devs.html">Desarrollos</a><a href="#contacto">Contacto</a></nav>
     </div>
   </header>
@@ -109,7 +79,7 @@
 
     <section class="hero">
       <div class="container">
-        <h1>Mirador del Bosque</h1>
+        <h1 id="dev-title">Mirador del Bosque</h1>
         <p>Vive al norte de Zapopan con conexión a servicios y naturaleza.</p>
         <div class="badges">
           <div class="badge">Ubicación: Zapopan</div>
@@ -118,8 +88,8 @@
           <div class="badge">Amenidades destacadas</div>
         </div>
         <div class="cta-bar">
-          <a id="hero-send" class="btn whatsapp" href="#">Solicitar información por WhatsApp</a>
-          <a id="hero-ficha" class="btn whatsapp" href="#">Solicitar ficha</a>
+          <a class="btn whatsapp js-wa-link" href="#">Solicitar información por WhatsApp</a>
+          <a class="btn ghost js-wa-link" data-rol="ficha" href="#">Solicitar ficha</a>
         </div>
       </div>
     </section>
@@ -150,25 +120,25 @@
         <h2>Prototipos</h2>
         <div class="cards">
           <article class="card">
-            <img src="assets/nardo.jpg?v=20250829a" alt="Nardo" />
+            <img src="assets/nardo.jpg" alt="Nardo" />
             <div class="p">
               <h3>Nardo</h3>
               <div class="meta">2 recámaras</div>
               <div style="display:flex;align-items:center;justify-content:space-between">
                 <span>Desde <strong>$699,000</strong></span>
-                <a class="btn" href="#contacto" data-model="Nardo">Solicitar ficha</a>
+                <a class="btn js-wa-link" data-model="Nardo" href="#">Solicitar ficha</a>
               </div>
             </div>
           </article>
 
           <article class="card">
-            <img src="assets/oliva.jpg?v=20250829a" alt="Oliva" />
+            <img src="assets/oliva.jpg" alt="Oliva" />
             <div class="p">
               <h3>Oliva</h3>
               <div class="meta">2 recámaras</div>
               <div style="display:flex;align-items:center;justify-content:space-between">
                 <span>Desde <strong>$754,000</strong></span>
-                <a class="btn" href="#contacto" data-model="Oliva">Solicitar ficha</a>
+                <a class="btn js-wa-link" data-model="Oliva" href="#">Solicitar ficha</a>
               </div>
             </div>
           </article>
@@ -187,32 +157,15 @@
           <div class="grid cols-2">
             <div>
               <label for="nombre">Nombre(s)</label>
-              <input id="nombre" name="nombre" required placeholder="Tu nombre"
-                     autocomplete="given-name" autocapitalize="words" list="dl-nombres"/>
+              <input id="nombre" name="nombre" required placeholder="Tu nombre" autocomplete="given-name" />
             </div>
-
             <div>
               <label for="whatsapp">WhatsApp</label>
-              <input id="whatsapp" name="whatsapp" required type="tel" inputmode="tel"
-                     autocomplete="tel" placeholder="Ej. 33 2933 5952" list="dl-phones"/>
+              <input id="whatsapp" name="whatsapp" required type="tel" inputmode="tel" autocomplete="tel" placeholder="Ej. 33 2933 5952" />
             </div>
-
             <div>
-              <label for="ap_paterno">Apellido paterno</label>
-              <input id="ap_paterno" name="ap_paterno" required placeholder="Tu primer apellido"
-                     autocomplete="family-name" />
-            </div>
-
-            <div>
-              <label for="ap_materno">Apellido materno</label>
-              <input id="ap_materno" name="ap_materno" required placeholder="Tu segundo apellido"
-                     autocomplete="additional-name" />
-            </div>
-
-            <div style="grid-column:1/-1">
               <label for="correo">Correo electrónico</label>
-              <input id="correo" name="correo" required type="email"
-                     autocomplete="email" spellcheck="false" placeholder="tu@correo.com" />
+              <input id="correo" name="correo" required type="email" autocomplete="email" placeholder="tu@correo.com" />
             </div>
           </div>
 
@@ -222,7 +175,7 @@
           </div>
 
           <div class="cta-bar" style="display:flex;gap:10px;flex-wrap:wrap">
-            <a id="send-wa" class="btn whatsapp" href="#">Solicitar información por WhatsApp</a>
+            <a id="send-wa" class="btn whatsapp js-wa-link" href="#">Solicitar información por WhatsApp</a>
           </div>
 
           <p id="form-msg" style="margin:10px 0 0;display:none"></p>
@@ -231,8 +184,8 @@
     </section>
 
     <div class="sticky-cta">
-      <a id="sticky-send" class="btn whatsapp is-hidden" href="#">Solicitar información por WhatsApp</a>
-      <a id="sticky-ficha" class="btn whatsapp" href="#">Solicitar ficha</a>
+      <a id="sticky-send" class="btn whatsapp js-wa-link" href="#">Solicitar información por WhatsApp</a>
+      <a class="btn ghost js-wa-link" data-rol="ficha" href="#">Solicitar ficha</a>
     </div>
   </main>
 
@@ -245,194 +198,111 @@
     </div>
   </footer>
 
-  <!-- Botón flotante: OCULTO -->
+  <!-- Botón flotante: OCULTO, no borrado -->
   <a class="wa-float is-hidden" target="_blank" rel="noopener"
      href="https://wa.me/523329335952?text=Hola%20Trhoncal%20Homes%2C%20me%20interesa%20Mirador%20del%20Bosque">WhatsApp</a>
 
-  <!-- datalists -->
-  <datalist id="dl-nombres"></datalist>
-  <datalist id="dl-phones"></datalist>
+  <!-- JS: DEFER para que siempre enganche -->
+  <script defer>
+  (function(){
+    const WA_DEST   = "523329335952"; // +52 33 2933 5952
+    const ENDPOINT  = "https://script.google.com/macros/s/AKfycbxI401Elzx8NTYSYMK4D69ya-rSkjgfqM0UbEGtSLoqWHQ3FxY-Ihc0AhKuLdE58WuD/exec";
 
-  <!-- build-stamp -->
-  <div style="position:fixed;right:8px;bottom:8px;opacity:.4;font:12px/1 ui-sans-serif;z-index:9999;background:#fff;padding:4px 6px;border-radius:6px;border:1px solid #e5e7eb">
-    build: <span id="build-tag"></span>
-  </div>
+    const $ = (s,p=document)=>p.querySelector(s);
+    const $$= (s,p=document)=>Array.from(p.querySelectorAll(s));
 
-  <script>
-    /* ===== CONFIG ===== */
-    const WA_DEST    = "523329335952"; // +52 332 933 5952
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxI401Elzx8NTYSYMK4D69ya-rSkjgfqM0UbEGtSLoqWHQ3FxY-Ihc0AhKuLdE58WuD/exec";
-    window.SCRIPT_URL = SCRIPT_URL;
-    document.getElementById('year').textContent = new Date().getFullYear();
-    document.getElementById('build-tag').textContent = new Date().toISOString()+" | "+(window.BUILD_VER||"dev");
+    document.addEventListener('DOMContentLoaded', () => {
+      $('#year').textContent = new Date().getFullYear();
 
-    /* Hard refresh: /?hard=1 */
-    (function(){
-      const qs = new URLSearchParams(location.search);
-      if (qs.get('hard') === '1') {
-        (async () => {
-          try {
-            if ('serviceWorker' in navigator) {
-              const regs = await navigator.serviceWorker.getRegistrations();
-              for (const r of regs) await r.unregister();
-            }
-            if (window.caches) {
-              const keys = await caches.keys();
-              await Promise.all(keys.map(k => caches.delete(k)));
-            }
-          } catch(e) {}
-          location.replace(location.pathname + '?v=' + (window.BUILD_VER||Date.now()));
-        })();
-      }
-    })();
+      // Sincroniza el desarrollo con el H1 por si cambia
+      const h1 = $('#dev-title'); const dev = $('#desarrollo');
+      if(h1 && dev){ dev.value = h1.textContent.trim(); }
 
-    // Desarrollo desde H1
-    (function(){ const h1=document.querySelector('h1'), inp=document.getElementById('desarrollo'); if(h1&&inp) inp.value=h1.textContent.trim(); })();
+      // Prefill por query y localStorage
+      prefill(['nombre','whatsapp','correo','mensaje']);
 
-    /* ===== Prefill + datalists ===== */
-    (function(){
-      const form = document.getElementById('lead-form');
-      const fields = ['nombre','ap_paterno','ap_materno','whatsapp','correo','mensaje'];
-      const qs = new URLSearchParams(location.search);
-      const alias = (k) => {
-        if(k==='whatsapp') return qs.get('whatsapp')||qs.get('telefono')||qs.get('phone')||'';
-        if(k==='correo')   return qs.get('correo')  ||qs.get('email')   ||'';
-        if(k==='ap_paterno') return qs.get('ap_paterno')||qs.get('apellido_paterno')||qs.get('apaterno')||'';
-        if(k==='ap_materno') return qs.get('ap_materno')||qs.get('apellido_materno')||qs.get('amaterno')||'';
-        return qs.get(k)||'';
+      // Enlazar TODOS los botones que deben ir a WhatsApp
+      $$('.js-wa-link').forEach(a=>{
+        a.addEventListener('click', (ev)=>{
+          // Si existe el formulario, validarlo
+          const form = $('#lead-form');
+          if(form && !form.reportValidity()){ form.scrollIntoView({behavior:'smooth', block:'start'}); return; }
+
+          const d = getData();
+          // Guardar a hoja ANTES de navegar (beacon/keepalive)
+          sendLead(d);
+
+          // Construir URL y ponerla en el href del <a> para no bloquear la navegación
+          const url = buildWA(d, a.dataset.model, a.dataset.rol);
+          a.setAttribute('href', url);
+          a.setAttribute('target', '_blank'); // abre aparte en móvil/desktop
+          // NO preventDefault -> dejamos que navegue
+        }, {once:false});
+      });
+    });
+
+    function getData(){
+      const form = $('#lead-form');
+      const d = Object.fromEntries(new FormData(form).entries());
+      d.whatsapp = onlyDigits(d.whatsapp);
+      // Persistir
+      ['nombre','whatsapp','correo','mensaje'].forEach(k=>{
+        if(d[k]) localStorage.setItem('lead_'+k, d[k]);
+      });
+      return d;
+    }
+
+    function buildWA(d, model, rol){
+      const desarrollo = d.desarrollo || 'el desarrollo';
+      const extra = model ? ` (Modelo ${model})` : (rol==='ficha' ? ' (Solicito ficha)' : '');
+      const texto = `Hola Trhoncal Homes, me interesa ${desarrollo}${extra}. ` +
+                    `Soy ${d.nombre}. ` +
+                    `Mi correo es ${d.correo}. ` +
+                    `Mi WhatsApp es ${d.whatsapp}. ` +
+                    `${d.mensaje||''}`.trim();
+      return `https://wa.me/${WA_DEST}?text=${encodeURIComponent(texto)}`;
+    }
+
+    function sendLead(d){
+      // Objeto compatible con tu Apps Script (nombre, email, whatsapp, zona, mensaje…)
+      const payload = {
+        nombre: d.nombre,
+        email: d.correo,
+        whatsapp: d.whatsapp,
+        zona: d.desarrollo || 'Mirador del Bosque',
+        presupuesto: '',
+        mensaje: d.mensaje || ''
       };
+      try{
+        if(navigator.sendBeacon){
+          const blob = new Blob([JSON.stringify(payload)], {type:'application/json'});
+          navigator.sendBeacon(ENDPOINT, blob);
+        }else{
+          fetch(ENDPOINT, {
+            method:'POST',
+            headers:{'Content-Type':'application/json'},
+            body: JSON.stringify(payload),
+            mode:'no-cors',
+            keepalive:true
+          });
+        }
+      }catch(e){ /* silencioso para no bloquear la navegación */ }
+    }
+
+    function onlyDigits(s){ return (s||'').replace(/\D+/g,''); }
+
+    function prefill(fields){
+      const qp = new URLSearchParams(location.search);
       fields.forEach(f=>{
-        const el=form.elements[f]; if(!el) return;
-        el.value = alias(f) || localStorage.getItem('lead_'+f) || el.value || '';
-        el.addEventListener('input',()=>localStorage.setItem('lead_'+f', el.value));
+        const el = $('#'+f); if(!el) return;
+        let val = qp.get(f) || localStorage.getItem('lead_'+f) || '';
+        if(!val && f==='whatsapp'){ val = qp.get('telefono') || qp.get('phone') || '' }
+        if(!val && f==='correo'){ val = qp.get('email') || '' }
+        if(val) el.value = val;
+        el.addEventListener('input',()=>localStorage.setItem('lead_'+f, el.value));
       });
-
-      populateDatalist('dl-nombres', loadHistory('hist_names'));
-      populateDatalist('dl-phones',  loadHistory('hist_phones'));
-
-      /* ====== GTM: page_view con metadatos ====== */
-      window.dataLayer = window.dataLayer || [];
-      dataLayer.push({
-        event: 'page_view',
-        page_path: location.pathname,
-        page_query: location.search || '',
-        referrer: document.referrer || '',
-        desarrollo: form.elements['desarrollo']?.value || ''
-      });
-    })();
-
-    /* ===== Helpers ===== */
-    const onlyDigits = s => (s||'').replace(/\D+/g,'');
-    const trimJoin = arr => arr.filter(Boolean).map(v=>String(v).trim()).filter(Boolean).join(' ');
-    function buildFullName(d){ return trimJoin([d.nombre, d.ap_paterno, d.ap_materno]); }
-    function buildMsg(d){
-      const tel = onlyDigits(d.whatsapp) || d.whatsapp;
-      return `Hola Trhoncal Homes, me interesa ${d.desarrollo||'el desarrollo'}. ` +
-             `Soy ${buildFullName(d)}. Mi correo es ${d.correo}. ` +
-             `Mi WhatsApp es ${tel}.` + (d.mensaje ? ` ${d.mensaje}` : '');
     }
-    function goWA(d){ window.location.href = `https://wa.me/${WA_DEST}?text=${encodeURIComponent(buildMsg(d))}`; }
-    function data(form){ return Object.fromEntries(new FormData(form).entries()); }
-
-    // Historial para datalists
-    function loadHistory(key){ try{return JSON.parse(localStorage.getItem(key)||'[]')}catch{return[]} }
-    function saveHistory(key, value){
-      value=(value||'').trim(); if(!value) return;
-      let arr=loadHistory(key); arr=[value,...arr.filter(v=>v!==value)].slice(0,10);
-      localStorage.setItem(key, JSON.stringify(arr));
-    }
-    function populateDatalist(id, values){
-      const dl=document.getElementById(id);
-      dl.innerHTML=(values||[]).map(v=>`<option value="${v}"></option>`).join('');
-    }
-
-    // Envío a Sheets (Fecha, Nombre, WhatsApp, Correo, Desarrollo, Mensaje)
-    function sendToSheet(d){
-      const payload = { nombre:buildFullName(d), whatsapp:d.whatsapp||"", email:d.correo||"", desarrollo:d.desarrollo||"", mensaje:d.mensaje||"" };
-      const body = new Blob([JSON.stringify(payload)], {type:'application/json'});
-      if(!(navigator.sendBeacon && navigator.sendBeacon(SCRIPT_URL, body))){
-        fetch(SCRIPT_URL,{method:'POST',headers:{'Content-Type':'application/json'},body,mode:'no-cors'}).catch(()=>{});
-      }
-    }
-
-    // Click handlers
-    const form = document.getElementById('lead-form');
-    function gather(){ return data(form); }
-
-    function trackWA(button_id, desarrollo){
-      window.dataLayer = window.dataLayer || [];
-      dataLayer.push({event:'wa_click', button_id, desarrollo});
-    }
-
-    function handleSend(button_id){
-      const desarrollo = form.elements['desarrollo']?.value || '';
-      // Click de WA (para Ads)
-      trackWA(button_id, desarrollo);
-
-      if(!form.reportValidity()){
-        form.scrollIntoView({behavior:'smooth',block:'start'});
-        return;
-      }
-      const d = gather();
-
-      // GTM: lead_submit (SIN PII)
-      const emailDomain = (d.correo||'').split('@')[1] || '';
-      const last4 = (onlyDigits(d.whatsapp)||'').slice(-4);
-      window.dataLayer = window.dataLayer || [];
-      dataLayer.push({
-        event: 'lead_submit',
-        desarrollo: d.desarrollo || '',
-        phone_last4: last4 || '(na)',
-        email_domain: emailDomain || '(na)'
-      });
-
-      // guardar historial local
-      saveHistory('hist_names', buildFullName(d));
-      saveHistory('hist_phones', onlyDigits(d.whatsapp)||d.whatsapp);
-      populateDatalist('dl-nombres', loadHistory('hist_names'));
-      populateDatalist('dl-phones',  loadHistory('hist_phones'));
-
-      // Sheets + WhatsApp
-      sendToSheet(d);
-      goWA(d);
-    }
-
-    [['send-wa','send-wa'],['sticky-ficha','sticky-ficha'],['hero-send','hero-send'],['hero-ficha','hero-ficha']]
-      .forEach(([id,bid])=>{
-        const el=document.getElementById(id); if(!el) return;
-        el.addEventListener('click',e=>{ e.preventDefault(); handleSend(bid); });
-      });
-
-    /* === AUTOPRUEBA (una vez por navegador). Forzar con ?test=1 ====== */
-    (function autoProbe(){
-      const qs=new URLSearchParams(location.search);
-      const ONCE_KEY='sheet_autotest_'+btoa(SCRIPT_URL).slice(0,8);
-      const shouldRun=qs.get('test')==='1'||!localStorage.getItem(ONCE_KEY);
-      if(!shouldRun) return;
-
-      const desarrollo=document.getElementById('desarrollo')?.value||document.querySelector('h1')?.textContent.trim()||'';
-      const payload={ nombre:'(TEST) Conexión OK', whatsapp:'', email:'', desarrollo, mensaje:'Autoprueba '+new Date().toISOString() };
-      const body=new Blob([JSON.stringify(payload)],{type:'application/json'});
-      if(!(navigator.sendBeacon && navigator.sendBeacon(SCRIPT_URL, body))){
-        fetch(SCRIPT_URL,{method:'POST',headers:{'Content-Type':'application/json'},body,mode:'no-cors'}).catch(()=>{});
-      }
-      localStorage.setItem(ONCE_KEY,String(Date.now()));
-    })();
-
-    /* === REGISTRO DE VISITA (una por sesión) ======================== */
-    (function logView(){
-      const onceKey='view_'+btoa(location.pathname).slice(0,8);
-      if(sessionStorage.getItem(onceKey)) return;
-      sessionStorage.setItem(onceKey,'1');
-
-      const desarrollo=document.getElementById('desarrollo')?.value||document.querySelector('h1')?.textContent.trim()||'';
-      const payload={ nombre:'(VIEW)', whatsapp:'', email:'', desarrollo,
-        mensaje:'Vista '+new Date().toISOString()+' | ref: '+(document.referrer||'-')+' | q: '+(location.search||'-') };
-      const body=new Blob([JSON.stringify(payload)],{type:'application/json'});
-      if(!(navigator.sendBeacon && navigator.sendBeacon(SCRIPT_URL, body))){
-        fetch(SCRIPT_URL,{method:'POST',headers:{'Content-Type':'application/json'},body,mode:'no-cors'}).catch(()=>{});
-      }
-    })();
+  })();
   </script>
 </body>
 </html>
