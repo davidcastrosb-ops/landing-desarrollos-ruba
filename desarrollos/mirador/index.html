@@ -1,105 +1,64 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Trhoncal Homes | Mirador del Bosque – Zapopan</title>
-  <meta name="description" content="Mirador del Bosque en Zapopan. Prototipos Nardo y Oliva desde $740,000. Acompañamiento total en tu crédito." />
+  <meta name="description" content="Mirador del Bosque en Zapopan. Prototipos Nardo y Oliva desde $699,000. Acompañamiento total en tu crédito."/>
   <link rel="canonical" href="https://mirador.3dhomes.com.mx/"/>
-  <link rel="preload" as="image" imagesrcset="assets/hero-1600.webp 1x, assets/hero-3200.webp 2x" imagesizes="100vw" href="assets/hero-1600.jpg">
-
-  <!-- Google Tag Manager -->
-  <script>
-  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
-   var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
-   j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-   f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-5P4DVBHC');
-  </script>
-  <!-- End Google Tag Manager -->
 
   <style>
-    :root{--gold:#C9A227;--dark:#0f172a;--muted:#475569;--bg:#fff;--light:#f8fafc;--logo-h:105px;--header-pad:12px;--green:#25D366}
-    *{box-sizing:border-box} body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;color:var(--dark);background:#fff}
-    a{color:inherit;text-decoration:none} img{max-width:100%;display:block}
+    :root{--gold:#C9A227;--dark:#0f172a;--muted:#475569;--light:#f8fafc;--wa:#25D366;--border:#e2e8f0}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;color:var(--dark);background:#fff}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
     .container{max-width:1100px;margin:0 auto;padding:0 20px}
-    .btn{display:inline-block;padding:12px 20px;border-radius:999px;border:1px solid var(--gold);font-weight:600;text-align:center}
-    .btn.primary{background:var(--gold);color:#fff;border-color:var(--gold)}
+    .btn{display:inline-block;padding:12px 18px;border-radius:999px;border:1px solid var(--gold);font-weight:700}
+    .btn.primary{background:var(--gold);color:#fff}
     .btn.ghost{background:transparent;color:var(--gold)}
-    .btn.whatsapp{background:var(--green)!important;border-color:var(--green)!important;color:#fff!important}
-
-    /* Header */
-    header{position:sticky;top:0;background:rgba(255,255,255,.95);backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid #e2e8f0;z-index:50;padding-bottom:6px}
-    header .wrap{display:flex;align-items:center;justify-content:space-between;height:auto;min-height:calc(var(--logo-h) + var(--header-pad)*2);padding:var(--header-pad) 0;gap:16px}
+    .btn.whatsapp{background:var(--wa);border-color:var(--wa);color:#fff}
+    header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.95);backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid var(--border)}
+    header .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
     nav a{margin-left:18px;color:var(--muted)}
-    .logo-img{height:var(--logo-h);display:block}
-    @media (max-width:768px){ header nav{display:none} header .wrap{justify-content:center} .logo{margin:0 auto} }
-
+    .logo-img{height:92px}
+    @media(max-width:768px){header nav{display:none} header .wrap{justify-content:center}}
     .breadcrumb{font-size:14px;color:var(--muted);padding:10px 0}
-    .hero{position:relative;min-height:420px;display:grid;align-items:end;padding:28px 0;color:#fff}
-    @media(max-width:640px){.hero{min-height:340px}}
+    .hero{position:relative;min-height:360px;display:grid;align-items:end;padding:28px 0;color:#fff}
     .hero::before{content:"";position:absolute;inset:0;z-index:-1;background:
       linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.55)),
-      image-set(url('assets/hero-1600.webp') type('image/webp') 1x,
-                url('assets/hero-3200.webp') type('image/webp') 2x,
-                url('assets/hero-1600.jpg')  type('image/jpeg') 1x,
-                url('assets/hero-3200.jpg')  type('image/jpeg') 2x);
-      background-size:cover;background-position:center;background-repeat:no-repeat;background-color:#cbd5e1}
-    .hero>.container{position:relative}
-    .hero h1{font-size:clamp(28px,5vw,46px);line-height:1.1;margin:0 0 10px}
+      url('assets/hero-1600.jpg') center/cover no-repeat}
+    .hero h1{margin:0 0 10px;font-size:clamp(28px,5vw,46px);line-height:1.1}
     .hero p{margin:0 0 16px;color:#e5e7eb}
     .badges{display:flex;flex-wrap:wrap;gap:10px;margin:10px 0 22px}
-    .badge{padding:8px 12px;border:1px solid #e2e8f0;border-radius:999px;background:rgba(255,255,255,.9);color:#111}
-
+    .badge{padding:8px 12px;border:1px solid var(--border);border-radius:999px;background:rgba(255,255,255,.9);color:#111}
     .section{padding:42px 0}
-    .section h2{font-size:clamp(22px,4vw,32px);margin:0 0 14px}
     .grid{display:grid;gap:16px}
     @media(min-width:900px){.grid.cols-2{grid-template-columns:1fr 1fr}}
-    @media(min-width:900px){.grid.cols-3{grid-template-columns:repeat(3,1fr)}}
-    .grid.cols-2>div,.grid.cols-3>div{display:flex;flex-direction:column;gap:6px}
-
     .cards{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
-    .card{grid-column:span 12;background:#fff;border:1px solid #e2e8f0;border-radius:16px;overflow:hidden;box-shadow:0 8px 22px rgba(0,0,0,.04)}
+    .card{grid-column:span 12;background:#fff;border:1px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:0 8px 22px rgba(0,0,0,.04)}
     .card img{width:100%;height:200px;object-fit:cover;background:#e2e8f0}
     .card .p{padding:14px}
     .card h3{margin:0 0 6px;font-size:18px}
     .meta{color:var(--muted);font-size:14px;margin-bottom:10px}
     @media(min-width:700px){.card{grid-column:span 6}} @media(min-width:1000px){.card{grid-column:span 4}}
-
     .icon-list{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
     @media(min-width:700px){.icon-list{grid-template-columns:repeat(3,1fr)}}
-    .icon-item{display:flex;align-items:center;gap:10px;border:1px solid #e2e8f0;border-radius:12px;padding:10px;background:#fff}
-
-    footer{padding:32px 0;color:var(--muted)}
-
-    /* Sticky bar */
-    .sticky-cta{position:sticky;bottom:0;background:#fff;border-top:1px solid #e2e8f0;padding:10px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
-
-    /* Form */
-    form label{display:block;margin:0 0 6px;font-weight:600}
-    form input,form textarea{
-      width:100%;display:block;padding:12px 14px;border:1px solid #e2e8f0;border-radius:10px;font-size:16px;outline:0;background:#fff
-    }
-    form input:focus,form textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,162,39,.15)}
-    form textarea{min-width:0}
-
-    /* Avisos */
-    #toast{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);background:#111;color:#fff;padding:12px 14px;border-radius:12px;box-shadow:0 8px 22px rgba(0,0,0,.25);font-size:14px;opacity:0;pointer-events:none;transition:opacity .25s ease;z-index:70}
-    #toast.show{opacity:1}
-
-    /* Ocultar sin borrar */
+    .icon-item{display:flex;align-items:center;gap:10px;border:1px solid var(--border);border-radius:12px;padding:10px;background:#fff}
+    form label{display:block;margin:0 0 6px;font-weight:700}
+    form input,form textarea{width:100%;padding:12px 14px;border:1px solid var(--border);border-radius:10px;font-size:16px;background:#fff}
+    form input:focus,form textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,162,39,.15);outline:0}
+    .grid.cols-3{display:grid;gap:12px}
+    @media(min-width:900px){.grid.cols-3{grid-template-columns:1fr 1fr 1fr}}
+    .toast{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);background:#0f172a;color:#fff;padding:10px 14px;border-radius:10px;box-shadow:0 8px 22px rgba(0,0,0,.25);display:none;z-index:70}
+    .sticky-cta{position:sticky;bottom:0;background:#fff;border-top:1px solid var(--border);padding:10px;display:flex;gap:10px;justify-content:center}
     .is-hidden{display:none!important}
-    .muted{color:#64748b}
   </style>
 </head>
 <body>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5P4DVBHC"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
-
   <header>
     <div class="container wrap">
-      <div class="logo"><img class="logo-img" src="assets/logo-trhoncal-flat.png" alt="Trhoncal Homes" /></div>
+      <div class="logo"><img class="logo-img" src="assets/logo-trhoncal-flat.png" alt="Trhoncal Homes"/></div>
       <nav><a href="/">Inicio</a><a href="/catalogo-devs.html">Desarrollos</a><a href="#contacto">Contacto</a></nav>
     </div>
   </header>
@@ -119,7 +78,7 @@
         </div>
         <div class="cta-bar">
           <a class="btn primary" href="#contacto">Solicitar información</a>
-          <a id="cta-ficha-top" class="btn ghost" href="#contacto">Solicitar ficha</a>
+          <a class="btn ghost ask-fill" href="#">Solicitar ficha</a>
         </div>
       </div>
     </section>
@@ -150,24 +109,24 @@
         <h2>Prototipos</h2>
         <div class="cards">
           <article class="card">
-            <img src="assets/nardo.jpg" alt="Nardo" />
+            <img src="assets/nardo.jpg" alt="Nardo"/>
             <div class="p">
               <h3>Nardo</h3>
               <div class="meta">2 recámaras</div>
               <div style="display:flex;align-items:center;justify-content:space-between">
                 <span>Desde <strong>$699,000</strong></span>
-                <a class="btn ghost cta-ficha" href="#contacto" data-model="Nardo">Solicitar ficha</a>
+                <a class="btn ask-fill" href="#">Solicitar ficha</a>
               </div>
             </div>
           </article>
           <article class="card">
-            <img src="assets/oliva.jpg" alt="Oliva" />
+            <img src="assets/oliva.jpg" alt="Oliva"/>
             <div class="p">
               <h3>Oliva</h3>
               <div class="meta">2 recámaras</div>
               <div style="display:flex;align-items:center;justify-content:space-between">
                 <span>Desde <strong>$754,000</strong></span>
-                <a class="btn ghost cta-ficha" href="#contacto" data-model="Oliva">Solicitar ficha</a>
+                <a class="btn ask-fill" href="#">Solicitar ficha</a>
               </div>
             </div>
           </article>
@@ -181,56 +140,52 @@
         <p class="meta">Déjanos tus datos y un asesor te escribe por WhatsApp.</p>
 
         <form id="lead-form" autocomplete="on">
-          <input type="hidden" id="desarrollo" name="desarrollo" value="Mirador del Bosque" />
-
-          <!-- HONEYPOT anti-spam -->
-          <input type="text" name="empresa" id="empresa" autocomplete="off"
-                 style="position:absolute;left:-9999px;top:-9999px" tabindex="-1" aria-hidden="true">
-
-          <div class="grid cols-3" style="margin-bottom:12px">
+          <input type="hidden" id="desarrollo" name="desarrollo" value="Mirador del Bosque"/>
+          <div class="grid cols-3">
             <div>
               <label for="nombre">Nombre(s)</label>
-              <input id="nombre" name="nombre" required placeholder="Tu nombre" autocomplete="given-name" autocapitalize="words" />
+              <input id="nombre" name="nombre" required placeholder="Tu nombre" autocomplete="given-name"/>
             </div>
             <div>
-              <label for="apaterno">Apellido paterno</label>
-              <input id="apaterno" name="apaterno" required placeholder="Tu primer apellido" autocomplete="additional-name" autocapitalize="words" />
+              <label for="paterno">Apellido paterno</label>
+              <input id="paterno" name="paterno" required placeholder="Paterno" autocomplete="additional-name"/>
             </div>
             <div>
-              <label for="amaterno">Apellido materno</label>
-              <input id="amaterno" name="amaterno" required placeholder="Tu segundo apellido" autocomplete="family-name" autocapitalize="words" />
+              <label for="materno">Apellido materno</label>
+              <input id="materno" name="materno" required placeholder="Materno" autocomplete="family-name"/>
             </div>
           </div>
 
-          <div class="grid cols-2" style="margin-bottom:12px">
+          <div class="grid cols-3" style="margin-top:10px">
             <div>
               <label for="whatsapp">WhatsApp</label>
-              <input id="whatsapp" name="whatsapp" required type="tel" inputmode="tel" autocomplete="tel" placeholder="Ej. 33 2933 5952" />
+              <input id="whatsapp" name="whatsapp" required type="tel" inputmode="tel" placeholder="Ej. 33 2933 5952" autocomplete="tel"/>
             </div>
             <div>
               <label for="correo">Correo electrónico</label>
-              <input id="correo" name="correo" required type="email" autocomplete="email" spellcheck="false" placeholder="tu@correo.com" />
+              <input id="correo" name="correo" required type="email" placeholder="tu@correo.com" autocomplete="email"/>
+            </div>
+            <div>
+              <label for="mensaje">Mensaje</label>
+              <textarea id="mensaje" name="mensaje" rows="1" placeholder="Cuéntanos qué buscas..."></textarea>
             </div>
           </div>
 
-          <div>
-            <label for="mensaje">Mensaje</label>
-            <textarea id="mensaje" name="mensaje" rows="4" placeholder="Cuéntanos qué buscas..."></textarea>
-          </div>
-
-          <p class="muted" style="margin:10px 0 0">Usamos tus datos solo para contactarte respecto a este desarrollo.</p>
-
-          <div class="cta-bar" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
+          <div class="cta-bar" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
             <a id="send-wa" class="btn whatsapp" href="#">Solicitar información por WhatsApp</a>
-            <a id="cta-directo" class="btn ghost" href="#contacto">Solicitar ficha (vía WhatsApp)</a>
+            <a class="btn ask-fill" href="#">Solicitar ficha</a>
           </div>
+
+          <p id="form-msg" style="margin:10px 0 0;display:none"></p>
         </form>
       </div>
     </section>
 
     <div class="sticky-cta">
-      <a id="sticky-send" class="btn whatsapp" href="#">Solicitar información por WhatsApp</a>
-      <a id="sticky-ficha" class="btn ghost" href="#contacto">Solicitar ficha</a>
+      <!-- Botón rápido de WA: OCULTO y bloqueado -->
+      <a id="sticky-send" class="btn whatsapp is-hidden" href="#">WhatsApp</a>
+      <!-- Reemplazamos “Ver modelos” por “Solicitar ficha” que pide llenar datos -->
+      <a class="btn ask-fill" href="#">Solicitar ficha</a>
     </div>
   </main>
 
@@ -243,161 +198,116 @@
     </div>
   </footer>
 
-  <!-- Botón flotante: OCULTO -->
-  <a class="wa-float is-hidden" target="_blank" rel="noopener"
-     href="https://wa.me/523329335952?text=Hola%20Trhoncal%20Homes%2C%20me%20interesa%20Mirador%20del%20Bosque">WhatsApp</a>
-
-  <div id="toast" role="status" aria-live="polite"></div>
+  <!-- Toast -->
+  <div id="toast" class="toast"></div>
 
   <script>
-  /* ====== CONFIG ====== */
-  const WA_DEST  = "523329335952"; // +52 332 933 5952
-  const ENDPOINT = "https://script.google.com/macros/s/AKfycbziR6D7uIiYA6l-SLFFGu3iGBouQSr_IOK8XbXUeb1uhOM1-SZCo8QS70vvxPVAOcb6mA/exec";
+    /* ====== CONFIG ====== */
+    const WA_DEST  = "523329335952"; // +52 332 933 5952
+    const ENDPOINT = "https://script.google.com/macros/s/AKfycbziR6D7uIiYA6l-SLFFGu3iGBouQSr_IOK8XbXUeb1uhOM1-SZCo8QS70vvxPVAOcb6mA/exec";
 
-  /* ====== UTM CAPTURE ====== */
-  const UTM = (() => {
-    const p = new URLSearchParams(location.search);
-    return {
-      utm_source:   p.get('utm_source')   || '',
-      utm_medium:   p.get('utm_medium')   || '',
-      utm_campaign: p.get('utm_campaign') || '',
-      utm_term:     p.get('utm_term')     || '',
-      utm_content:  p.get('utm_content')  || ''
-    };
-  })();
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-  /* ====== UTIL ====== */
-  const $ = (sel,ctx=document)=>ctx.querySelector(sel);
-  const $$= (sel,ctx=document)=>Array.from(ctx.querySelectorAll(sel));
-  const toast = (msg, ms=3000)=>{
-    const el = $("#toast"); if(!el) return alert(msg);
-    el.textContent = msg; el.classList.add('show'); setTimeout(()=>el.classList.remove('show'), ms);
-  };
-  const onlyDigits = s => (s||"").replace(/\D+/g,'');
-  const fullName = d => [d.nombre,d.apaterno,d.amaterno].map(x=>x||'').join(' ').replace(/\s+/g,' ').trim();
+    /* ====== Autorrelleno: QP + localStorage ====== */
+    (function prefill(){
+      const form   = document.getElementById('lead-form');
+      const fields = ['nombre','paterno','materno','whatsapp','correo','mensaje'];
+      const qp = new URLSearchParams(location.search);
 
-  /* ====== Init ====== */
-  document.getElementById('year').textContent = new Date().getFullYear();
-  (function syncDesarrollo(){
-    const h1 = document.querySelector('h1');
-    const input = document.getElementById('desarrollo');
-    if(h1 && input){ input.value = h1.textContent.trim(); }
-  })();
+      fields.forEach(f=>{
+        const el = form.elements[f];
+        if(!el) return;
 
-  /* ====== Prefill (URL + localStorage) ====== */
-  (function prefill(){
-    const f = document.getElementById('lead-form');
-    const fields = ['nombre','apaterno','amaterno','whatsapp','correo','mensaje'];
-    const qp = new URLSearchParams(location.search);
-    const pickQP = key=>{
-      if (qp.has(key)) return qp.get(key);
-      if (key==='whatsapp') return qp.get('telefono') || qp.get('phone') || '';
-      if (key==='correo')   return qp.get('email') || '';
-      return '';
-    };
-    fields.forEach(k=>{
-      const el = f.elements[k]; if(!el) return;
-      const fromQS = pickQP(k); if(fromQS) el.value = fromQS;
-      if(!el.value){
-        const saved = localStorage.getItem('lead_'+k);
-        if(saved) el.value = saved;
-      }
-      el.addEventListener('input', ()=>localStorage.setItem('lead_'+k, el.value));
-    });
-  })();
+        const aliases = { correo:['email'], whatsapp:['phone','telefono'] };
+        let qv = qp.get(f);
+        if(!qv && aliases[f]) {
+          for(const alt of aliases[f]) { qv = qp.get(alt); if(qv) break; }
+        }
+        if(qv) el.value = qv;
 
-  /* ====== Build WhatsApp text ====== */
-  function buildMessage(d){
-    const tel = onlyDigits(d.whatsapp)||d.whatsapp;
-    return `Hola Trhoncal Homes, me interesa ${d.desarrollo||'el desarrollo'}. ` +
-           `Soy ${fullName(d)}. Mi correo es ${d.correo}. ` +
-           `Mi WhatsApp es ${tel}.` + (d.mensaje ? ` ${d.mensaje}` : '');
-  }
+        if(!el.value){
+          const saved = localStorage.getItem('lead_'+f);
+          if(saved) el.value = saved;
+        }
 
-  /* ====== Save to Sheet ====== */
-  function saveLead(d){
-    try{
-      const bodyObj = {
-        nombre: fullName(d),
-        email: d.correo,
-        whatsapp: onlyDigits(d.whatsapp),
-        zona: d.desarrollo || 'Mirador del Bosque',
-        mensaje: d.mensaje || '',
-        ...UTM
+        el.addEventListener('input',()=>localStorage.setItem('lead_'+f, el.value));
+      });
+    })();
+
+    /* ====== Helpers ====== */
+    function onlyDigits(s){ return (s||"").replace(/\D+/g,''); }
+    function fullName(d){ return [d.nombre,d.paterno,d.materno].filter(Boolean).join(' ').trim(); }
+    function toast(msg){
+      const t = document.getElementById('toast'); t.textContent = msg;
+      t.style.display='block'; setTimeout(()=>t.style.display='none', 2600);
+    }
+    function formDataObject(form){ return Object.fromEntries(new FormData(form).entries()); }
+    function utms(){
+      const p = new URLSearchParams(location.search);
+      return {
+        utm_source:  p.get('utm_source')  || '',
+        utm_medium:  p.get('utm_medium')  || '',
+        utm_campaign:p.get('utm_campaign')|| '',
+        utm_term:    p.get('utm_term')    || '',
+        utm_content: p.get('utm_content') || ''
       };
-      const body = JSON.stringify(bodyObj);
-      if (navigator.sendBeacon){
-        const blob = new Blob([body], {type:'application/json'});
-        navigator.sendBeacon(ENDPOINT, blob);
-      }else{
-        fetch(ENDPOINT, {method:'POST', headers:{'Content-Type':'application/json'}, body});
+    }
+    function buildMessage(d){
+      const telUser = onlyDigits(d.whatsapp)||d.whatsapp;
+      return `Hola Trhoncal Homes, me interesa ${d.desarrollo||'el desarrollo'}. ` +
+             `Soy ${fullName(d)}. ` +
+             `Mi correo es ${d.correo}. ` +
+             `Mi WhatsApp es ${telUser}.` +
+             (d.mensaje ? ` ${d.mensaje}` : '');
+    }
+    function goWhatsApp(d){
+      const texto = buildMessage(d);
+      location.href = `https://wa.me/${WA_DEST}?text=${encodeURIComponent(texto)}`;
+    }
+
+    /* ====== Envío principal (POST + WA + GTM) ====== */
+    async function submitLead(){
+      const form = document.getElementById('lead-form');
+      if(!form.reportValidity()){
+        toast('Completa los campos obligatorios.');
+        form.scrollIntoView({behavior:'smooth', block:'start'});
+        return;
       }
-      // Fallback GET (pixel)
-      const u = new URL(ENDPOINT);
-      u.searchParams.set('collect','1');
-      for (const [k,v] of Object.entries(bodyObj)) u.searchParams.set(k, v);
-      new Image().src = u.toString();
-    }catch(e){/* noop */}
-  }
+      const d = {...formDataObject(form), ...utms()};
+      try{
+        const res = await fetch(ENDPOINT, {
+          method:'POST',
+          headers:{'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8'},
+          body: new URLSearchParams(d).toString()
+        });
+        const j = await res.json().catch(()=>({ok:false}));
+        if(!j.ok){ console.warn('Script respondió:', j); }
 
-  /* ====== Validación ====== */
-  function validEmail(v){ return /@/.test(v||''); }
-  function validateForm(){
-    const f = document.getElementById('lead-form');
-    const d = Object.fromEntries(new FormData(f).entries());
+        // GTM / Google Ads
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({event:'lead_submit', desarrollo:d.desarrollo});
 
-    // honeypot
-    if (document.getElementById('empresa').value) { toast('Error de validación.'); return null; }
+        goWhatsApp(d);
+      }catch(err){
+        console.error(err);
+        toast('Error al enviar. Intenta de nuevo.');
+      }
+    }
 
-    if(!(d.nombre||'').trim())   { toast('Escribe tu nombre.'); return null; }
-    if(!(d.apaterno||'').trim()) { toast('Escribe tu apellido paterno.'); return null; }
-    if(!(d.amaterno||'').trim()) { toast('Escribe tu apellido materno.'); return null; }
-    if(!onlyDigits(d.whatsapp) || onlyDigits(d.whatsapp).length < 10){ toast('Escribe un WhatsApp válido.'); return null; }
-    if(!validEmail(d.correo)){ toast('Escribe un correo válido (con @).'); return null; }
-    return d;
-  }
+    document.getElementById('send-wa').addEventListener('click', e=>{ e.preventDefault(); submitLead(); });
 
-  /* ====== Envío a WhatsApp (botones verdes) ====== */
-  function goWhatsApp(d){
-    // Guardar a hoja
-    saveLead(d);
+    // Botón sticky oculto y bloqueado (por si lo activas en el futuro)
+    const sticky = document.getElementById('sticky-send');
+    if(sticky){ sticky.addEventListener('click', e=>{ e.preventDefault(); toast('Llena tus datos para atenderte por WhatsApp.'); }); }
 
-    // Enviar evento a GTM / Google Ads
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({
-      event: 'lead_submit',
-      desarrollo: d.desarrollo || 'Mirador del Bosque',
-      lead_nombre: fullName(d),
-      lead_tel: onlyDigits(d.whatsapp),
-      lead_correo: d.correo,
-      ...UTM
+    // Todos los “Solicitar ficha” muestran aviso (no abren nada)
+    document.querySelectorAll('.ask-fill').forEach(a=>{
+      a.addEventListener('click', e=>{
+        e.preventDefault();
+        toast('Déjanos tus datos y correo para enviarte la ficha.');
+        document.getElementById('lead-form').scrollIntoView({behavior:'smooth', block:'start'});
+      });
     });
-
-    // WhatsApp
-    const texto = buildMessage(d);
-    const url = `https://wa.me/${WA_DEST}?text=${encodeURIComponent(texto)}`;
-    window.location.href = url; // navegación directa
-  }
-
-  function handleSendClick(e){
-    e.preventDefault();
-    const d = validateForm(); if(!d){ $('#lead-form').scrollIntoView({behavior:'smooth'}); return; }
-    goWhatsApp(d);
-  }
-
-  document.getElementById('send-wa').addEventListener('click', handleSendClick);
-  document.getElementById('sticky-send').addEventListener('click', handleSendClick);
-
-  /* ====== CTAs que piden llenar datos y hacen scroll ====== */
-  function nudgeToForm(e){
-    e.preventDefault();
-    toast('Deja tus datos y te enviamos la ficha por WhatsApp.');
-    $('#lead-form').scrollIntoView({behavior:'smooth', block:'start'});
-  }
-  $('#cta-ficha-top').addEventListener('click', nudgeToForm);
-  $('#cta-directo').addEventListener('click', nudgeToForm);
-  $('#sticky-ficha').addEventListener('click', nudgeToForm);
-  $$('.cta-ficha').forEach(a=>a.addEventListener('click', nudgeToForm));
   </script>
 </body>
 </html>
