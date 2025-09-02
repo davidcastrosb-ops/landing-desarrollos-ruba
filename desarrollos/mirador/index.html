@@ -252,6 +252,8 @@
         utm_content: p.get('utm_content') || ''
       };
     }
+
+    /* ====== FIX 1: buildMessage con template literal correcto ====== */
     function buildMessage(d){
       const telUser = onlyDigits(d.whatsapp)||d.whatsapp;
       return `Hola Trhoncal Homes, me interesa ${d.desarrollo||'el desarrollo'}. ` +
@@ -260,6 +262,8 @@
              `Mi WhatsApp es ${telUser}.` +
              (d.mensaje ? ` ${d.mensaje}` : '');
     }
+
+    /* ====== FIX 2: goWhatsApp con URL y template literal correctos ====== */
     function goWhatsApp(d){
       const texto = buildMessage(d);
       location.href = `https://wa.me/${WA_DEST}?text=${encodeURIComponent(texto)}`;
