@@ -92,12 +92,12 @@
         <div>
           <h2>Amenidades</h2>
           <div class="icon-list">
-            <div class="icon-item">🌳 Áreas verdes  “Respira aire fresco desde tu ventana.”</div>
+            <div class="icon-item is-hidden">🌳 Áreas verdes — “Respira aire fresco desde tu ventana.”</div>
             <div class="icon-item is-hidden">🛡️ Acceso controlado</div>
-            <div class="icon-item">👨‍👩‍👧‍👦 Juegos infantiles   “Diversión segura para los más pequeños.”</div>
-            <div class="icon-item">🔥 Asadores     “Momentos inolvidables en comunidad.” </div>
+            <div class="icon-item">👨‍👩‍👧‍👦 Juegos infantiles — “Diversión segura para los más pequeños.”</div>
+            <div class="icon-item">🔥 Asadores — “Momentos inolvidables en comunidad.”</div>
             <div class="icon-item is-hidden">🏊 Alberca (algunos desarrollos)</div>
-            <div class="icon-item">🏋️ Gimnasio   “Entrena en tu propio vecindario.”  </div>
+            <div class="icon-item">🏋️ Gimnasio — “Entrena en tu propio vecindario.”</div>
           </div>
           <p class="meta" style="margin-top:8px">*Puede variar por disponibilidad.</p>
         </div>
@@ -218,9 +218,7 @@
 
         const aliases = { correo:['email'], whatsapp:['phone','telefono'] };
         let qv = qp.get(f);
-        if(!qv && aliases[f]) {
-          for(const alt of aliases[f]) { qv = qp.get(alt); if(qv) break; }
-        }
+        if(!qv && aliases[f]) { for(const alt of aliases[f]) { qv = qp.get(alt); if(qv) break; } }
         if(qv) el.value = qv;
 
         if(!el.value){
@@ -228,8 +226,7 @@
           if(saved) el.value = saved;
         }
 
-        // FIX: comilla corregida
-        el.addEventListener('input',()=>localStorage.setItem('lead_'+f, el.value));
+        el.addEventListener('input',()=>localStorage.setItem('lead_'+f, el.value)); // <- FIX
       });
     })();
 
@@ -281,8 +278,18 @@
           headers:{'Content-Type':'application/x-www-form-urlencoded'},
           body: new URLSearchParams(d).toString()
         });
-        const j = await res.json().catch(()=>({ok:false}));
-        if(!j.ok){ console.warn('Script respondió:', j); }
+        let ok = false;
+        if(res.ok){
+          const j = await res.json().catch(()=>({ok:false}));
+          ok = !!(j && j.ok);
+          if(!ok) console.error('GAS respondió:', j);
+        }else{
+          console.error('HTTP', res.status, await res.text().catch(()=>'')); 
+        }
+        if(!ok){
+          toast('No se pudo guardar en la hoja. Intenta de nuevo.');
+          return; // NO redirige si no guardó
+        }
 
         // GTM / Google Ads
         window.dataLayer = window.dataLayer || [];
@@ -297,11 +304,9 @@
 
     document.getElementById('send-wa').addEventListener('click', e=>{ e.preventDefault(); submitLead(); });
 
-    // Botón sticky oculto y bloqueado (por si lo activas en el futuro)
     const sticky = document.getElementById('sticky-send');
     if(sticky){ sticky.addEventListener('click', e=>{ e.preventDefault(); toast('Llena tus datos para atenderte por WhatsApp.'); }); }
 
-    // Todos los “Solicitar ficha” muestran aviso (no abren nada)
     document.querySelectorAll('.ask-fill').forEach(a=>{
       a.addEventListener('click', e=>{
         e.preventDefault();
