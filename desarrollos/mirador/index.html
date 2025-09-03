@@ -4,7 +4,7 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Trhoncal Homes | Mirador del Bosque – Zapopan</title>
-  <meta name="description" content="Mirador del Bosque en Zapopan. Tu hogar entre naturaleza y ciudad, con prototipos Nardo y Oliva desde $699,000. Acompañamiento total en tu crédito y visita guiada."/>
+  <meta name="description" content="Mirador del Bosque en Zapopan: tu hogar entre naturaleza y ciudad. Sin enganche, acompañamiento total en tu crédito. Prototipos Nardo y Oliva desde $699,000."/>
   <link rel="canonical" href="https://mirador.3dhomes.com.mx/"/>
 
   <style>
@@ -29,9 +29,10 @@
       linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.55)),
       url('assets/hero-1600.jpg') center/cover no-repeat}
     .hero h1{margin:0 0 10px;font-size:clamp(28px,5vw,46px);line-height:1.1}
-    .hero p{margin:0 0 16px;color:#e5e7eb}
+    .hero p{margin:0 10px 16px 0;color:#e5e7eb}
     .badges{display:flex;flex-wrap:wrap;gap:10px;margin:10px 0 22px}
     .badge{padding:8px 12px;border:1px solid var(--border);border-radius:999px;background:rgba(255,255,255,.9);color:#111}
+    .badge.emph{border-color:var(--gold);background:rgba(201,162,39,.12)}
     .section{padding:42px 0}
     .grid{display:grid;gap:16px}
     @media(min-width:900px){.grid.cols-2{grid-template-columns:1fr 1fr}}
@@ -42,6 +43,12 @@
     .card h3{margin:0 0 6px;font-size:18px}
     .meta{color:var(--muted);font-size:14px;margin-bottom:10px}
     @media(min-width:700px){.card{grid-column:span 6}} @media(min-width:1000px){.card{grid-column:span 4}}
+
+    /* Galería simple de modelos */
+    .thumbs{display:flex;gap:8px;margin-top:10px}
+    .thumbs img{width:100%;max-width:110px;height:68px;object-fit:cover;border-radius:8px;border:1px solid var(--border)}
+    .thumbs .hint{font-size:12px;color:var(--muted);margin-left:auto}
+
     .icon-list{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
     @media(min-width:700px){.icon-list{grid-template-columns:repeat(3,1fr)}}
     .icon-item{display:flex;align-items:center;gap:10px;border:1px solid var(--border);border-radius:12px;padding:10px;background:#fff}
@@ -69,17 +76,18 @@
     <section class="hero">
       <div class="container">
         <h1>Mirador del Bosque</h1>
-        <p>Tu nuevo hogar al norte de Zapopan: naturaleza, ubicación estratégica y bienestar diario. Vive con la tranquilidad que quieres y la conexión que necesitas, desde <strong>$699,000</strong>.</p>
+        <p><strong>Puede ser tuyo sin enganche.</strong> Tu hogar al norte de Zapopan: naturaleza, ubicación estratégica y bienestar diario. Empieza a construir patrimonio desde <strong>$699,000</strong>.</p>
         <div class="badges">
           <div class="badge">Ubicación: Zapopan</div>
           <div class="badge">Desde <strong>$699,000</strong></div>
           <div class="badge">2 recámaras</div>
-          <div class="badge">Amenidades para disfrutar</div>
+          <div class="badge emph">Cupos por etapa · Disponibilidad limitada</div>
         </div>
         <div class="cta-bar">
           <a class="btn primary" href="#contacto">Quiero información</a>
           <a class="btn ghost ask-fill" href="#">Solicitar ficha</a>
         </div>
+        <p class="meta" style="margin-top:8px;color:#e5e7eb">*Precios y beneficios sujetos a etapa. Asegura hoy tu lugar.</p>
       </div>
     </section>
 
@@ -87,13 +95,22 @@
       <div class="container grid cols-2">
         <div>
           <h2>Resumen</h2>
-          <p class="meta"><strong>Nardo</strong> y <strong>Oliva</strong>: diseños modernos, funcionales y acogedores para empezar o crecer en familia. Agenda tu visita para conocer disponibilidad y aprovechar precios vigentes.</p>
+          <p class="meta">
+            Elige vivir donde se siente la tranquilidad todos los días. <strong>Nardo</strong> y <strong>Oliva</strong> combinan diseño inteligente, luz natural y espacios que invitan a crear recuerdos. 
+            Te acompañamos <strong>de principio a fin</strong> con tu crédito (Infonavit, Fovissste, bancario o mixto). 
+            <strong>Sin enganche</strong> según programa y etapa. Agenda tu visita y conoce beneficios vigentes.
+          </p>
+          <ul class="meta" style="margin:10px 0 0; padding-left:18px; line-height:1.6">
+            <li>Ubicación estratégica en el corredor norte de Zapopan.</li>
+            <li>Diseños pensados para vivir, invertir o empezar patrimonio.</li>
+            <li>Planes flexibles y acompañamiento personalizado.</li>
+          </ul>
         </div>
         <div>
           <h2>Amenidades</h2>
           <div class="icon-list">
             <div class="icon-item">🌳 Áreas verdes — “Respira aire fresco todos los días.”</div>
-            <div class="icon-item">🛡️ Acceso controlado — “Vive con tranquilidad.”</div>
+            <div class="icon-item is-hidden">🛡️ Acceso controlado — “Vive con tranquilidad.”</div>
             <div class="icon-item">👨‍👩‍👧‍👦 Juegos infantiles — “Diversión segura para los pequeños.”</div>
             <div class="icon-item">🔥 Asadores — “Reúne a tus favoritos y crea recuerdos.”</div>
             <div class="icon-item">🏊 Alberca (según etapa) — “Relájate sin salir de casa.”</div>
@@ -117,8 +134,16 @@
                 <span>Desde <strong>$699,000</strong></span>
                 <a class="btn ask-fill" href="#">Solicitar ficha</a>
               </div>
+              <!-- Galería adicional (3 imágenes) -->
+              <div class="thumbs">
+                <img src="assets/nardo-2.jpg" alt="Nardo interior 1"/>
+                <img src="assets/nardo-3.jpg" alt="Nardo interior 2"/>
+                <img src="assets/nardo-4.jpg" alt="Nardo fachada"/>
+                <span class="hint">*Imágenes ilustrativas</span>
+              </div>
             </div>
           </article>
+
           <article class="card">
             <img src="assets/oliva.jpg" alt="Oliva"/>
             <div class="p">
@@ -128,17 +153,26 @@
                 <span>Desde <strong>$754,000</strong></span>
                 <a class="btn ask-fill" href="#">Solicitar ficha</a>
               </div>
+              <!-- Galería adicional (3 imágenes) -->
+              <div class="thumbs">
+                <img src="assets/oliva-2.jpg" alt="Oliva interior 1"/>
+                <img src="assets/oliva-3.jpg" alt="Oliva interior 2"/>
+                <img src="assets/oliva-4.jpg" alt="Oliva fachada"/>
+                <span class="hint">*Imágenes ilustrativas</span>
+              </div>
             </div>
           </article>
         </div>
+        <p class="meta" style="margin-top:6px">*Disponibilidad y precios pueden cambiar sin previo aviso. Asegura beneficios de etapa.</p>
       </div>
     </section>
 
     <section id="contacto" class="section" style="border-top:1px solid #e2e8f0">
       <div class="container">
         <h2>Solicita información de Mirador del Bosque</h2>
-        <p class="meta">Déjanos tus datos y un asesor te escribe por WhatsApp para enviarte precios, disponibilidad y una visita guiada.</p>
+        <p class="meta">Déjanos tus datos y un asesor te escribe por WhatsApp para enviarte precios, programas <strong>sin enganche</strong> y agendar tu visita.</p>
 
+        <!-- ⚠️ FORM Y JS INTACTOS -->
         <form id="lead-form" autocomplete="on">
           <input type="hidden" id="desarrollo" name="desarrollo" value="Mirador del Bosque"/>
           <div class="grid cols-3">
@@ -167,7 +201,7 @@
             </div>
             <div>
               <label for="mensaje">Mensaje</label>
-              <textarea id="mensaje" name="mensaje" rows="1" placeholder="¿Buscas casa para vivir o invertir? Cuéntanos tu presupuesto y zona."></textarea>
+              <textarea id="mensaje" name="mensaje" rows="1" placeholder="¿Para vivir o invertir? Presupuesto y zona ideal."></textarea>
             </div>
           </div>
 
@@ -184,7 +218,7 @@
     <div class="sticky-cta">
       <!-- Botón rápido de WA: OCULTO y bloqueado -->
       <a id="sticky-send" class="btn whatsapp is-hidden" href="#">WhatsApp</a>
-      <!-- Reemplazamos “Ver modelos” por “Solicitar ficha” que pide llenar datos -->
+      <!-- “Solicitar ficha” pide llenar datos -->
       <a class="btn ask-fill" href="#">Solicitar ficha</a>
     </div>
   </main>
@@ -255,6 +289,7 @@
     function buildMessage(d){
       const telUser = onlyDigits(d.whatsapp)||d.whatsapp;
       return `Hola Trhoncal Homes, me interesa ${d.desarrollo||'el desarrollo'}. ` +
+             `Puede ser sin enganche. ` +
              `Soy ${fullName(d)}. ` +
              `Mi correo es ${d.correo}. ` +
              `Mi WhatsApp es ${telUser}.` +
