@@ -69,7 +69,7 @@
     <section class="hero">
       <div class="container">
         <h1>Mirador del Bosque</h1>
-        <p>Descubre tu hogar ideal en el corazón verde de Zapopan: comodidad, naturaleza y calidad de vida a tu alcance.Ideal para familias que buscan calidad, seguridad y estilo desde 726 mil </p>
+        <p><strong>Puedes obtenerlo sin enganche.</strong> Tu hogar al norte de Zapopan: naturaleza, ubicación estratégica y bienestar diario. Desde <strong>$699,000</strong>.</p>
         <div class="badges">
           <div class="badge">Ubicación: Zapopan</div>
           <div class="badge">Desde <strong>$699,000</strong></div>
@@ -93,13 +93,13 @@
           <h2>Amenidades</h2>
           <div class="icon-list">
             <div class="icon-item">🌳 Áreas verdes  “Respira aire fresco desde tu ventana.”</div>
-            <div class="icon-item">🛡️ Acceso controlado</div>
+            <div class="icon-item is-hidden">🛡️ Acceso controlado</div>
             <div class="icon-item">👨‍👩‍👧‍👦 Juegos infantiles   “Diversión segura para los más pequeños.”</div>
             <div class="icon-item">🔥 Asadores     “Momentos inolvidables en comunidad.” </div>
-            <div class="icon-item">🏊 Alberca (algunos desarrollos)</div>
+            <div class="icon-item is-hidden">🏊 Alberca (algunos desarrollos)</div>
             <div class="icon-item">🏋️ Gimnasio   “Entrena en tu propio vecindario.”  </div>
           </div>
-          <p class="meta" style="margin-top:8px">*Puede variar por etapa y disponibilidad.</p>
+          <p class="meta" style="margin-top:8px">*Puede variar por disponibilidad.</p>
         </div>
       </div>
     </section>
@@ -176,15 +176,13 @@
             <a class="btn ask-fill" href="#">Solicitar ficha</a>
           </div>
 
-          <p id="form-msg" id="form-msg" style="margin:10px 0 0;display:none"></p>
+          <p id="form-msg" style="margin:10px 0 0;display:none"></p>
         </form>
       </div>
     </section>
 
     <div class="sticky-cta">
-      <!-- Botón rápido de WA: OCULTO y bloqueado -->
       <a id="sticky-send" class="btn whatsapp is-hidden" href="#">WhatsApp</a>
-      <!-- Reemplazamos “Ver modelos” por “Solicitar ficha” que pide llenar datos -->
       <a class="btn ask-fill" href="#">Solicitar ficha</a>
     </div>
   </main>
@@ -230,6 +228,7 @@
           if(saved) el.value = saved;
         }
 
+        // FIX: comilla corregida
         el.addEventListener('input',()=>localStorage.setItem('lead_'+f, el.value));
       });
     })();
@@ -279,7 +278,7 @@
       try{
         const res = await fetch(ENDPOINT, {
           method:'POST',
-          headers:{'Content-Type':'application/x-www-form-urlencoded'}, // << SIN charset
+          headers:{'Content-Type':'application/x-www-form-urlencoded'},
           body: new URLSearchParams(d).toString()
         });
         const j = await res.json().catch(()=>({ok:false}));
