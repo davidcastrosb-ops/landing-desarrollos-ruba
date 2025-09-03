@@ -230,7 +230,8 @@
           if(saved) el.value = saved;
         }
 
-        el.addEventListener('input',()=>localStorage.setItem('lead_'+f', el.value));
+        /* FIX AQUÍ: comilla removida */
+        el.addEventListener('input',()=>localStorage.setItem('lead_'+f, el.value));
       });
     })();
 
@@ -253,7 +254,7 @@
       };
     }
 
-    /* ====== buildMessage CORRECTO ====== */
+    /* ====== buildMessage ====== */
     function buildMessage(d){
       const telUser = onlyDigits(d.whatsapp)||d.whatsapp;
       return `Hola Trhoncal Homes, me interesa ${d.desarrollo||'el desarrollo'}. ` +
@@ -263,7 +264,7 @@
              (d.mensaje ? ` ${d.mensaje}` : '');
     }
 
-    /* ====== goWhatsApp CORRECTO ====== */
+    /* ====== goWhatsApp ====== */
     function goWhatsApp(d){
       const texto = buildMessage(d);
       location.href = `https://wa.me/${WA_DEST}?text=${encodeURIComponent(texto)}`;
@@ -315,4 +316,3 @@
   </script>
 </body>
 </html>
-
