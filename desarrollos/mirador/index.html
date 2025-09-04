@@ -4,8 +4,19 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Trhoncal Homes | Mirador del Bosque – Zapopan</title>
-  <meta name="description" content="Mirador del Bosque en Zapopan. Prototipos Nardo y Oliva desde $699,000. Acompañamiento total en tu crédito."/>
+  <meta name="description" content="Mirador del Bosque en Zapopan. Prototipos Nardo y Oliva desde $699,000. Puede ser tuyo sin enganche. Acompañamiento total en tu crédito."/>
   <link rel="canonical" href="https://mirador.3dhomes.com.mx/"/>
+
+  <!-- OG/Twitter preview -->
+  <meta property="og:title" content="Mirador del Bosque | Puede ser tuyo sin enganche"/>
+  <meta property="og:description" content="Hogar en Zapopan desde $699,000. Últimas unidades sin enganche. Agenda tu visita."/>
+  <meta property="og:image" content="https://mirador.3dhomes.com.mx/assets/hero-1600.jpg"/>
+  <meta property="og:type" content="website"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+
+  <!-- Favicons (opcional si ya los tienes) -->
+  <link rel="icon" href="/assets/favicon.ico"/>
+  <link rel="apple-touch-icon" href="/assets/icon-180.png"/>
 
   <style>
     :root{--gold:#C9A227;--dark:#0f172a;--muted:#475569;--light:#f8fafc;--wa:#25D366;--border:#e2e8f0}
@@ -24,6 +35,7 @@
     .logo-img{height:92px}
     @media(max-width:768px){header nav{display:none} header .wrap{justify-content:center}}
     .breadcrumb{font-size:14px;color:var(--muted);padding:10px 0}
+
     .hero{position:relative;min-height:360px;display:grid;align-items:end;padding:28px 0;color:#fff}
     .hero::before{content:"";position:absolute;inset:0;z-index:-1;background:
       linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.55)),
@@ -32,10 +44,13 @@
     .hero p{margin:0 0 16px;color:#e5e7eb}
     .badges{display:flex;flex-wrap:wrap;gap:10px;margin:10px 0 22px}
     .badge{padding:8px 12px;border:1px solid var(--border);border-radius:999px;background:rgba(255,255,255,.9);color:#111}
+    .promo{margin:8px 0 16px;display:inline-block;background:#fff;color:#111;padding:8px 12px;border-radius:999px;font-weight:800;border:2px solid var(--gold)}
+    .cta-bar{display:flex;gap:10px;flex-wrap:wrap}
 
     .section{padding:42px 0}
     .grid{display:grid;gap:16px}
     @media(min-width:900px){.grid.cols-2{grid-template-columns:1fr 1fr}}
+
     .cards{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
     .card{grid-column:span 12;background:#fff;border:1px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:0 8px 22px rgba(0,0,0,.04)}
     .card img{width:100%;height:220px;object-fit:cover;background:#e2e8f0}
@@ -48,9 +63,9 @@
     @media(min-width:700px){.icon-list{grid-template-columns:repeat(3,1fr)}}
     .icon-item{display:flex;align-items:center;gap:10px;border:1px solid var(--border);border-radius:12px;padding:10px;background:#fff}
 
-    /* Thumbs de modelos */
+    /* Thumbs por modelo */
     .thumbs{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:10px 0 0}
-    .thumbs img{height:60px;object-fit:cover;border-radius:8px;border:1px solid var(--border);cursor:pointer;transition:transform .15s}
+    .thumbs img{height:62px;object-fit:cover;border-radius:8px;border:1px solid var(--border);cursor:pointer;transition:transform .15s}
     .thumbs img:hover{transform:scale(1.02)}
 
     .toast{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);background:#0f172a;color:#fff;padding:10px 14px;border-radius:10px;box-shadow:0 8px 22px rgba(0,0,0,.25);display:none;z-index:70}
@@ -61,6 +76,13 @@
     .deal{background:#0f172a;color:#fff}
     .deal .wrap{display:flex;gap:14px;align-items:center;justify-content:space-between;padding:16px 0}
     .deal strong{font-size:clamp(16px,3.2vw,22px)}
+
+    /* Lightbox modal */
+    .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.85);display:none;align-items:center;justify-content:center;z-index:80;padding:20px}
+    .lightbox img{max-width:min(100%,900px);max-height:80vh;border-radius:12px}
+    .lightbox .controls{position:absolute;inset:0;display:flex;align-items:center;justify-content:space-between;padding:20px}
+    .lightbox button{background:rgba(255,255,255,.1);border:1px solid #fff;color:#fff;border-radius:999px;padding:8px 12px;font-weight:700}
+    .lightbox .close{position:absolute;top:14px;right:14px}
   </style>
 </head>
 <body>
@@ -76,13 +98,16 @@
 
     <section class="hero">
       <div class="container">
+        <span class="promo">Últimas unidades sin enganche</span>
         <h1>Mirador del Bosque</h1>
-        <p><strong>Puedes obtenerlo sin enganche.</strong> Tu hogar al norte de Zapopan: ubicación estratégica y bienestar diario. Desde <strong>$699,000</strong>.</p>
+        <p><strong>Puede ser tuyo sin enganche.</strong> Tu hogar al norte de Zapopan: ubicación estratégica y bienestar diario. Desde <strong>$699,000</strong>.</p>
+
         <div class="badges">
           <div class="badge">Ubicación: Zapopan</div>
           <div class="badge">Desde <strong>$699,000</strong></div>
           <div class="badge">2 recámaras</div>
         </div>
+
         <div class="cta-bar">
           <a class="btn primary" href="#contacto">Solicitar información</a>
           <a class="btn ghost ask-fill" href="#">Solicitar ficha</a>
@@ -91,7 +116,6 @@
       </div>
     </section>
 
-    <!-- Faja/CTA grande de oferta -->
     <section class="deal">
       <div class="container wrap">
         <strong>Últimas unidades <span style="color:#C9A227">sin enganche</span>.</strong>
@@ -103,19 +127,20 @@
       <div class="container grid cols-2">
         <div>
           <h2>Resumen</h2>
-          <p class="meta">Prototipos <strong>Nardo</strong> y <strong>Oliva</strong>. Agenda visita para conocer disponibilidad y precios vigentes.</p>
+          <p class="meta">
+            Elige vivir donde la tranquilidad se siente todos los días. <strong>Nardo</strong> y <strong>Oliva</strong> combinan diseño inteligente, luz natural y espacios para crear recuerdos. Te acompañamos <strong>de principio a fin</strong> con tu crédito (Infonavit, Fovissste, bancario o mixto). <strong>Sin enganche.</strong> Agenda tu visita y asegura una de las últimas ubicaciones.
+          </p>
         </div>
         <div>
           <h2>Amenidades</h2>
           <div class="icon-list">
-            <div class="icon-item is-hidden">🌳 Áreas verdes — “Respira aire fresco desde tu ventana.”</div>
-            <div class="icon-item is-hidden">🛡️ Acceso controlado</div>
-            <div class="icon-item">👨‍👩‍👧‍👦 Juegos infantiles — “Diversión segura para los más pequeños.”</div>
+            <div class="icon-item is-hidden">🛡️ Acceso controlado</div> <!-- oculto -->
+            <div class="icon-item">👨‍👩‍👧‍👦 Juegos infantiles — “Diversión segura para los pequeños.”</div>
             <div class="icon-item">🔥 Asadores — “Momentos inolvidables en comunidad.”</div>
-            <div class="icon-item is-hidden">🏊 Alberca (algunos desarrollos)</div>
-            <div class="icon-item">🏋️ Gimnasio — “Entrena en tu propio vecindario.”</div>
+            <div class="icon-item is-hidden">🏊 Alberca</div> <!-- oculto -->
+            <div class="icon-item">🏋️ Gimnasio — “Entrena a unos pasos de tu puerta.”</div>
           </div>
-          <p class="meta" style="margin-top:8px">*Puede variar por disponibilidad.</p>
+          <p class="meta" style="margin-top:8px">*Amenidades pueden variar por disponibilidad.</p>
         </div>
       </div>
     </section>
@@ -123,7 +148,6 @@
     <section id="modelos" class="section">
       <div class="container">
         <h2>Prototipos</h2>
-
         <div class="cards">
           <!-- NARDO -->
           <article class="card">
@@ -131,16 +155,26 @@
             <div class="p">
               <h3>Nardo</h3>
               <div class="meta">2 recámaras</div>
-              <div style="display:flex;align-items:center;justify-content:space-between">
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap">
                 <span>Desde <strong>$699,000</strong></span>
-                <a class="btn ask-fill" href="#">Solicitar ficha</a>
+                <div style="display:flex;gap:8px;flex-wrap:wrap">
+                  <a class="btn ghost gallery-btn" href="#" data-gallery="nardo">Ver fotos</a>
+                  <a class="btn ask-fill" href="#">Solicitar ficha</a>
+                </div>
               </div>
               <div class="thumbs">
+                <img data-target="img-nardo" data-src="assets/nardo.jpg"  src="assets/nardo.jpg"  alt="Nardo portada" loading="lazy"/>
                 <img data-target="img-nardo" data-src="assets/nardo-2.jpg" src="assets/nardo-2.jpg" alt="Nardo 2" loading="lazy"/>
                 <img data-target="img-nardo" data-src="assets/nardo-3.jpg" src="assets/nardo-3.jpg" alt="Nardo 3" loading="lazy"/>
                 <img data-target="img-nardo" data-src="assets/nardo-4.jpg" src="assets/nardo-4.jpg" alt="Nardo 4" loading="lazy"/>
-                <img data-target="img-nardo" data-src="assets/nardo.jpg"  src="assets/nardo.jpg"  alt="Nardo portada" loading="lazy"/>
               </div>
+              <!-- Lista para lightbox -->
+              <ul class="is-hidden" id="gallery-nardo">
+                <li>assets/nardo.jpg</li>
+                <li>assets/nardo-2.jpg</li>
+                <li>assets/nardo-3.jpg</li>
+                <li>assets/nardo-4.jpg</li>
+              </ul>
             </div>
           </article>
 
@@ -150,16 +184,26 @@
             <div class="p">
               <h3>Oliva</h3>
               <div class="meta">2 recámaras</div>
-              <div style="display:flex;align-items:center;justify-content:space-between">
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap">
                 <span>Desde <strong>$754,000</strong></span>
-                <a class="btn ask-fill" href="#">Solicitar ficha</a>
+                <div style="display:flex;gap:8px;flex-wrap:wrap">
+                  <a class="btn ghost gallery-btn" href="#" data-gallery="oliva">Ver fotos</a>
+                  <a class="btn ask-fill" href="#">Solicitar ficha</a>
+                </div>
               </div>
               <div class="thumbs">
+                <img data-target="img-oliva" data-src="assets/oliva.jpg"  src="assets/oliva.jpg"  alt="Oliva portada" loading="lazy"/>
                 <img data-target="img-oliva" data-src="assets/oliva-2.jpg" src="assets/oliva-2.jpg" alt="Oliva 2" loading="lazy"/>
                 <img data-target="img-oliva" data-src="assets/oliva-3.jpg" src="assets/oliva-3.jpg" alt="Oliva 3" loading="lazy"/>
                 <img data-target="img-oliva" data-src="assets/oliva-4.jpg" src="assets/oliva-4.jpg" alt="Oliva 4" loading="lazy"/>
-                <img data-target="img-oliva" data-src="assets/oliva.jpg"  src="assets/oliva.jpg"  alt="Oliva portada" loading="lazy"/>
               </div>
+              <!-- Lista para lightbox -->
+              <ul class="is-hidden" id="gallery-oliva">
+                <li>assets/oliva.jpg</li>
+                <li>assets/oliva-2.jpg</li>
+                <li>assets/oliva-3.jpg</li>
+                <li>assets/oliva-4.jpg</li>
+              </ul>
             </div>
           </article>
         </div>
@@ -203,7 +247,7 @@
             </div>
           </div>
 
-          <div class="cta-bar" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
+          <div class="cta-bar" style="margin-top:12px">
             <a id="send-wa" class="btn whatsapp" href="#">Solicitar información por WhatsApp</a>
             <a class="btn ask-fill" href="#">Solicitar ficha</a>
           </div>
@@ -231,8 +275,18 @@
   <!-- Toast -->
   <div id="toast" class="toast"></div>
 
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox" aria-hidden="true">
+    <div class="controls">
+      <button id="prevImg" aria-label="Anterior">◀</button>
+      <button id="nextImg" aria-label="Siguiente">▶</button>
+    </div>
+    <button id="closeLb" class="close" aria-label="Cerrar">✕</button>
+    <img id="lbImg" alt="Imagen del prototipo"/>
+  </div>
+
   <script>
-    /* ====== CONFIG ====== */
+    /* ====== CONFIG (no tocar) ====== */
     const WA_DEST  = "523329335952"; // +52 332 933 5952
     const ENDPOINT = "https://script.google.com/macros/s/AKfycbwPuVXGIwLcF-KOPDuOch06KM72fEU0MpZE_xU7NWtFhZb5DqHl4ueeVH7K0bsWtczQtQ/exec";
 
@@ -280,7 +334,7 @@
       };
     }
 
-    /* ====== Mensaje para WA ====== */
+    /* ====== WhatsApp ====== */
     function buildMessage(d){
       const telUser = onlyDigits(d.whatsapp)||d.whatsapp;
       return `Hola Trhoncal Homes, me interesa ${d.desarrollo||'el desarrollo'}. ` +
@@ -294,7 +348,7 @@
       location.href = `https://wa.me/${WA_DEST}?text=${encodeURIComponent(texto)}`;
     }
 
-    /* ====== Envío principal (POST + WA + GTM) ====== */
+    /* ====== Envío principal ====== */
     async function submitLead(){
       const form = document.getElementById('lead-form');
       if(!form.reportValidity()){
@@ -306,30 +360,30 @@
       try{
         const res = await fetch(ENDPOINT, {
           method:'POST',
-          headers:{'Content-Type':'application/x-www-form-urlencoded'},
+          headers:{'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8'},
           body: new URLSearchParams(d).toString()
         });
         const j = await res.json().catch(()=>({ok:false}));
         if(!j.ok){ console.warn('Script respondió:', j); }
 
-        // GTM / Google Ads
+        // Métricas
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({event:'lead_submit', desarrollo:d.desarrollo});
 
         goWhatsApp(d);
       }catch(err){
         console.error(err);
-        goWhatsApp(d); // No perder el lead aunque falle el fetch
+        toast('Error al enviar. Intenta de nuevo.');
       }
     }
 
     document.getElementById('send-wa').addEventListener('click', e=>{ e.preventDefault(); submitLead(); });
 
-    // Botón sticky (bloqueado)
+    // Sticky (bloqueado)
     const sticky = document.getElementById('sticky-send');
     if(sticky){ sticky.addEventListener('click', e=>{ e.preventDefault(); toast('Llena tus datos para atenderte por WhatsApp.'); }); }
 
-    // Todos los “Solicitar ficha” piden datos
+    // Aviso “Solicitar ficha”
     document.querySelectorAll('.ask-fill').forEach(a=>{
       a.addEventListener('click', e=>{
         e.preventDefault();
@@ -338,14 +392,62 @@
       });
     });
 
-    // Swap de fotos por modelo (galería simple)
-    document.getElementById('modelos').addEventListener('click', (e)=>{
-      const t = e.target;
-      if(t && t.dataset && t.dataset.target && t.dataset.src){
-        const main = document.getElementById(t.dataset.target);
-        if(main){ main.src = t.dataset.src; }
-      }
-    });
+    // Thumbs swap + Lightbox
+    (function gallery(){
+      // swap principal con thumbs
+      document.getElementById('modelos').addEventListener('click', (e)=>{
+        const t = e.target;
+        if(t && t.dataset && t.dataset.target && t.dataset.src){
+          const main = document.getElementById(t.dataset.target);
+          if(main){ main.src = t.dataset.src; }
+        }
+      });
+
+      // lightbox
+      const lb = document.getElementById('lightbox');
+      const img = document.getElementById('lbImg');
+      const prev = document.getElementById('prevImg');
+      const next = document.getElementById('nextImg');
+      const close = document.getElementById('closeLb');
+
+      let list = []; let idx = 0;
+      const open = (arr,start=0)=>{ list=arr; idx=start; img.src=list[idx]; lb.style.display='flex'; lb.setAttribute('aria-hidden','false'); };
+      const move = s=>{ if(!list.length) return; idx=(idx+s+list.length)%list.length; img.src=list[idx]; };
+      const closeLb = ()=>{ lb.style.display='none'; lb.setAttribute('aria-hidden','true'); list=[]; };
+
+      prev.addEventListener('click',()=>move(-1));
+      next.addEventListener('click',()=>move(1));
+      close.addEventListener('click',closeLb);
+      lb.addEventListener('click',e=>{ if(e.target===lb) closeLb(); });
+      document.addEventListener('keydown',e=>{
+        if(lb.style.display==='flex'){
+          if(e.key==='Escape') closeLb();
+          if(e.key==='ArrowLeft') move(-1);
+          if(e.key==='ArrowRight') move(1);
+        }
+      });
+
+      document.querySelectorAll('.gallery-btn').forEach(btn=>{
+        btn.addEventListener('click',e=>{
+          e.preventDefault();
+          const id = btn.dataset.gallery; // nardo | oliva
+          const ul = document.getElementById('gallery-'+id);
+          const urls = Array.from(ul.querySelectorAll('li')).map(li=>li.textContent.trim()).filter(Boolean);
+          if(urls.length){ 
+            // Métrica
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({event:'gallery_open', model:id});
+            open(urls,0);
+          }
+        });
+      });
+
+      // métrica WA click
+      document.getElementById('send-wa').addEventListener('click',()=>{
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({event:'wa_click', desarrollo:'Mirador del Bosque'});
+      });
+    })();
   </script>
 </body>
 </html>
