@@ -1,47 +1,47 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Trhoncal Homes | Solum Residencial – GDL</title>
-  <meta name="description" content="Solum Residencial en la Zona Metropolitana de Guadalajara. Asesoría con Transparencia, Honestidad y Calidad. Modelos, amenidades y ubicación." />
+  <meta name="description" content="Solum Residencial en la ZMG. Puede ser tuyo sin enganche. Modelos con amenidades y excelente conectividad. Acompañamiento total en tu crédito."/>
   <link rel="canonical" href="https://solum.3dhomes.com.mx/"/>
 
-  <!-- Preload del hero para pintar más rápido -->
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Solum Residencial | Puede ser tuyo sin enganche"/>
+  <meta property="og:description" content="Hogar en la ZMG. Últimas unidades sin enganche. Agenda tu visita."/>
+  <meta property="og:image" content="https://solum.3dhomes.com.mx/desarrollos/solum/assets/hero-1600.jpg"/>
+  <meta property="og:type" content="website"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+
+  <!-- Preload del hero -->
   <link rel="preload" as="image"
         imagesrcset="/desarrollos/solum/assets/hero-1600.webp 1x, /desarrollos/solum/assets/hero-3200.webp 2x"
         imagesizes="100vw"
-        href="/desarrollos/solum/assets/hero-1600.jpg">
-
-  <!-- Open Graph (opcional si agregas og-1200x630.jpg) -->
-  <meta property="og:title" content="Solum Residencial – Trhoncal Homes">
-  <meta property="og:description" content="Agenda visita y cotización.">
-  <meta property="og:image" content="/desarrollos/solum/assets/og-1200x630.jpg">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
+        href="/desarrollos/solum/assets/hero-1600.jpg"/>
 
   <style>
-    :root{ --gold:#C9A227; --dark:#0f172a; --muted:#475569; --bg:#ffffff; --light:#f8fafc; }
+    :root{--gold:#C9A227;--dark:#0f172a;--muted:#475569;--light:#f8fafc;--wa:#25D366;--border:#e2e8f0}
     *{box-sizing:border-box}
-    body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;background:var(--bg);color:var(--dark)}
+    body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;color:var(--dark);background:#fff}
     a{color:inherit;text-decoration:none}
     img{max-width:100%;display:block}
     .container{max-width:1100px;margin:0 auto;padding:0 20px}
-    .btn{display:inline-block;padding:12px 20px;border-radius:999px;border:1px solid var(--gold);font-weight:600}
-    .btn.primary{background:var(--gold);color:#fff;border-color:var(--gold)}
+    .btn{display:inline-block;padding:12px 18px;border-radius:999px;border:1px solid var(--gold);font-weight:700}
+    .btn.primary{background:var(--gold);color:#fff}
     .btn.ghost{background:transparent;color:var(--gold)}
-    header{position:sticky;top:0;background:rgba(255,255,255,.95);backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid #e2e8f0;z-index:50}
+    .btn.whatsapp{background:var(--wa);border-color:var(--wa);color:#fff}
+
+    header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.95);backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid var(--border)}
     header .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
     nav a{margin-left:18px;color:var(--muted)}
     .logo-img{height:50px}
+    @media(max-width:768px){header nav{display:none} header .wrap{justify-content:center}}
     .breadcrumb{font-size:14px;color:var(--muted);padding:10px 0}
 
-    /* HERO con image-set (WebP + JPG y retina) */
     .hero{position:relative;min-height:420px;display:grid;align-items:end;padding:28px 0;color:#fff}
     @media (max-width:640px){.hero{min-height:340px}}
-    .hero::before{
-      content:"";
-      position:absolute; inset:0; z-index:-1;
+    .hero::before{content:"";position:absolute;inset:0;z-index:-1;
       background:
         linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.55)),
         image-set(
@@ -50,51 +50,55 @@
           url('/desarrollos/solum/assets/hero-1600.jpg') type('image/jpeg') 1x,
           url('/desarrollos/solum/assets/hero-3200.jpg') type('image/jpeg') 2x
         );
-      background-size:cover; background-position:center; background-repeat:no-repeat; background-color:#cbd5e1;
-    }
-    .hero > .container{position:relative}
-    .hero h1{font-size:clamp(28px,5vw,46px);line-height:1.1;margin:0 0 10px}
+      background-size:cover;background-position:center;background-repeat:no-repeat;background-color:#cbd5e1}
+    .hero h1{margin:0 0 10px;font-size:clamp(28px,5vw,46px);line-height:1.1}
     .hero p{margin:0 0 16px;color:#e5e7eb}
-
+    .promo{margin:8px 0 16px;display:inline-block;background:#fff;color:#111;padding:8px 12px;border-radius:999px;font-weight:800;border:2px solid var(--gold)}
     .badges{display:flex;flex-wrap:wrap;gap:10px;margin:10px 0 22px}
-    .badge{padding:8px 12px;border:1px solid #e2e8f0;border-radius:999px;background:rgba(255,255,255,.9);color:#111}
+    .badge{padding:8px 12px;border:1px solid var(--border);border-radius:999px;background:rgba(255,255,255,.9);color:#111}
+    .cta-bar{display:flex;gap:10px;flex-wrap:wrap}
+
+    .deal{background:#0f172a;color:#fff}
+    .deal .wrap{display:flex;gap:14px;align-items:center;justify-content:space-between;padding:16px 0}
+    .deal strong{font-size:clamp(16px,3.2vw,22px)}
 
     .section{padding:42px 0}
-    .section h2{font-size:clamp(22px,4vw,32px);margin:0 0 14px}
     .grid{display:grid;gap:16px}
     @media(min-width:900px){.grid.cols-2{grid-template-columns:1fr 1fr}}
 
     .cards{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
-    .card{grid-column:span 12;background:#fff;border:1px solid #e2e8f0;border-radius:16px;overflow:hidden;box-shadow:0 8px 22px rgba(0,0,0,.04)}
-    .card img{width:100%;height:200px;object-fit:cover;background:#e2e8f0}
+    .card{grid-column:span 12;background:#fff;border:1px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:0 8px 22px rgba(0,0,0,.04)}
+    .card img{width:100%;height:220px;object-fit:cover;background:#e2e8f0}
     .card .p{padding:14px}
     .card h3{margin:0 0 6px;font-size:18px}
     .meta{color:var(--muted);font-size:14px;margin-bottom:10px}
-    @media(min-width:700px){.card{grid-column:span 6}}
-    @media(min-width:1000px){.card{grid-column:span 4}}
+    @media(min-width:700px){.card{grid-column:span 6}} @media(min-width:1000px){.card{grid-column:span 4}}
 
     .icon-list{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
     @media(min-width:700px){.icon-list{grid-template-columns:repeat(3,1fr)}}
-    .icon-item{display:flex;align-items:center;gap:10px;border:1px solid #e2e8f0;border-radius:12px;padding:10px;background:#fff}
+    .icon-item{display:flex;align-items:center;gap:10px;border:1px solid var(--border);border-radius:12px;padding:10px;background:#fff}
 
-    .map{width:100%;height:360px;border:1px solid #e2e8f0;border-radius:16px;overflow:hidden}
-    .faq details{border:1px solid #e2e8f0;border-radius:12px;padding:12px;background:#fff}
-    .faq details+details{margin-top:10px}
-    footer{padding:32px 0;color:var(--muted)}
-    .wa-float{position:fixed;right:18px;bottom:18px;background:#25D366;color:#fff;padding:14px 16px;border-radius:999px;box-shadow:0 8px 22px rgba(0,0,0,.18);font-weight:800;z-index:60}
-    .sticky-cta{position:sticky;bottom:0;background:#fff;border-top:1px solid #e2e8f0;padding:10px;display:flex;gap:10px;justify-content:center}
+    .thumbs{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:10px 0 0}
+    .thumbs img{height:62px;object-fit:cover;border-radius:8px;border:1px solid var(--border);cursor:pointer;transition:transform .15s}
+    .thumbs img:hover{transform:scale(1.02)}
+
+    .toast{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);background:#0f172a;color:#fff;padding:10px 14px;border-radius:10px;box-shadow:0 8px 22px rgba(0,0,0,.25);display:none;z-index:70}
+    .sticky-cta{position:sticky;bottom:0;background:#fff;border-top:1px solid var(--border);padding:10px;display:flex;gap:10px;justify-content:center}
+    .is-hidden{display:none!important}
+
+    /* Lightbox */
+    .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.85);display:none;align-items:center;justify-content:center;z-index:80;padding:20px}
+    .lightbox img{max-width:min(100%,900px);max-height:80vh;border-radius:12px}
+    .lightbox .controls{position:absolute;inset:0;display:flex;align-items:center;justify-content:space-between;padding:20px}
+    .lightbox button{background:rgba(255,255,255,.1);border:1px solid #fff;color:#fff;border-radius:999px;padding:8px 12px;font-weight:700}
+    .lightbox .close{position:absolute;top:14px;right:14px}
   </style>
 </head>
 <body>
   <header>
     <div class="container wrap">
-      <!-- Logo compartido -->
-      <div class="logo"><img class="logo-img" src="/desarrollos/assets/logo-trhoncal-flat.png" alt="Trhoncal Homes" /></div>
-      <nav>
-        <a href="/">Inicio</a>
-        <a href="/catalogo-devs.html">Desarrollos</a>
-        <a href="#contacto">Contacto</a>
-      </nav>
+      <div class="logo"><img class="logo-img" src="/desarrollos/assets/logo-trhoncal-flat.png" alt="Trhoncal Homes" loading="lazy"/></div>
+      <nav><a href="/">Inicio</a><a href="/catalogo-devs.html">Desarrollos</a><a href="#contacto">Contacto</a></nav>
     </div>
   </header>
 
@@ -103,82 +107,142 @@
 
     <section class="hero">
       <div class="container">
+        <span class="promo">Últimas unidades sin enganche</span>
         <h1>Solum Residencial</h1>
-        <p>Viviendas pensadas para tu familia, con amenidades y conectividad.</p>
+        <p><strong>Puede ser tuyo sin enganche.</strong> Tu hogar en la Zona Metropolitana de Guadalajara: conectividad y bienestar diario.</p>
+
         <div class="badges">
-          <div class="badge">Ubicación: Zona Metropolitana de Guadalajara</div>
-          <div class="badge">Desde <strong>Consultar</strong></div>
+          <div class="badge">Ubicación: ZMG</div>
+          <div class="badge">Consulta precios</div>
           <div class="badge">2–3 recámaras</div>
-          <div class="badge">Amenidades destacadas</div>
         </div>
+
         <div class="cta-bar">
           <a class="btn primary" href="#contacto">Solicitar información</a>
-          <a class="btn ghost" href="#modelos">Ver modelos</a>
+          <a class="btn ghost ask-fill" href="#">Solicitar ficha</a>
         </div>
+        <p class="meta" style="margin-top:10px;color:#e5e7eb">*Sujeto a disponibilidad.</p>
+      </div>
+    </section>
+
+    <section class="deal">
+      <div class="container wrap">
+        <strong>Últimas unidades <span style="color:#C9A227">sin enganche</span>.</strong>
+        <a class="btn primary" href="#contacto">Agenda tu visita</a>
       </div>
     </section>
 
     <section class="section">
       <div class="container grid cols-2">
         <div>
-          <h2>Resumen del desarrollo</h2>
-          <p class="meta">Solum Residencial está en preparación. En cuanto nos compartan los prototipos y especificaciones, los añadimos aquí. Agenda visita para conocer disponibilidad y precios vigentes.</p>
+          <h2>Resumen</h2>
+          <p class="meta">
+            Elige vivir donde la tranquilidad se siente todos los días. Los modelos de <strong>Solum Residencial</strong> combinan diseño inteligente, luz natural y espacios para crear recuerdos.
+            Te acompañamos <strong>de principio a fin</strong> con tu crédito (Infonavit, Fovissste, bancario o mixto). <strong>Sin enganche.</strong>
+          </p>
         </div>
         <div>
           <h2>Amenidades</h2>
           <div class="icon-list">
-            <div class="icon-item">🏊 Alberca</div>
-            <div class="icon-item">🏋️ Gimnasio</div>
             <div class="icon-item">🌳 Áreas verdes</div>
             <div class="icon-item">👨‍👩‍👧‍👦 Juegos infantiles</div>
             <div class="icon-item">🔥 Asadores</div>
-            <div class="icon-item">🛡️ Acceso controlado</div>
+            <div class="icon-item">🏊 Alberca</div>
+            <div class="icon-item">🏋️ Gimnasio</div>
+            <!-- <div class="icon-item is-hidden">🛡️ Acceso controlado</div>  Oculto si no aplica -->
           </div>
-          <p class="meta" style="margin-top:8px">*Las amenidades pueden variar según etapa y disponibilidad.</p>
+          <p class="meta" style="margin-top:8px">*Amenidades pueden variar por disponibilidad.</p>
         </div>
       </div>
     </section>
 
     <section id="modelos" class="section">
       <div class="container">
-        <h2>Prototipos</h2>
+        <h2>Modelos</h2>
         <div class="cards">
+          <!-- MODELO A -->
           <article class="card">
-            <img src="/desarrollos/solum/assets/modelo-a.jpg" alt="Modelo A" />
+            <img id="img-modelo-a" src="/desarrollos/solum/assets/modelo-a.jpg" alt="Modelo A" loading="lazy"/>
             <div class="p">
               <h3>Modelo A</h3>
               <div class="meta">Distribución funcional</div>
-              <div class="row" style="display:flex;align-items:center;justify-content:space-between">
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap">
                 <span>Desde <strong>Consultar</strong></span>
-                <a class="btn" href="#contacto" data-model="Modelo A">Solicitar ficha</a>
+                <div style="display:flex;gap:8px;flex-wrap:wrap">
+                  <a class="btn ghost gallery-btn" href="#" data-gallery="modelo-a">Ver fotos</a>
+                  <a class="btn ask-fill" href="#">Solicitar ficha</a>
+                </div>
               </div>
+              <div class="thumbs">
+                <img data-target="img-modelo-a" data-src="/desarrollos/solum/assets/modelo-a.jpg"   src="/desarrollos/solum/assets/modelo-a.jpg"   alt="Modelo A portada" loading="lazy"/>
+                <img data-target="img-modelo-a" data-src="/desarrollos/solum/assets/modelo-a-2.jpg" src="/desarrollos/solum/assets/modelo-a-2.jpg" alt="Modelo A 2" loading="lazy"/>
+                <img data-target="img-modelo-a" data-src="/desarrollos/solum/assets/modelo-a-3.jpg" src="/desarrollos/solum/assets/modelo-a-3.jpg" alt="Modelo A 3" loading="lazy"/>
+                <img data-target="img-modelo-a" data-src="/desarrollos/solum/assets/modelo-a-4.jpg" src="/desarrollos/solum/assets/modelo-a-4.jpg" alt="Modelo A 4" loading="lazy"/>
+              </div>
+              <ul class="is-hidden" id="gallery-modelo-a">
+                <li>/desarrollos/solum/assets/modelo-a.jpg</li>
+                <li>/desarrollos/solum/assets/modelo-a-2.jpg</li>
+                <li>/desarrollos/solum/assets/modelo-a-3.jpg</li>
+                <li>/desarrollos/solum/assets/modelo-a-4.jpg</li>
+              </ul>
             </div>
           </article>
 
+          <!-- MODELO B -->
           <article class="card">
-            <img src="/desarrollos/solum/assets/modelo-b.jpg" alt="Modelo B" />
+            <img id="img-modelo-b" src="/desarrollos/solum/assets/modelo-b.jpg" alt="Modelo B" loading="lazy"/>
             <div class="p">
               <h3>Modelo B</h3>
               <div class="meta">Excelente relación m²/precio</div>
-              <div class="row" style="display:flex;align-items:center;justify-content:space-between">
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap">
                 <span>Desde <strong>Consultar</strong></span>
-                <a class="btn" href="#contacto" data-model="Modelo B">Solicitar ficha</a>
+                <div style="display:flex;gap:8px;flex-wrap:wrap">
+                  <a class="btn ghost gallery-btn" href="#" data-gallery="modelo-b">Ver fotos</a>
+                  <a class="btn ask-fill" href="#">Solicitar ficha</a>
+                </div>
               </div>
+              <div class="thumbs">
+                <img data-target="img-modelo-b" data-src="/desarrollos/solum/assets/modelo-b.jpg"   src="/desarrollos/solum/assets/modelo-b.jpg"   alt="Modelo B portada" loading="lazy"/>
+                <img data-target="img-modelo-b" data-src="/desarrollos/solum/assets/modelo-b-2.jpg" src="/desarrollos/solum/assets/modelo-b-2.jpg" alt="Modelo B 2" loading="lazy"/>
+                <img data-target="img-modelo-b" data-src="/desarrollos/solum/assets/modelo-b-3.jpg" src="/desarrollos/solum/assets/modelo-b-3.jpg" alt="Modelo B 3" loading="lazy"/>
+                <img data-target="img-modelo-b" data-src="/desarrollos/solum/assets/modelo-b-4.jpg" src="/desarrollos/solum/assets/modelo-b-4.jpg" alt="Modelo B 4" loading="lazy"/>
+              </div>
+              <ul class="is-hidden" id="gallery-modelo-b">
+                <li>/desarrollos/solum/assets/modelo-b.jpg</li>
+                <li>/desarrollos/solum/assets/modelo-b-2.jpg</li>
+                <li>/desarrollos/solum/assets/modelo-b-3.jpg</li>
+                <li>/desarrollos/solum/assets/modelo-b-4.jpg</li>
+              </ul>
             </div>
           </article>
 
+          <!-- MODELO C -->
           <article class="card">
-            <img src="/desarrollos/solum/assets/modelo-c.jpg" alt="Modelo C" />
+            <img id="img-modelo-c" src="/desarrollos/solum/assets/modelo-c.jpg" alt="Modelo C" loading="lazy"/>
             <div class="p">
               <h3>Modelo C</h3>
               <div class="meta">Opción con espacio extra</div>
-              <div class="row" style="display:flex;align-items:center;justify-content:space-between">
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap">
                 <span>Desde <strong>Consultar</strong></span>
-                <a class="btn" href="#contacto" data-model="Modelo C">Solicitar ficha</a>
+                <div style="display:flex;gap:8px;flex-wrap:wrap">
+                  <a class="btn ghost gallery-btn" href="#" data-gallery="modelo-c">Ver fotos</a>
+                  <a class="btn ask-fill" href="#">Solicitar ficha</a>
+                </div>
               </div>
+              <div class="thumbs">
+                <img data-target="img-modelo-c" data-src="/desarrollos/solum/assets/modelo-c.jpg"   src="/desarrollos/solum/assets/modelo-c.jpg"   alt="Modelo C portada" loading="lazy"/>
+                <img data-target="img-modelo-c" data-src="/desarrollos/solum/assets/modelo-c-2.jpg" src="/desarrollos/solum/assets/modelo-c-2.jpg" alt="Modelo C 2" loading="lazy"/>
+                <img data-target="img-modelo-c" data-src="/desarrollos/solum/assets/modelo-c-3.jpg" src="/desarrollos/solum/assets/modelo-c-3.jpg" alt="Modelo C 3" loading="lazy"/>
+                <img data-target="img-modelo-c" data-src="/desarrollos/solum/assets/modelo-c-4.jpg" src="/desarrollos/solum/assets/modelo-c-4.jpg" alt="Modelo C 4" loading="lazy"/>
+              </div>
+              <ul class="is-hidden" id="gallery-modelo-c">
+                <li>/desarrollos/solum/assets/modelo-c.jpg</li>
+                <li>/desarrollos/solum/assets/modelo-c-2.jpg</li>
+                <li>/desarrollos/solum/assets/modelo-c-3.jpg</li>
+                <li>/desarrollos/solum/assets/modelo-c-4.jpg</li>
+              </ul>
             </div>
           </article>
-
         </div>
       </div>
     </section>
@@ -186,35 +250,50 @@
     <section id="contacto" class="section" style="border-top:1px solid #e2e8f0">
       <div class="container">
         <h2>Solicita información de Solum Residencial</h2>
-        <p class="meta">Déjanos tus datos y un asesor te escribe por WhatsApp. Tiempo de respuesta habitual: 5–15 minutos.</p>
-        <form onsubmit="return handleSubmit(event)">
-          <input type="hidden" name="desarrollo" value="Solum Residencial" />
+        <p class="meta">Déjanos tus datos y un asesor te escribe por WhatsApp.</p>
+
+        <form id="lead-form" autocomplete="on">
+          <input type="hidden" id="desarrollo" name="desarrollo" value="Solum Residencial"/>
           <div class="grid cols-2">
             <div>
-              <label>Nombre completo</label>
-              <input required name="nombre" placeholder="Tu nombre" />
+              <label for="nombre">Nombre(s)</label>
+              <input id="nombre" name="nombre" required placeholder="Tu nombre" autocomplete="given-name"/>
             </div>
             <div>
-              <label>WhatsApp</label>
-              <input required name="whatsapp" placeholder="Ej. 33 3724 1151" />
+              <label for="paterno">Apellido paterno</label>
+              <input id="paterno" name="paterno" required placeholder="Paterno" autocomplete="additional-name"/>
+            </div>
+            <div>
+              <label for="materno">Apellido materno</label>
+              <input id="materno" name="materno" required placeholder="Materno" autocomplete="family-name"/>
+            </div>
+            <div>
+              <label for="whatsapp">WhatsApp</label>
+              <input id="whatsapp" name="whatsapp" required type="tel" inputmode="tel" placeholder="Ej. 33 3724 1151" autocomplete="tel"/>
+            </div>
+            <div>
+              <label for="correo">Correo electrónico</label>
+              <input id="correo" name="correo" required type="email" placeholder="tu@correo.com" autocomplete="email"/>
+            </div>
+            <div>
+              <label for="mensaje">Mensaje</label>
+              <textarea id="mensaje" name="mensaje" rows="1" placeholder="Cuéntanos qué buscas..."></textarea>
             </div>
           </div>
-          <div>
-            <label>Mensaje</label>
-            <textarea name="mensaje" rows="4" placeholder="Cuéntanos qué buscas..."></textarea>
+
+          <div class="cta-bar" style="margin-top:12px">
+            <a id="send-wa" class="btn whatsapp" href="#">Solicitar información por WhatsApp</a>
+            <a class="btn ask-fill" href="#">Solicitar ficha</a>
           </div>
-          <div class="cta-bar" style="display:flex;gap:10px;flex-wrap:wrap">
-            <button class="btn primary" type="submit">Enviar y hablar por WhatsApp</button>
-            <a class="btn" href="https://wa.me/523337241151?text=Hola%20Trhoncal%20Homes%2C%20me%20interesa%20Solum%20Residencial" target="_blank" rel="noopener">Escribir directo</a>
-          </div>
+
           <p id="form-msg" style="margin:10px 0 0;display:none"></p>
         </form>
       </div>
     </section>
 
     <div class="sticky-cta">
-      <a class="btn primary" href="#contacto">Solicitar información</a>
-      <a class="btn ghost" href="#modelos">Ver modelos</a>
+      <a id="sticky-send" class="btn whatsapp is-hidden" href="#">WhatsApp</a>
+      <a class="btn ask-fill" href="#">Solicitar ficha</a>
     </div>
   </main>
 
@@ -227,20 +306,177 @@
     </div>
   </footer>
 
-  <a class="wa-float" href="https://wa.me/523337241151?text=Hola%20Trhoncal%20Homes%2C%20me%20interesa%20Solum%20Residencial" target="_blank" rel="noopener">WhatsApp</a>
+  <!-- Toast -->
+  <div id="toast" class="toast"></div>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox" aria-hidden="true">
+    <div class="controls">
+      <button id="prevImg" aria-label="Anterior">◀</button>
+      <button id="nextImg" aria-label="Siguiente">▶</button>
+    </div>
+    <button id="closeLb" class="close" aria-label="Cerrar">✕</button>
+    <img id="lbImg" alt="Imagen del prototipo"/>
+  </div>
 
   <script>
+    /* ====== CONFIG (cámbialo solo si tu Apps Script genera nueva URL) ====== */
+    const WA_DEST  = "523337241151"; // WhatsApp Solum
+    const ENDPOINT = "https://script.google.com/macros/s/AKfycbwPuVXGIwLcF-KOPDuOch06KM72fEU0MpZE_xU7NWtFhZb5DqHl4ueeVH7K0bsWtczQtQ/exec";
+
     document.getElementById('year').textContent = new Date().getFullYear();
-    function handleSubmit(e){
-      e.preventDefault();
-      const data = Object.fromEntries(new FormData(e.target).entries());
-      const msg = `Hola Trhoncal Homes, me interesa Solum Residencial. Soy ${encodeURIComponent(data.nombre)}. Mi WhatsApp es ${encodeURIComponent(data.whatsapp)}. ${encodeURIComponent(data.mensaje || '')}`;
-      const wa = `https://wa.me/523337241151?text=${encodeURIComponent(msg)}`;
-      const p = document.getElementById('form-msg');
-      p.style.display='block'; p.textContent='Abriendo WhatsApp...';
-      window.open(wa,'_blank');
-      return false;
+
+    /* ====== Autorrelleno: QP + localStorage ====== */
+    (function prefill(){
+      const form   = document.getElementById('lead-form');
+      const fields = ['nombre','paterno','materno','whatsapp','correo','mensaje'];
+      const qp = new URLSearchParams(location.search);
+
+      fields.forEach(f=>{
+        const el = form.elements[f];
+        if(!el) return;
+
+        const aliases = { correo:['email'], whatsapp:['phone','telefono'] };
+        let qv = qp.get(f);
+        if(!qv && aliases[f]) { for(const alt of aliases[f]) { qv = qp.get(alt); if(qv) break; } }
+        if(qv) el.value = qv;
+
+        if(!el.value){
+          const saved = localStorage.getItem('lead_'+f);
+          if(saved) el.value = saved;
+        }
+
+        el.addEventListener('input',()=>localStorage.setItem('lead_'+f, el.value));
+      });
+    })();
+
+    /* ====== Helpers ====== */
+    function onlyDigits(s){ return (s||"").replace(/\D+/g,''); }
+    function fullName(d){ return [d.nombre,d.paterno,d.materno].filter(Boolean).join(' ').trim(); }
+    function toast(msg){
+      const t = document.getElementById('toast'); t.textContent = msg;
+      t.style.display='block'; setTimeout(()=>t.style.display='none', 2600);
     }
+    function formDataObject(form){ return Object.fromEntries(new FormData(form).entries()); }
+    function utms(){
+      const p = new URLSearchParams(location.search);
+      return {
+        utm_source:  p.get('utm_source')  || '',
+        utm_medium:  p.get('utm_medium')  || '',
+        utm_campaign:p.get('utm_campaign')|| '',
+        utm_term:    p.get('utm_term')    || '',
+        utm_content: p.get('utm_content') || ''
+      };
+    }
+
+    /* ====== WhatsApp ====== */
+    function buildMessage(d){
+      const telUser = onlyDigits(d.whatsapp)||d.whatsapp;
+      return `Hola Trhoncal Homes, me interesa ${d.desarrollo||'el desarrollo'}. ` +
+             `Soy ${fullName(d)}. ` +
+             `Mi correo es ${d.correo}. ` +
+             `Mi WhatsApp es ${telUser}.` +
+             (d.mensaje ? ` ${d.mensaje}` : '');
+    }
+    function goWhatsApp(d){
+      const texto = buildMessage(d);
+      location.href = `https://wa.me/${WA_DEST}?text=${encodeURIComponent(texto)}`;
+    }
+
+    /* ====== Envío principal (POST + WA + GTM) ====== */
+    async function submitLead(){
+      const form = document.getElementById('lead-form');
+      if(!form.reportValidity()){
+        toast('Completa los campos obligatorios.');
+        form.scrollIntoView({behavior:'smooth', block:'start'});
+        return;
+      }
+      const d = {...formDataObject(form), ...utms()};
+      try{
+        const res = await fetch(ENDPOINT, {
+          method:'POST',
+          headers:{'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8'},
+          body: new URLSearchParams(d).toString()
+        });
+        const j = await res.json().catch(()=>({ok:false}));
+        if(!j.ok){ console.warn('Script respondió:', j); }
+
+        // Métricas
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({event:'lead_submit', desarrollo:d.desarrollo});
+
+        goWhatsApp(d);
+      }catch(err){
+        console.error(err);
+        toast('Error al enviar. Intenta de nuevo.');
+      }
+    }
+
+    document.getElementById('send-wa').addEventListener('click', e=>{ e.preventDefault(); submitLead(); });
+
+    // Sticky (bloqueado)
+    const sticky = document.getElementById('sticky-send');
+    if(sticky){ sticky.addEventListener('click', e=>{ e.preventDefault(); toast('Llena tus datos para atenderte por WhatsApp.'); }); }
+
+    // Aviso “Solicitar ficha”
+    document.querySelectorAll('.ask-fill').forEach(a=>{
+      a.addEventListener('click', e=>{
+        e.preventDefault();
+        toast('Déjanos tus datos y correo para enviarte la ficha.');
+        document.getElementById('lead-form').scrollIntoView({behavior:'smooth', block:'start'});
+      });
+    });
+
+    /* ====== Galerías: thumbs + lightbox ====== */
+    (function galleries(){
+      // Swap principal con thumbs
+      document.getElementById('modelos').addEventListener('click', (e)=>{
+        const t = e.target;
+        if(t && t.dataset && t.dataset.target && t.dataset.src){
+          const main = document.getElementById(t.dataset.target);
+          if(main){ main.src = t.dataset.src; }
+        }
+      });
+
+      // Lightbox
+      const lb = document.getElementById('lightbox');
+      const img = document.getElementById('lbImg');
+      const prev = document.getElementById('prevImg');
+      const next = document.getElementById('nextImg');
+      const close = document.getElementById('closeLb');
+
+      let list = []; let idx = 0;
+      const open = (arr,start=0)=>{ list=arr; idx=start; img.src=list[idx]; lb.style.display='flex'; lb.setAttribute('aria-hidden','false'); };
+      const move = s=>{ if(!list.length) return; idx=(idx+s+list.length)%list.length; img.src=list[idx]; };
+      const closeIt = ()=>{ lb.style.display='none'; lb.setAttribute('aria-hidden','true'); list=[]; };
+
+      prev.addEventListener('click',()=>move(-1));
+      next.addEventListener('click',()=>move(1));
+      close.addEventListener('click',closeIt);
+      lb.addEventListener('click',e=>{ if(e.target===lb) closeIt(); });
+      document.addEventListener('keydown',e=>{
+        if(lb.style.display==='flex'){
+          if(e.key==='Escape') closeIt();
+          if(e.key==='ArrowLeft') move(-1);
+          if(e.key==='ArrowRight') move(1);
+        }
+      });
+
+      // Botón abrir
+      document.querySelectorAll('.gallery-btn').forEach(btn=>{
+        btn.addEventListener('click',e=>{
+          e.preventDefault();
+          const id = btn.dataset.gallery; // modelo-a | modelo-b | modelo-c
+          const ul = document.getElementById('gallery-'+id);
+          const urls = Array.from(ul.querySelectorAll('li')).map(li=>li.textContent.trim()).filter(Boolean);
+          if(urls.length){
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({event:'gallery_open', model:id});
+            open(urls,0);
+          }
+        });
+      });
+    })();
   </script>
 </body>
 </html>
