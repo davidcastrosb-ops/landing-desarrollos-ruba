@@ -37,9 +37,8 @@
     .breadcrumb{font-size:14px;color:var(--muted);padding:10px 0}
 
     .hero{position:relative;min-height:360px;display:grid;align-items:end;padding:28px 0;color:#fff}
-    .hero::before{content:"";position:absolute;inset:0;z-index:-1;background:
-      linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.55)),
-      url('assets/hero-1600.jpg') center/cover no-repeat}
+    .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.hero .overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.55));z-index:-1}
     .hero h1{margin:0 0 10px;font-size:clamp(28px,5vw,46px);line-height:1.1}
     .hero p{margin:0 0 16px;color:#e5e7eb}
     .badges{display:flex;flex-wrap:wrap;gap:10px;margin:10px 0 22px}
@@ -83,6 +82,143 @@
     .lightbox .controls{position:absolute;inset:0;display:flex;align-items:center;justify-content:space-between;padding:20px}
     .lightbox button{background:rgba(255,255,255,.1);border:1px solid #fff;color:#fff;border-radius:999px;padding:8px 12px;font-weight:700}
     .lightbox .close{position:absolute;top:14px;right:14px}
+  
+/** ===== Amenidades limpias v2 ===== (ajustado) **/
+/* ===== Punch horizontal ===== */
+.amenities-punch{display:flex;flex-direction:row;align-items:center;gap:20px;border:1px solid var(--gold);border-radius:14px;padding:16px;background:#fff;color:var(--dark);margin:20px 0}
+.amenities-punch h3{margin:0;font-size:18px;flex:0 0 auto;color:var(--dark)}
+.amenities-punch ul{margin:0;flex:1;list-style:disc;padding-left:18px}
+.amenities-punch li{margin-bottom:6px}
+.amenities-punch .btn{flex:0 0 auto}
+
+  
+/* ===== Ajustes v4 ===== */
+.amenity .icon{font-size:34px;line-height:1;margin-top:2px;flex:0 0 auto}
+.amenities-punch{display:flex;flex-direction:row;align-items:center;gap:22px;border:1px solid var(--gold);border-radius:14px;padding:18px;background:#fff;color:var(--dark);margin:16px 0}
+.amenities-punch h3{margin:0;font-size:20px;color:var(--dark);flex:0 0 auto;white-space:nowrap}
+.amenities-punch ul{margin:0;flex:1;list-style:disc;padding-left:20px}
+.amenities-punch li{margin-bottom:6px}
+.amenities-punch .btn{flex:0 0 auto}
+@media(max-width:720px){
+  .amenities-punch{flex-direction:column;align-items:flex-start}
+  .amenities-punch h3{white-space:normal}
+}
+
+  
+/* ===== Punch con bullets icónicos ===== */
+.amenities-punch{display:flex;flex-direction:row;align-items:center;gap:22px;border:1px solid var(--gold);border-radius:14px;padding:18px;background:#fff;color:var(--dark);margin:16px 0}
+.amenities-punch h3{margin:0 12px 0 0;font-size:20px;color:var(--dark);flex:0 0 auto;white-space:nowrap}
+.punch-list{margin:0;flex:1;display:flex;flex-direction:column;gap:10px;padding:0}
+.punch-list li{list-style:none;display:flex;gap:10px;align-items:flex-start}
+.punch-list .bicon{font-size:22px;line-height:1.1;margin-top:2px;flex:0 0 auto}
+.punch-list span{color:var(--dark)}
+@media(max-width:720px){
+  .amenities-punch{flex-direction:column;align-items:flex-start}
+  .amenities-punch h3{white-space:normal;margin:0 0 6px 0}
+}
+
+  
+/* ===== Recuadro dorado — texto horizontal ===== */
+.amenities-punch{display:block;border:1px solid var(--gold);border-radius:14px;padding:20px;background:#fff;color:var(--dark);margin:18px 0}
+.amenities-punch h3{margin:0 0 12px 0;font-size:20px;color:var(--dark)}
+.punch-list{margin:0;padding:0;display:flex;flex-direction:column;gap:14px}
+.punch-list li{list-style:none;display:flex;align-items:flex-start;gap:12px}
+.punch-list .bicon{font-size:24px;line-height:1.1;margin-top:2px;flex:0 0 auto}
+.punch-list span{font-size:16px;line-height:1.35;color:var(--dark)}
+.amenities-punch .btn{margin-top:14px}
+@media(min-width:900px){
+  .punch-list span{font-size:17px}
+}
+
+  
+/* ===== Recuadro dorado final ===== */
+.amenities-punch{border:1px solid var(--gold);border-radius:14px;padding:22px;background:#fff;color:var(--dark);margin:20px 0;display:flex;flex-direction:column;gap:16px}
+.amenities-punch h3{margin:0;font-size:20px;font-weight:700;color:var(--dark)}
+.punch-list{margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
+.punch-list li{list-style:none;display:flex;align-items:flex-start;gap:12px}
+.punch-list span{font-size:16px;line-height:1.4;color:var(--dark)}
+.punch-list .bicon{font-size:22px;line-height:1.2;margin-top:2px}
+.amenities-punch .btn{align-self:flex-start;margin-top:10px}
+@media(min-width:900px){
+  .punch-list span{font-size:17px}
+}
+
+  
+/* ===== Ajuste final estilo segun mock ===== */
+/* Caja dorada */
+.amenities-punch{
+  border:1px solid var(--gold);
+  border-radius:14px;
+  padding:18px 18px 16px 18px;
+  background:#fff;
+  color:var(--dark);
+  margin:16px 0;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+.amenities-punch h3{
+  margin:0;
+  text-align:center;
+  font-size:18px;
+  font-weight:800;
+}
+.punch-list{margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.punch-list li{list-style:none;display:flex;gap:10px;align-items:flex-start}
+.punch-list .bicon{font-size:18px;line-height:1.1;margin-top:2px;flex:0 0 auto}
+.punch-list span{color:var(--dark)}
+
+/* Amenidades columna derecha en una sola columna, sin tarjetas */
+.amenities-grid{display:grid;grid-template-columns:1fr;gap:16px}
+.amenity{
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+  border:none;
+  background:transparent;
+  padding:0;
+  min-height:auto;
+  border-radius:0;
+}
+.amenity .icon{font-size:22px;line-height:1;margin-top:2px;flex:0 0 auto}
+.amenity .title{font-weight:800;margin:0 0 2px 0}
+.amenity p{margin:0;color:var(--dark)}
+
+  
+/* ===== Ajustes solo para móvil v9 ===== */
+@media (max-width: 600px) {
+  .amenities-punch {
+    padding: 22px;
+    gap: 20px;
+  }
+  .amenities-punch h3 {
+    font-size: 22px;
+    text-align: center;
+  }
+  .punch-list li {
+    gap: 16px;
+  }
+  .punch-list span {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+  .amenities-punch .btn {
+    font-size: 16px;
+    padding: 12px 22px;
+    align-self: center;
+  }
+  .amenity .icon {
+    font-size: 28px;
+  }
+  .amenity .title {
+    font-size: 18px;
+  }
+  .amenity p {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}
+
   </style>
 </head>
 <body>
@@ -97,6 +233,10 @@
     <div class="container breadcrumb">Inicio ▸ Desarrollos ▸ <strong>Mirador del Bosque</strong></div>
 
     <section class="hero">
+  <video autoplay muted loop playsinline class="hero-video">
+    <source src="assets/Video mirador del bosque.mp4" type="video/mp4">
+  </video>
+  <div class="overlay"></div>
       <div class="container">
         <span class="promo">Últimas unidades sin enganche</span>
         <h1>Mirador del Bosque</h1>
@@ -129,18 +269,45 @@
           <h2>Resumen</h2>
           <p class="meta">
             Elige vivir donde la tranquilidad se siente todos los días. <strong>Nardo</strong> y <strong>Oliva</strong> combinan diseño inteligente, luz natural y espacios para crear recuerdos. Te acompañamos <strong>de principio a fin</strong> con tu crédito (Infonavit, Fovissste, bancario o mixto). <strong>Sin enganche.</strong> Agenda tu visita y asegura una de las últimas ubicaciones.
-          </p>
+          
+</p>
+<aside class="amenities-punch">
+<h3>Vivir aquí se siente mejor</h3>
+<ul class="punch-list">
+  <li>
+    <span class="bicon">⏱️</span>
+    <span><strong>Más tiempo para tu familia</strong>, menos traslados.</span>
+  </li>
+  <li>
+    <span class="bicon">🧘</span>
+    <span><strong>Áreas pensadas para tu día a día</strong>: ejercicio, descanso y juego.</span>
+  </li>
+  <li>
+    <span class="bicon">📈</span>
+    <span><strong>Plusvalía al norte de Zapopan</strong> y <strong>opción sin enganche</strong>.</span>
+  </li>
+</ul>
+<a class="btn primary" href="#contacto">Quiero más información</a>
+</aside>
         </div>
         <div>
           <h2>Amenidades</h2>
-          <div class="icon-list">
-            <div class="icon-item is-hidden">🛡️ Acceso controlado</div> <!-- oculto -->
-            <div class="icon-item">👨‍👩‍👧‍👦 Juegos infantiles — “Diversión segura para los pequeños.”</div>
-            <div class="icon-item">🔥 Asadores — “Momentos inolvidables en comunidad.”</div>
-            <div class="icon-item is-hidden">🏊 Alberca</div> <!-- oculto -->
-            <div class="icon-item">🏋️ Gimnasio — “Entrena a unos pasos de tu puerta.”</div>
-          </div>
-          <p class="meta" style="margin-top:8px">*Amenidades pueden variar por disponibilidad.</p>
+
+<div class="amenities-wrap">
+  <div class="amenities-grid">
+    <div class="amenity"><div class="icon">🌇</div><div><div class="title"><strong>Terraza de usos múltiples</strong></div><p>Espacio perfecto para reuniones, eventos y convivencias familiares.</p></div></div>
+    <div class="amenity"><div class="icon">🏋️</div><div><div class="title"><strong>Gimnasio al aire libre</strong></div><p>Ejercítate todos los días sin salir del desarrollo.</p></div></div>
+    <div class="amenity"><div class="icon">👨‍👩‍👧</div><div><div class="title"><strong>Juegos infantiles</strong></div><p>Diversión segura y cerca de casa para los pequeños.</p></div></div>
+    <div class="amenity"><div class="icon">🌿</div><div><div class="title"><strong>Pergolados</strong></div><p>Áreas sombreadas para descansar, leer o trabajar.</p></div></div>
+    <div class="amenity"><div class="icon">🏃‍♂️</div><div><div class="title"><strong>Pista de jogging</strong></div><p>Corre o camina con tranquilidad dentro del coto.</p></div></div>
+    <div class="amenity"><div class="icon">🌄</div><div><div class="title"><strong>Mirador panorámico</strong></div><p>Vistas espectaculares para disfrutar cada tarde.</p></div></div>
+    <div class="amenity"><div class="icon">📚</div><div><div class="title"><strong>Escuela</strong></div><p>Educación a minutos de tu hogar para mayor comodidad.</p></div></div>
+    <div class="amenity"><div class="icon">🛒</div><div><div class="title"><strong>Zona comercial</strong></div><p>Todo lo esencial cerca: compras, servicios y antojos.</p></div></div>
+  </div>
+  
+</div>
+<p class="meta" style="margin-top:8px">*Amenidades sujetas a cambios por etapa y disponibilidad.</p>
+
         </div>
       </div>
     </section>
