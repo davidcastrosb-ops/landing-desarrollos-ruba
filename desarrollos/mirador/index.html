@@ -38,7 +38,7 @@
 
     .hero{position:relative;min-height:360px;display:grid;align-items:end;padding:28px 0;color:#fff}
     .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
-.hero .overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.55));z-index:-1}
+    .hero .overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.55));z-index:-1}
     .hero h1{margin:0 0 10px;font-size:clamp(28px,5vw,46px);line-height:1.1}
     .hero p{margin:0 0 16px;color:#e5e7eb}
     .badges{display:flex;flex-wrap:wrap;gap:10px;margin:10px 0 22px}
@@ -219,14 +219,21 @@
   }
 }
 
-  
 /* === Ajuste de video en desktop (más alto y foco a edificios) === */
 @media (min-width: 1024px) {
   .hero { min-height: 80vh; }
   .hero-video { object-position: 60% 50%; }
 }
-
   </style>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6N47NNSP30"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-6N47NNSP30');
+  </script>
 </head>
 <body>
   <header>
@@ -240,10 +247,10 @@
     <div class="container breadcrumb">Inicio ▸ Desarrollos ▸ <strong>Mirador del Bosque</strong></div>
 
     <section class="hero">
-  <video autoplay muted loop playsinline class="hero-video">
-    <source src="assets/Video mirador del bosque.mp4" type="video/mp4">
-  </video>
-  <div class="overlay"></div>
+      <video autoplay muted loop playsinline class="hero-video">
+        <source src="assets/Video mirador del bosque.mp4" type="video/mp4">
+      </video>
+      <div class="overlay"></div>
       <div class="container">
         <span class="promo">Últimas unidades sin enganche</span>
         <h1>Mirador del Bosque</h1>
@@ -276,45 +283,33 @@
           <h2>Resumen</h2>
           <p class="meta">
             Elige vivir donde la tranquilidad se siente todos los días. <strong>Nardo</strong> y <strong>Oliva</strong> combinan diseño inteligente, luz natural y espacios para crear recuerdos. Te acompañamos <strong>de principio a fin</strong> con tu crédito (Infonavit, Fovissste, bancario o mixto). <strong>Sin enganche.</strong> Agenda tu visita y asegura una de las últimas ubicaciones.
-          
-</p>
-<aside class="amenities-punch">
-<h3>Vivir aquí se siente mejor</h3>
-<ul class="punch-list">
-  <li>
-    <span class="bicon">⏱️</span>
-    <span><strong>Más tiempo para tu familia</strong>, menos traslados.</span>
-  </li>
-  <li>
-    <span class="bicon">🧘</span>
-    <span><strong>Áreas pensadas para tu día a día</strong>: ejercicio, descanso y juego.</span>
-  </li>
-  <li>
-    <span class="bicon">📈</span>
-    <span><strong>Plusvalía al norte de Zapopan</strong> y <strong>opción sin enganche</strong>.</span>
-  </li>
-</ul>
-<a class="btn primary" href="#contacto">Quiero más información</a>
-</aside>
+          </p>
+          <aside class="amenities-punch">
+            <h3>Vivir aquí se siente mejor</h3>
+            <ul class="punch-list">
+              <li><span class="bicon">⏱️</span><span><strong>Más tiempo para tu familia</strong>, menos traslados.</span></li>
+              <li><span class="bicon">🧘</span><span><strong>Áreas pensadas para tu día a día</strong>: ejercicio, descanso y juego.</span></li>
+              <li><span class="bicon">📈</span><span><strong>Plusvalía al norte de Zapopan</strong> y <strong>opción sin enganche</strong>.</span></li>
+            </ul>
+            <a class="btn primary" href="#contacto">Quiero más información</a>
+          </aside>
         </div>
+
         <div>
           <h2>Amenidades</h2>
-
-<div class="amenities-wrap">
-  <div class="amenities-grid">
-    <div class="amenity"><div class="icon">🌇</div><div><div class="title"><strong>Terraza de usos múltiples</strong></div><p>Espacio perfecto para reuniones, eventos y convivencias familiares.</p></div></div>
-    <div class="amenity"><div class="icon">🏋️</div><div><div class="title"><strong>Gimnasio al aire libre</strong></div><p>Ejercítate todos los días sin salir del desarrollo.</p></div></div>
-    <div class="amenity"><div class="icon">👨‍👩‍👧</div><div><div class="title"><strong>Juegos infantiles</strong></div><p>Diversión segura y cerca de casa para los pequeños.</p></div></div>
-    <div class="amenity"><div class="icon">🌿</div><div><div class="title"><strong>Pergolados</strong></div><p>Áreas sombreadas para descansar, leer o trabajar.</p></div></div>
-    <div class="amenity"><div class="icon">🏃‍♂️</div><div><div class="title"><strong>Pista de jogging</strong></div><p>Corre o camina con tranquilidad dentro del coto.</p></div></div>
-    <div class="amenity"><div class="icon">🌄</div><div><div class="title"><strong>Mirador panorámico</strong></div><p>Vistas espectaculares para disfrutar cada tarde.</p></div></div>
-    <div class="amenity"><div class="icon">📚</div><div><div class="title"><strong>Escuela</strong></div><p>Educación a minutos de tu hogar para mayor comodidad.</p></div></div>
-    <div class="amenity"><div class="icon">🛒</div><div><div class="title"><strong>Zona comercial</strong></div><p>Todo lo esencial cerca: compras, servicios y antojos.</p></div></div>
-  </div>
-  
-</div>
-<p class="meta" style="margin-top:8px">*Amenidades sujetas a cambios por etapa y disponibilidad.</p>
-
+          <div class="amenities-wrap">
+            <div class="amenities-grid">
+              <div class="amenity"><div class="icon">🌇</div><div><div class="title"><strong>Terraza de usos múltiples</strong></div><p>Espacio perfecto para reuniones, eventos y convivencias familiares.</p></div></div>
+              <div class="amenity"><div class="icon">🏋️</div><div><div class="title"><strong>Gimnasio al aire libre</strong></div><p>Ejercítate todos los días sin salir del desarrollo.</p></div></div>
+              <div class="amenity"><div class="icon">👨‍👩‍👧</div><div><div class="title"><strong>Juegos infantiles</strong></div><p>Diversión segura y cerca de casa para los pequeños.</p></div></div>
+              <div class="amenity"><div class="icon">🌿</div><div><div class="title"><strong>Pergolados</strong></div><p>Áreas sombreadas para descansar, leer o trabajar.</p></div></div>
+              <div class="amenity"><div class="icon">🏃‍♂️</div><div><div class="title"><strong>Pista de jogging</strong></div><p>Corre o camina con tranquilidad dentro del coto.</p></div></div>
+              <div class="amenity"><div class="icon">🌄</div><div><div class="title"><strong>Mirador panorámico</strong></div><p>Vistas espectaculares para disfrutar cada tarde.</p></div></div>
+              <div class="amenity"><div class="icon">📚</div><div><div class="title"><strong>Escuela</strong></div><p>Educación a minutos de tu hogar para mayor comodidad.</p></div></div>
+              <div class="amenity"><div class="icon">🛒</div><div><div class="title"><strong>Zona comercial</strong></div><p>Todo lo esencial cerca: compras, servicios y antojos.</p></div></div>
+            </div>
+          </div>
+          <p class="meta" style="margin-top:8px">*Amenidades sujetas a cambios por etapa y disponibilidad.</p>
         </div>
       </div>
     </section>
@@ -460,170 +455,210 @@
   </div>
 
   <script>
-    /* ====== CONFIG (no tocar) ====== */
-    const WA_DEST  = "523329335952"; // +52 332 933 5952
-    const ENDPOINT = "https://script.google.com/macros/s/AKfycbwPuVXGIwLcF-KOPDuOch06KM72fEU0MpZE_xU7NWtFhZb5DqHl4ueeVH7K0bsWtczQtQ/exec";
 
-    document.getElementById('year').textContent = new Date().getFullYear();
 
-    /* ====== Autorrelleno: QP + localStorage ====== */
-    (function prefill(){
-      const form   = document.getElementById('lead-form');
-      const fields = ['nombre','paterno','materno','whatsapp','correo','mensaje'];
-      const qp = new URLSearchParams(location.search);
+<script>
+  /* ====== CONFIG (no tocar) ====== */
+  const WA_DEST  = "523329335952"; // +52 332 933 5952
+  const ENDPOINT = "https://script.google.com/macros/s/AKfycbwPuVXGIwLcF-KOPDuOch06KM72fEU0MpZE_xU7NWtFhZb5DqHl4ueeVH7K0bsWtczQtQ/exec";
 
-      fields.forEach(f=>{
-        const el = form.elements[f];
-        if(!el) return;
+  document.getElementById('year').textContent = new Date().getFullYear();
 
-        const aliases = { correo:['email'], whatsapp:['phone','telefono'] };
-        let qv = qp.get(f);
-        if(!qv && aliases[f]) { for(const alt of aliases[f]) { qv = qp.get(alt); if(qv) break; } }
-        if(qv) el.value = qv;
+  /* ====== Autorrelleno: QP + localStorage ====== */
+  (function prefill(){
+    const form   = document.getElementById('lead-form');
+    const fields = ['nombre','paterno','materno','whatsapp','correo','mensaje'];
+    const qp = new URLSearchParams(location.search);
 
-        if(!el.value){
-          const saved = localStorage.getItem('lead_'+f);
-          if(saved) el.value = saved;
-        }
-        el.addEventListener('input',()=>localStorage.setItem('lead_'+f, el.value));
+    fields.forEach(f=>{
+      const el = form.elements[f];
+      if(!el) return;
+
+      const aliases = { correo:['email'], whatsapp:['phone','telefono'] };
+      let qv = qp.get(f);
+      if(!qv && aliases[f]) { for(const alt of aliases[f]) { qv = qp.get(alt); if(qv) break; } }
+      if(qv) el.value = qv;
+
+      if(!el.value){
+        const saved = localStorage.getItem('lead_'+f);
+        if(saved) el.value = saved;
+      }
+      el.addEventListener('input',()=>localStorage.setItem('lead_'+f, el.value));
+    });
+  })();
+
+  /* ====== Helpers ====== */
+  function onlyDigits(s){ return (s||"").replace(/\D+/g,''); }
+  function fullName(d){ return [d.nombre,d.paterno,d.materno].filter(Boolean).join(' ').trim(); }
+  function toast(msg){
+    const t = document.getElementById('toast'); t.textContent = msg;
+    t.style.display='block'; setTimeout(()=>t.style.display='none', 2600);
+  }
+  function formDataObject(form){ return Object.fromEntries(new FormData(form).entries()); }
+  function utms(){
+    const p = new URLSearchParams(location.search);
+    return {
+      utm_source:  p.get('utm_source')  || '',
+      utm_medium:  p.get('utm_medium')  || '',
+      utm_campaign:p.get('utm_campaign')|| '',
+      utm_term:    p.get('utm_term')    || '',
+      utm_content: p.get('utm_content') || ''
+    };
+  }
+
+  /* ====== WhatsApp ====== */
+  function buildMessage(d){
+    const telUser = onlyDigits(d.whatsapp)||d.whatsapp;
+    return `Hola Trhoncal Homes, me interesa ${d.desarrollo||'el desarrollo'}. ` +
+           `Soy ${fullName(d)}. ` +
+           `Mi correo es ${d.correo}. ` +
+           `Mi WhatsApp es ${telUser}.` +
+           (d.mensaje ? ` ${d.mensaje}` : '');
+  }
+  function waUrl(d){
+    return `https://wa.me/${WA_DEST}?text=${encodeURIComponent(buildMessage(d))}`;
+  }
+  function openWhatsAppNewTab(url){
+    // Abrimos la pestaña *sin* esperar nada: evita el bloqueador
+    const a = document.createElement('a');
+    a.href = url;
+    a.target = '_blank';
+    a.rel = 'noopener';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+  }
+
+  // Métrica GA4 + abrir WA (no navega esta página)
+  function goWhatsApp(d){
+    if (window.gtag) {
+      gtag('event', 'generate_lead', { method: 'whatsapp' });
+      // opcional para reporting extra
+      gtag('event', 'contact_whatsapp', {
+        event_category: 'engagement',
+        event_label: 'Solicitar información'
       });
-    })();
-
-    /* ====== Helpers ====== */
-    function onlyDigits(s){ return (s||"").replace(/\D+/g,''); }
-    function fullName(d){ return [d.nombre,d.paterno,d.materno].filter(Boolean).join(' ').trim(); }
-    function toast(msg){
-      const t = document.getElementById('toast'); t.textContent = msg;
-      t.style.display='block'; setTimeout(()=>t.style.display='none', 2600);
     }
-    function formDataObject(form){ return Object.fromEntries(new FormData(form).entries()); }
-    function utms(){
-      const p = new URLSearchParams(location.search);
-      return {
-        utm_source:  p.get('utm_source')  || '',
-        utm_medium:  p.get('utm_medium')  || '',
-        utm_campaign:p.get('utm_campaign')|| '',
-        utm_term:    p.get('utm_term')    || '',
-        utm_content: p.get('utm_content') || ''
-      };
-    }
+    openWhatsAppNewTab(waUrl(d));
+    return false;
+  }
 
-    /* ====== WhatsApp ====== */
-    function buildMessage(d){
-      const telUser = onlyDigits(d.whatsapp)||d.whatsapp;
-      return `Hola Trhoncal Homes, me interesa ${d.desarrollo||'el desarrollo'}. ` +
-             `Soy ${fullName(d)}. ` +
-             `Mi correo es ${d.correo}. ` +
-             `Mi WhatsApp es ${telUser}.` +
-             (d.mensaje ? ` ${d.mensaje}` : '');
+  /* ====== Envío principal (solo post a Apps Script) ====== */
+  async function submitLead(){
+    const form = document.getElementById('lead-form');
+    if(!form.reportValidity()){
+      toast('Completa los campos obligatorios.');
+      form.scrollIntoView({behavior:'smooth', block:'start'});
+      return;
     }
-    function goWhatsApp(d){
-      const texto = buildMessage(d);
-      location.href = `https://wa.me/${WA_DEST}?text=${encodeURIComponent(texto)}`;
-window.open(__wa, "_blank", "noopener");
+    const d = {...formDataObject(form), ...utms()};
+    try{
+      const res = await fetch(ENDPOINT, {
+        method:'POST',
+        headers:{'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8'},
+        body: new URLSearchParams(d).toString()
+      });
+      const j = await res.json().catch(()=>({ok:false}));
+      if(!j.ok){ console.warn('Script respondió:', j); }
 
+      // Métrica interna
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({event:'lead_submit', desarrollo:d.desarrollo});
+
+      // GA4: lead por form (opcional, útil para comparar)
+      if (window.gtag) { gtag('event', 'generate_lead', { method: 'form' }); }
+    }catch(err){
+      console.error(err);
+      toast('Error al enviar. Intenta de nuevo.');
     }
+  }
 
-    /* ====== Envío principal ====== */
-    async function submitLead(){
-      const form = document.getElementById('lead-form');
-      if(!form.reportValidity()){
-        toast('Completa los campos obligatorios.');
-        form.scrollIntoView({behavior:'smooth', block:'start'});
-        return;
+  /* ====== Click principal: abrir WA *ya* y enviar lead en paralelo ====== */
+  document.getElementById('send-wa').addEventListener('click', e=>{
+    e.preventDefault();
+    const form = document.getElementById('lead-form');
+    if(!form.reportValidity()){
+      toast('Completa los campos obligatorios.');
+      form.scrollIntoView({behavior:'smooth', block:'start'});
+      return;
+    }
+    const d = {...formDataObject(form), ...utms()};
+    // 1) Abrir WhatsApp INMEDIATO (no se bloquea)
+    goWhatsApp(d);
+    // 2) Mandar el lead en segundo plano (sin bloquear)
+    submitLead();
+  });
+
+  // Sticky (bloqueado)
+  const sticky = document.getElementById('sticky-send');
+  if(sticky){ sticky.addEventListener('click', e=>{ e.preventDefault(); toast('Llena tus datos para atenderte por WhatsApp.'); }); }
+
+  // Aviso “Solicitar ficha”
+  document.querySelectorAll('.ask-fill').forEach(a=>{
+    a.addEventListener('click', e=>{
+      e.preventDefault();
+      toast('Déjanos tus datos y correo para enviarte la ficha.');
+      document.getElementById('lead-form').scrollIntoView({behavior:'smooth', block:'start'});
+    });
+  });
+
+  // Thumbs swap + Lightbox
+  (function gallery(){
+    // swap principal con thumbs
+    document.getElementById('modelos').addEventListener('click', (e)=>{
+      const t = e.target;
+      if(t && t.dataset && t.dataset.target && t.dataset.src){
+        const main = document.getElementById(t.dataset.target);
+        if(main){ main.src = t.dataset.src; }
       }
-      const d = {...formDataObject(form), ...utms()};
-      try{
-        const res = await fetch(ENDPOINT, {
-          method:'POST',
-          headers:{'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8'},
-          body: new URLSearchParams(d).toString()
-        });
-        const j = await res.json().catch(()=>({ok:false}));
-        if(!j.ok){ console.warn('Script respondió:', j); }
+    });
 
-        // Métricas
-        window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({event:'lead_submit', desarrollo:d.desarrollo});
+    // lightbox
+    const lb = document.getElementById('lightbox');
+    const img = document.getElementById('lbImg');
+    const prev = document.getElementById('prevImg');
+    const next = document.getElementById('nextImg');
+    const close = document.getElementById('closeLb');
 
-        goWhatsApp(d);
-      }catch(err){
-        console.error(err);
-        toast('Error al enviar. Intenta de nuevo.');
+    let list = []; let idx = 0;
+    const open = (arr,start=0)=>{ list=arr; idx=start; img.src=list[idx]; lb.style.display='flex'; lb.setAttribute('aria-hidden','false'); };
+    const move = s=>{ if(!list.length) return; idx=(idx+s+list.length)%list.length; img.src=list[idx]; };
+    const closeLb = ()=>{ lb.style.display='none'; lb.setAttribute('aria-hidden','true'); list=[]; };
+
+    prev.addEventListener('click',()=>move(-1));
+    next.addEventListener('click',()=>move(1));
+    close.addEventListener('click',closeLb);
+    lb.addEventListener('click',e=>{ if(e.target===lb) closeLb(); });
+    document.addEventListener('keydown',e=>{
+      if(lb.style.display==='flex'){
+        if(e.key==='Escape') closeLb();
+        if(e.key==='ArrowLeft') move(-1);
+        if(e.key==='ArrowRight') move(1);
       }
-    }
+    });
 
-    document.getElementById('send-wa').addEventListener('click', e=>{ e.preventDefault(); submitLead(); });
-
-    // Sticky (bloqueado)
-    const sticky = document.getElementById('sticky-send');
-    if(sticky){ sticky.addEventListener('click', e=>{ e.preventDefault(); toast('Llena tus datos para atenderte por WhatsApp.'); }); }
-
-    // Aviso “Solicitar ficha”
-    document.querySelectorAll('.ask-fill').forEach(a=>{
-      a.addEventListener('click', e=>{
+    document.querySelectorAll('.gallery-btn').forEach(btn=>{
+      btn.addEventListener('click',e=>{
         e.preventDefault();
-        toast('Déjanos tus datos y correo para enviarte la ficha.');
-        document.getElementById('lead-form').scrollIntoView({behavior:'smooth', block:'start'});
+        const id = btn.dataset.gallery; // nardo | oliva
+        const ul = document.getElementById('gallery-'+id);
+        const urls = Array.from(ul.querySelectorAll('li')).map(li=>li.textContent.trim()).filter(Boolean);
+        if(urls.length){ 
+          // Métrica interna
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({event:'gallery_open', model:id});
+          open(urls,0);
+        }
       });
     });
 
-    // Thumbs swap + Lightbox
-    (function gallery(){
-      // swap principal con thumbs
-      document.getElementById('modelos').addEventListener('click', (e)=>{
-        const t = e.target;
-        if(t && t.dataset && t.dataset.target && t.dataset.src){
-          const main = document.getElementById(t.dataset.target);
-          if(main){ main.src = t.dataset.src; }
-        }
-      });
+    // métrica WA click (interna)
+    document.getElementById('send-wa').addEventListener('click',()=>{
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({event:'wa_click', desarrollo:'Mirador del Bosque'});
+    });
+  })();
+</script>
 
-      // lightbox
-      const lb = document.getElementById('lightbox');
-      const img = document.getElementById('lbImg');
-      const prev = document.getElementById('prevImg');
-      const next = document.getElementById('nextImg');
-      const close = document.getElementById('closeLb');
-
-      let list = []; let idx = 0;
-      const open = (arr,start=0)=>{ list=arr; idx=start; img.src=list[idx]; lb.style.display='flex'; lb.setAttribute('aria-hidden','false'); };
-      const move = s=>{ if(!list.length) return; idx=(idx+s+list.length)%list.length; img.src=list[idx]; };
-      const closeLb = ()=>{ lb.style.display='none'; lb.setAttribute('aria-hidden','true'); list=[]; };
-
-      prev.addEventListener('click',()=>move(-1));
-      next.addEventListener('click',()=>move(1));
-      close.addEventListener('click',closeLb);
-      lb.addEventListener('click',e=>{ if(e.target===lb) closeLb(); });
-      document.addEventListener('keydown',e=>{
-        if(lb.style.display==='flex'){
-          if(e.key==='Escape') closeLb();
-          if(e.key==='ArrowLeft') move(-1);
-          if(e.key==='ArrowRight') move(1);
-        }
-      });
-
-      document.querySelectorAll('.gallery-btn').forEach(btn=>{
-        btn.addEventListener('click',e=>{
-          e.preventDefault();
-          const id = btn.dataset.gallery; // nardo | oliva
-          const ul = document.getElementById('gallery-'+id);
-          const urls = Array.from(ul.querySelectorAll('li')).map(li=>li.textContent.trim()).filter(Boolean);
-          if(urls.length){ 
-            // Métrica
-            window.dataLayer = window.dataLayer || [];
-            window.dataLayer.push({event:'gallery_open', model:id});
-            open(urls,0);
-          }
-        });
-      });
-
-      // métrica WA click
-      document.getElementById('send-wa').addEventListener('click',()=>{
-        window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({event:'wa_click', desarrollo:'Mirador del Bosque'});
-      });
-    })();
-  </script>
 </body>
 </html>
