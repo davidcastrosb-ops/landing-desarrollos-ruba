@@ -520,6 +520,8 @@
     function goWhatsApp(d){
       const texto = buildMessage(d);
       location.href = `https://wa.me/${WA_DEST}?text=${encodeURIComponent(texto)}`;
+window.open(__wa, "_blank", "noopener");
+
     }
 
     /* ====== Envío principal ====== */
