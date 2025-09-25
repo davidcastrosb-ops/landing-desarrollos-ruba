@@ -634,6 +634,20 @@ if (window.fbq) {
 
 
 
+// --- Pixel de Meta: eventos estándar ---
+if (window.fbq) {
+  // Cliente potencial (Lead)
+  fbq('track', 'Lead', {
+    content_name: 'Mirador del Bosque',
+    content_category: 'form'
+  });
+
+  // Contactar (por WhatsApp)
+  fbq('track', 'Contact', {
+    content_name: 'WhatsApp',
+    method: 'click'
+  });
+}
 
 
     // 1) Abrir WhatsApp INMEDIATO (no se bloquea)
