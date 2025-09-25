@@ -590,6 +590,21 @@
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({event:'lead_submit', desarrollo:d.desarrollo});
 
+
+// 3) Meta: Lead (form submit)
+if (window.fbq) {
+  fbq('track', 'Lead', {
+    content_name: 'Formulario',
+    status: j && j.ok ? 'ok' : 'unknown',
+    desarrollo: d.desarrollo || 'Mirador del Bosque'
+  });
+}
+
+
+
+
+
+
       // GA4: lead por form (opcional, útil para comparar)
       if (window.gtag) { gtag('event', 'generate_lead', { method: 'form' }); }
     }catch(err){
@@ -608,6 +623,19 @@
       return;
     }
     const d = {...formDataObject(form), ...utms()};
+
+// 1) Meta: Contact (clic a WhatsApp)
+if (window.fbq) {
+  fbq('track', 'Contact', {
+    content_name: 'WhatsApp',
+    desarrollo: d.desarrollo || 'Mirador del Bosque'
+  });
+}
+
+
+
+
+
     // 1) Abrir WhatsApp INMEDIATO (no se bloquea)
     goWhatsApp(d);
     // 2) Mandar el lead en segundo plano (sin bloquear)
